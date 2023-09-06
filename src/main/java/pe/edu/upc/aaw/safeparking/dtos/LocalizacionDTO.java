@@ -27,5 +27,5 @@ public class LocalizacionDTO {
 
     public void setReferencia(String referencia) {this.referencia = referencia;}
 
-    
+
 }
