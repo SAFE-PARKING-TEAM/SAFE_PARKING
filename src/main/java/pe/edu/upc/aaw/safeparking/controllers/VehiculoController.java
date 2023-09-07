@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.VehiculoDTO;
 import pe.edu.upc.aaw.safeparking.entities.Vehiculo;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/vehiculo")
+@RequestMapping("/vehiculos")
 public class VehiculoController {
     @Autowired
     private IVehiculoService vS;
@@ -22,6 +23,7 @@ public class VehiculoController {
         vS.insert(v);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('CPREMIUM')")
     public List<VehiculoDTO> listar(){
         return vS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();

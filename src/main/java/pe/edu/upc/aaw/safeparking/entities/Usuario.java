@@ -2,6 +2,8 @@ package pe.edu.upc.aaw.safeparking.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
@@ -12,11 +14,11 @@ public class Usuario {
     private String nombre;
     @Column(name ="apellido", length = 50, nullable = false)
     private String apellido;
-    @Column(name ="correo", length = 50, nullable = false)
+    @Column(name ="correo", length = 100, nullable = false)
     private String correo;
     @Column(name ="username", length = 50, nullable = false)
     private String username;
-    @Column(name ="constrasenia", length = 50, nullable = false)
+    @Column(name ="contrasenia", length = 200, nullable = false)
     private String contrasenia;
     @Column(name ="genero", length = 50, nullable = false)
     private String genero;
@@ -29,19 +31,25 @@ public class Usuario {
     @Column(name ="telefono", nullable = false)
     private int telefono;
 
+    private Boolean enabled;
+
     @ManyToOne
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "idRol")
-    private Rol rol;
+    private Rol rol;*/
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "idRol")
+    private List<Rol> roles;
 
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Membresia membresia, Rol rol) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> roles) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -53,8 +61,9 @@ public class Usuario {
         this.imagen = imagen;
         this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
+        this.enabled = enabled;
         this.membresia = membresia;
-        this.rol = rol;
+        this.roles = roles;
     }
 
     public String getUsername() {
@@ -152,12 +161,28 @@ public class Usuario {
     public void setMembresia(Membresia membresia) {
         this.membresia = membresia;
     }
-
+/*
     public Rol getRol() {
         return rol;
     }
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }*/
+
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }
