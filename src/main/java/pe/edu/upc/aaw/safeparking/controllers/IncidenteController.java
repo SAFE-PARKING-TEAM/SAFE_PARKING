@@ -31,4 +31,21 @@ public class IncidenteController {
             return m.map(x,IncidenteDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        iS.delete(id);
+    }
+    @GetMapping("/{id}")
+    public IncidenteDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m=new ModelMapper();
+        IncidenteDTO inc=m.map(iS.listId(id),IncidenteDTO.class);
+        return inc;
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody IncidenteDTO dto){
+        ModelMapper m=new ModelMapper();
+        Incidente inc=m.map(dto,Incidente.class);
+        iS.insert(inc);
+    }
 }
