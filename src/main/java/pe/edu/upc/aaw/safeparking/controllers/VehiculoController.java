@@ -30,4 +30,17 @@ public class VehiculoController {
             return m.map(x,VehiculoDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @PutMapping
+    public void modificar(@RequestBody VehiculoDTO dto){
+        ModelMapper m=new ModelMapper();
+        Vehiculo v=m.map(dto, Vehiculo.class);
+        vS.insert(v);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        vS.delete(id);
+    }
+
 }

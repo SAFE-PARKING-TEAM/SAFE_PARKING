@@ -27,4 +27,16 @@ public class HorarioEstacionamientoController {
             return m.map(x,HorarioEstacionamientoDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @PutMapping
+    public void modificar(@RequestBody HorarioEstacionamientoDTO dto){
+        ModelMapper m=new ModelMapper();
+        HorarioEstacionamiento he=m.map(dto, HorarioEstacionamiento.class);
+        heS.insert(he);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        heS.delete(id);
+    }
 }

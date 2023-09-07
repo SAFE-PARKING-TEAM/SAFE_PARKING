@@ -8,4 +8,9 @@ public interface IReservaEstacionamientoService {
 
     public void insert(ReservaEstacionamiento reservaEstacionamiento);
     public List<ReservaEstacionamiento> list();
+
+    public void delete(int idReservaEstacionamiento);
+    public ReservaEstacionamiento listId(int idReservaEstacionamiento);
+
+
 }

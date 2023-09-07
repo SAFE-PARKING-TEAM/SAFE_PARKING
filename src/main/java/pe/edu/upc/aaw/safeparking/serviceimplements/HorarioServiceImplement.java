@@ -3,9 +3,7 @@ package pe.edu.upc.aaw.safeparking.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.safeparking.entities.Horario;
-import pe.edu.upc.aaw.safeparking.entities.Incidente;
 import pe.edu.upc.aaw.safeparking.repositories.IHorarioRepository;
-import pe.edu.upc.aaw.safeparking.repositories.IIncidenteRepository;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IHorarioService;
 
 import java.util.List;
@@ -22,4 +20,15 @@ public class HorarioServiceImplement implements IHorarioService {
     public List<Horario> list() {
         return hR.findAll();
     }
+    @Override
+    public void delete(int idVehiculo) {
+        hR.deleteById(idVehiculo);
+    }
+
+    @Override
+    public Horario listId(int idHorario) {
+        return hR.findById(idHorario).orElse(new Horario());
+    }
+
+
 }

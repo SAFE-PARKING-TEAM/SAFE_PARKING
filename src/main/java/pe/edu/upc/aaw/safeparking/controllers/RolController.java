@@ -28,4 +28,16 @@ public class RolController {
             return m.map(x,RolDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        rolR.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody RolDTO dto){
+        ModelMapper m=new ModelMapper();
+        Rol d=m.map(dto,Rol.class);
+        rolR.insert(d);
+    }
 }

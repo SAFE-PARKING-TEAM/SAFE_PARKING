@@ -29,4 +29,16 @@ public class LocalizacionController {
             return m.map(x,LocalizacionDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @PutMapping
+    public void modificar(@RequestBody LocalizacionDTO dto){
+        ModelMapper m=new ModelMapper();
+        Localizacion d=m.map(dto, Localizacion.class);
+        lS.insert(d);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        lS.delete(id);
+    }
 }

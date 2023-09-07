@@ -30,4 +30,21 @@ public class EstacionamientoController {
             return m.map(x,EstacionamientoDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @PutMapping
+    public void modificar(@RequestBody EstacionamientoDTO dto){
+        ModelMapper m=new ModelMapper();
+        Estacionamiento d=m.map(dto, Estacionamiento.class);
+        eS.insert(d);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        eS.delete(id);
+    }
+
 }
+
+
+
+

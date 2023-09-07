@@ -28,4 +28,22 @@ public class MembresiaController {
             return m.map(x,MembresiaDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        dS.delete(id);
+    }
+    @GetMapping("/{id}")
+    public MembresiaDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m=new ModelMapper();
+        MembresiaDTO mem=m.map(dS.listId(id),MembresiaDTO.class);
+        return mem;
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody MembresiaDTO dto){
+        ModelMapper m=new ModelMapper();
+        Membresia mem=m.map(dto,Membresia.class);
+        dS.insert(mem);
+    }
+
 }
