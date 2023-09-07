@@ -22,4 +22,16 @@ public class ReservaEstacionamientoServiceImplement  implements IReservaEstacion
         return reR.findAll();
     }
 
+
+    @Override
+    public void delete(int idReservaEstacionamiento) {
+        reR.deleteById(idReservaEstacionamiento);
+    }
+
+    @Override
+    public ReservaEstacionamiento listId(int idReservaEstacionamiento) {
+        return reR.findById(idReservaEstacionamiento).orElse(new ReservaEstacionamiento());
+    }
+
+
 }
