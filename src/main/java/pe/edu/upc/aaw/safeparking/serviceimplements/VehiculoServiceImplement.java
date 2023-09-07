@@ -22,5 +22,13 @@ public class VehiculoServiceImplement implements IVehiculoService {
         return vR.findAll();
     }
 
+    @Override
+    public void delete(int idVehiculo) {
+        vR.deleteById(idVehiculo);
+    }
 
+    @Override
+    public Vehiculo listId(int idVehiculo) {
+        return vR.findById(idVehiculo).orElse(new Vehiculo());
+    }
 }
