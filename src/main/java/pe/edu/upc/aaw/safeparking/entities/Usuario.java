@@ -1,12 +1,13 @@
 package pe.edu.upc.aaw.safeparking.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
@@ -42,7 +43,7 @@ public class Usuario {
     private Rol rol;*/
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRol")
+    @JoinColumn(name = "idUsuario")
     private List<Rol> roles;
 
 

@@ -22,4 +22,14 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public List<Usuario> list() {
         return uR.findAll();
     }
+
+    @Override
+    public void delete(int idDessert) {
+        uR.deleteById(idDessert);
+    }
+
+    @Override
+    public Usuario listId(int idUsuario) {
+        return uR.findById(idUsuario).orElse(new Usuario());
+    }
 }
