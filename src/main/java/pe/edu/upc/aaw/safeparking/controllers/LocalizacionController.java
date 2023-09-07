@@ -3,7 +3,9 @@ package pe.edu.upc.aaw.safeparking.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.EstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.LocalizacionDTO;
+import pe.edu.upc.aaw.safeparking.entities.Estacionamiento;
 import pe.edu.upc.aaw.safeparking.entities.Localizacion;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.ILocalizacionService;
 
@@ -28,5 +30,17 @@ public class LocalizacionController {
             ModelMapper m=new ModelMapper();
             return m.map(x,LocalizacionDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody LocalizacionDTO dto){
+        ModelMapper m=new ModelMapper();
+        Localizacion d=m.map(dto, Localizacion.class);
+        lS.insert(d);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        lS.delete(id);
     }
 }
