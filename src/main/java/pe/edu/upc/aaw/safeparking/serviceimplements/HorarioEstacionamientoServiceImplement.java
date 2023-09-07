@@ -2,10 +2,8 @@ package pe.edu.upc.aaw.safeparking.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.aaw.safeparking.entities.Horario;
 import pe.edu.upc.aaw.safeparking.entities.HorarioEstacionamiento;
 import pe.edu.upc.aaw.safeparking.repositories.IHorarioEstacionamientoRepository;
-import pe.edu.upc.aaw.safeparking.repositories.IHorarioRepository;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IHorarioEstacionamientoService;
 
 import java.util.List;
@@ -21,5 +19,16 @@ public class HorarioEstacionamientoServiceImplement implements IHorarioEstaciona
     @Override
     public List<HorarioEstacionamiento> list() {
         return heR.findAll();
+    }
+
+
+    @Override
+    public void delete(int idHorarioEstacionamiento) {
+        heR.deleteById(idHorarioEstacionamiento);
+    }
+
+    @Override
+    public HorarioEstacionamiento listId(int idVehiculo) {
+        return heR.findById(idVehiculo).orElse(new HorarioEstacionamiento());
     }
 }

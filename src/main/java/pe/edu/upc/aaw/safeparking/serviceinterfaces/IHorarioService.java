@@ -7,4 +7,7 @@ import java.util.List;
 public interface IHorarioService {
     public void insert(Horario horario);
     public List<Horario> list();
+    public void delete(int idHorario);
+    public Horario listId(int idHorario);
+
 }
