@@ -14,6 +14,8 @@ public class Usuario {
     private String apellido;
     @Column(name ="correo", length = 50, nullable = false)
     private String correo;
+    @Column(name ="username", length = 50, nullable = false)
+    private String username;
     @Column(name ="constrasenia", length = 50, nullable = false)
     private String contrasenia;
     @Column(name ="genero", length = 50, nullable = false)
@@ -39,11 +41,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Membresia membresia, Rol rol) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Membresia membresia, Rol rol) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
+        this.username = username;
         this.contrasenia = contrasenia;
         this.genero = genero;
         this.dni = dni;
@@ -52,6 +55,14 @@ public class Usuario {
         this.telefono = telefono;
         this.membresia = membresia;
         this.rol = rol;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getIdUsuario() {

@@ -20,8 +20,6 @@ public class ReservaEstacionamientoController {
     @PostMapping
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
-        ReservaEstacionamiento v=m.map(dto,ReservaEstacionamiento.class);
-        reS.insert(v);
     }
     @GetMapping
     public List<ReservaEstacionamientoDTO> listar(){

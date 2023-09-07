@@ -10,6 +10,7 @@ public class UsuarioDTO {
     private String nombre;
     private String apellido;
     private String correo;
+    private String username;
     private String contrasenia;
     private String genero;
     private int dni;
@@ -57,6 +58,14 @@ public class UsuarioDTO {
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getGenero() {
