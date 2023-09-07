@@ -4,11 +4,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.IncidenteDTO;
-import pe.edu.upc.aaw.safeparking.dtos.MembresiaDTO;
 import pe.edu.upc.aaw.safeparking.entities.Incidente;
-import pe.edu.upc.aaw.safeparking.entities.Membresia;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IIncidentService;
-import pe.edu.upc.aaw.safeparking.serviceinterfaces.IMembresiaService;
 
 import java.util.List;
 import java.util.stream.Collectors;

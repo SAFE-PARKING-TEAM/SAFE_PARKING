@@ -1,7 +1,6 @@
 package pe.edu.upc.aaw.safeparking.serviceinterfaces;
 
 import pe.edu.upc.aaw.safeparking.entities.Incidente;
-import pe.edu.upc.aaw.safeparking.entities.Membresia;
 
 import java.util.List;
 
