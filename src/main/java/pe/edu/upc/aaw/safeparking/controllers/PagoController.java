@@ -28,4 +28,16 @@ public class PagoController {
             return m.map(x,PagoDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        pagoR.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody PagoDTO dto){
+        ModelMapper m=new ModelMapper();
+        Pago d=m.map(dto,Pago.class);
+        pagoR.insert(d);
+    }
 }

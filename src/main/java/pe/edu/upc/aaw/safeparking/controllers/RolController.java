@@ -3,7 +3,9 @@ package pe.edu.upc.aaw.safeparking.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.PagoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.RolDTO;
+import pe.edu.upc.aaw.safeparking.entities.Pago;
 import pe.edu.upc.aaw.safeparking.entities.Rol;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IRolService;
 
@@ -27,5 +29,17 @@ public class RolController {
             ModelMapper m=new ModelMapper();
             return m.map(x,RolDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        rolR.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody RolDTO dto){
+        ModelMapper m=new ModelMapper();
+        Rol d=m.map(dto,Rol.class);
+        rolR.insert(d);
     }
 }
