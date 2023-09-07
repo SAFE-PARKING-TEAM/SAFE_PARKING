@@ -23,7 +23,7 @@ public class VehiculoController {
         vS.insert(v);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('CPREMIUM')")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<VehiculoDTO> listar(){
         return vS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();

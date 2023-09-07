@@ -37,13 +37,10 @@ public class Usuario {
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
 
-    /*@ManyToOne
-    @JoinColumn(name = "idRol")
-    private Rol rol;*/
-
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRol")
+    @JoinColumn(name = "idUsuario")
     private List<Rol> roles;
+
 
 
     public Usuario() {
@@ -161,14 +158,6 @@ public class Usuario {
     public void setMembresia(Membresia membresia) {
         this.membresia = membresia;
     }
-/*
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }*/
 
     public List<Rol> getRoles() {
         return roles;
