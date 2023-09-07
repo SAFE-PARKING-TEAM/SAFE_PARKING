@@ -30,4 +30,17 @@ public class ReservaEstacionamientoController {
         }).collect(Collectors.toList());
     }
 
+    @PutMapping
+    public void modificar(@RequestBody ReservaEstacionamientoDTO dto){
+        ModelMapper m=new ModelMapper();
+        ReservaEstacionamiento rev=m.map(dto, ReservaEstacionamiento.class);
+        reS.insert(rev);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id")Integer id){
+        reS.delete(id);
+    }
+
+
 }

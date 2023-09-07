@@ -4,9 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.EstacionamientoDTO;
-import pe.edu.upc.aaw.safeparking.dtos.LocalizacionDTO;
 import pe.edu.upc.aaw.safeparking.entities.Estacionamiento;
-import pe.edu.upc.aaw.safeparking.entities.Localizacion;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IEstacionamientoService;
 
 
