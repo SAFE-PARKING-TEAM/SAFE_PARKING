@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.ReservaEstacionamientoDTO;
-import pe.edu.upc.aaw.safeparking.dtos.VehiculoDTO;
 import pe.edu.upc.aaw.safeparking.entities.ReservaEstacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IReservaEstacionamientoService;
 
@@ -20,6 +19,8 @@ public class ReservaEstacionamientoController {
     @PostMapping
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
+        ReservaEstacionamiento rev=m.map(dto,ReservaEstacionamiento.class);
+        reS.insert(rev);
     }
     @GetMapping
     public List<ReservaEstacionamientoDTO> listar(){
