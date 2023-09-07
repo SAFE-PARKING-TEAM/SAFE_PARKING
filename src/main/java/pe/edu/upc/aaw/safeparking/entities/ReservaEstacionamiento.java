@@ -11,12 +11,10 @@ public class ReservaEstacionamiento {
     private int idReservaEstacionamiento;
     @Column(name = "estado",nullable = false,length = 50)
     private String estado;
-    @Column(name = "fechaInicio",nullable = false)
-    private LocalDate fechaInicio;
-    @Column(name = "fechaFin",nullable = false)
-    private LocalDate fechaFin;
     @Column(name = "favorito",nullable = false)
     private boolean favorito;
+    @Column(name = "fecha",nullable = false)
+    private LocalDate fecha;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
@@ -24,29 +22,28 @@ public class ReservaEstacionamiento {
     @JoinColumn(name = "idVehiculo")
     private Vehiculo vehiculo;
     @ManyToOne
-    @JoinColumn(name = "idEstacionamiento")
-    private Estacionamiento estacionamiento;
+    @JoinColumn(name = "idHorarioEstacionamiento")
+    private HorarioEstacionamiento horarioEstacionamiento;
 
     public ReservaEstacionamiento() {
     }
 
-    public ReservaEstacionamiento(int idReservaEstacionamiento, String estado, LocalDate fechaInicio, LocalDate fechaFin, boolean favorito, Usuario usuario, Vehiculo vehiculo, Estacionamiento estacionamiento) {
+    public ReservaEstacionamiento(int idReservaEstacionamiento, String estado, boolean favorito, LocalDate fecha, Usuario usuario, Vehiculo vehiculo, HorarioEstacionamiento horarioEstacionamiento) {
         this.idReservaEstacionamiento = idReservaEstacionamiento;
         this.estado = estado;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
         this.favorito = favorito;
+        this.fecha = fecha;
         this.usuario = usuario;
         this.vehiculo = vehiculo;
-        this.estacionamiento = estacionamiento;
+        this.horarioEstacionamiento = horarioEstacionamiento;
     }
 
-    public int getIdReserva() {
+    public int getIdReservaEstacionamiento() {
         return idReservaEstacionamiento;
     }
 
-    public void setIdReserva(int idReserva) {
-        this.idReservaEstacionamiento = idReserva;
+    public void setIdReservaEstacionamiento(int idReservaEstacionamiento) {
+        this.idReservaEstacionamiento = idReservaEstacionamiento;
     }
 
     public String getEstado() {
@@ -57,28 +54,20 @@ public class ReservaEstacionamiento {
         this.estado = estado;
     }
 
-    public LocalDate getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public void setFechaInicio(LocalDate fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public LocalDate getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(LocalDate fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
     public boolean isFavorito() {
         return favorito;
     }
 
     public void setFavorito(boolean favorito) {
         this.favorito = favorito;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public Usuario getUsuario() {
@@ -97,12 +86,12 @@ public class ReservaEstacionamiento {
         this.vehiculo = vehiculo;
     }
 
-    public Estacionamiento getEstacionamiento() {
-        return estacionamiento;
+    public HorarioEstacionamiento getHorarioEstacionamiento() {
+        return horarioEstacionamiento;
     }
 
-    public void setEstacionamiento(Estacionamiento estacionamiento) {
-        this.estacionamiento = estacionamiento;
+    public void setHorarioEstacionamiento(HorarioEstacionamiento horarioEstacionamiento) {
+        this.horarioEstacionamiento = horarioEstacionamiento;
     }
 }
 

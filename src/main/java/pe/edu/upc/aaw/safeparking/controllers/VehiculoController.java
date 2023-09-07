@@ -3,7 +3,6 @@ package pe.edu.upc.aaw.safeparking.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.safeparking.dtos.MembresiaDTO;
 import pe.edu.upc.aaw.safeparking.dtos.VehiculoDTO;
 import pe.edu.upc.aaw.safeparking.entities.Vehiculo;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IVehiculoService;
