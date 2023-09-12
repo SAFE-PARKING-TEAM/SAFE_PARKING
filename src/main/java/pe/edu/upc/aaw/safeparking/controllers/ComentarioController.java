@@ -29,4 +29,22 @@ public class ComentarioController {
             return m.map(x, ComentarioDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        cS.delete(id);
+    }
+    @GetMapping("/{id}")
+    public ComentarioDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        ComentarioDTO c= m.map(cS.listarid(id),ComentarioDTO.class);
+        return c;
+    }
+    @PutMapping
+    public void modificar(@RequestBody ComentarioDTO dto){
+        ModelMapper m = new ModelMapper();
+        Comentario c = m.map(dto, Comentario.class);
+        cS.insert(c);
+
+    }
 }

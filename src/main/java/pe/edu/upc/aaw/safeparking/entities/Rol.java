@@ -1,10 +1,13 @@
 package pe.edu.upc.aaw.safeparking.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "rol")
-public class Rol {
+public class Rol implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRol;
@@ -12,6 +15,10 @@ public class Rol {
     private String nombreRol;
     @Column(name = "descripcion",nullable = false,length = 50)
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name="idUsuario", nullable=false)
+    private Usuario user;
 
     public Rol() {
     }
@@ -43,5 +50,13 @@ public class Rol {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
     }
 }
