@@ -5,7 +5,7 @@ import pe.edu.upc.aaw.safeparking.entities.Usuario;
 public class IncidenteDTO {
     private int idIncidente;
     private String descripcion;
-    private String tipoIncidencia;
+    private String tipoIncidente;
     private Usuario usuario;
 
     public Usuario getUsuario() {
@@ -32,13 +32,11 @@ public class IncidenteDTO {
         this.descripcion = descripcion;
     }
 
-    public String getTipoIncidencia() {
-        return tipoIncidencia;
+    public String getTipoIncidente() {
+        return tipoIncidente;
     }
 
-    public void setTipoIncidencia(String tipoIncidencia) {
-        this.tipoIncidencia = tipoIncidencia;
+    public void setTipoIncidente(String tipoIncidente) {
+        this.tipoIncidente = tipoIncidente;
     }
-
-
 }

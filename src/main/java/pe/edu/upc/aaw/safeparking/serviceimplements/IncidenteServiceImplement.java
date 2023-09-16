@@ -26,4 +26,9 @@ public class IncidenteServiceImplement implements IIncidenteService {
         iR.deleteById(idIncidente);
     }
 
+    @Override
+    public List<String[]> cantIncidentesPorTipoRol() {
+        return iR.cantIncidentesPorTipoRol();
+    }
+
 }
