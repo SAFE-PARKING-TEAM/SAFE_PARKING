@@ -8,6 +8,14 @@ public class IncidenteDTO {
     private String tipoIncidencia;
     private Usuario usuario;
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public int getIdIncidente() {
         return idIncidente;
     }
@@ -32,11 +40,5 @@ public class IncidenteDTO {
         this.tipoIncidencia = tipoIncidencia;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }
