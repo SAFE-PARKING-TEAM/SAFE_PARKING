@@ -1,18 +1,18 @@
 package pe.edu.upc.aaw.safeparking.security;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 //Clase 1
 @Component
@@ -21,7 +21,7 @@ public class JwtTokenUtil implements Serializable {
     private static final long serialVersionUID = -2550185165626007488L;
 
     //milisegundos || 18 minutos, le quitamos mil 18 segundos demo
-    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60 * 1000;
+    public static final long JWT_TOKEN_VALIDITY = 7 * 60 * 60 * 1000;
 
     @Value("${jwt.secret}")
     private String secret;

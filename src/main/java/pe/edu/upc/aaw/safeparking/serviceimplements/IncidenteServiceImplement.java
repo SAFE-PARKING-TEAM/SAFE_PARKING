@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.safeparking.entities.Incidente;
 import pe.edu.upc.aaw.safeparking.repositories.IIncidenteRepository;
-import pe.edu.upc.aaw.safeparking.serviceinterfaces.IIncidentService;
+import pe.edu.upc.aaw.safeparking.serviceinterfaces.IIncidenteService;
 
 import java.util.List;
 @Service
-public class IncidenteServiceImplement implements IIncidentService {
+public class IncidenteServiceImplement implements IIncidenteService {
     @Autowired
     private IIncidenteRepository iR;
     @Override
@@ -26,8 +26,4 @@ public class IncidenteServiceImplement implements IIncidentService {
         iR.deleteById(idIncidente);
     }
 
-    @Override
-    public Incidente listId(int idIncidente) {
-        return iR.findById(idIncidente).orElse(new Incidente());
-    }
 }

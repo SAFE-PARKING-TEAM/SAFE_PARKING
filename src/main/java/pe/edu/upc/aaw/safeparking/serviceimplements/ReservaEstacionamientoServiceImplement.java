@@ -33,5 +33,10 @@ public class ReservaEstacionamientoServiceImplement  implements IReservaEstacion
         return reR.findById(idReservaEstacionamiento).orElse(new ReservaEstacionamiento());
     }
 
+    @Override
+    public List<String[]> quantityreservationByUser() {
+        return reR.quantityreservationByUser();
+    }
+
 
 }

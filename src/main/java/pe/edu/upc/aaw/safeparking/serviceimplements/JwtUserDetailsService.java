@@ -1,9 +1,11 @@
 package pe.edu.upc.aaw.safeparking.serviceimplements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,43 +13,29 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.safeparking.entities.Usuario;
 import pe.edu.upc.aaw.safeparking.repositories.IUsuarioRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 //Clase 2
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
-    private IUsuarioRepository repo;
+    private IUsuarioRepository uR;
 
-    /*@Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Aqui lógica para buscar el usuario en BD
-        //Usuario defecto web:password
-
-        if ("web".equals(username)) {
-            return new User("web", "$2a$12$CTtjF8P3IJVK6pP4w9pTxuldMqQRrfrLbLLIlasdu2K6ii2vWGly2",
-                    new ArrayList<>());
-        } else {
-            throw new UsernameNotFoundException("Usuario no encontrado: " + username);
-        }
-    }*/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario user = repo.findByUsername(username);
+        Usuario usuario = uR.findByUsername(username);
 
-        if(user == null) {
+        if(usuario == null) {
             throw new UsernameNotFoundException(String.format("User not exists", username));
         }
 
         List<GrantedAuthority> roles = new ArrayList<>();
 
-        user.getRoles().forEach(rol -> {
+        usuario.getRoles().forEach(rol -> {
             roles.add(new SimpleGrantedAuthority(rol.getNombreRol()));
         });
 
-
-        UserDetails ud = new User(user.getUsername(), user.getContrasenia(), user.getEnabled(), true, true, true, roles);
+        UserDetails ud = new org.springframework.security.core.userdetails.User(usuario.getUsername(), usuario.getContrasenia(), usuario.getEnabled(), true, true, true, roles);
 
         return ud;
     }

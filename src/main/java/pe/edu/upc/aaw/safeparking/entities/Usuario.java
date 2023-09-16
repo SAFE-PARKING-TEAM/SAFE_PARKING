@@ -31,24 +31,26 @@ public class Usuario implements Serializable {
     private LocalDate fechaNacimiento;
     @Column(name ="telefono", nullable = false)
     private int telefono;
-
+    @Column(name ="enabled", nullable = false)
     private Boolean enabled;
-
     @ManyToOne
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
-
-    /*@ManyToOne
-    @JoinColumn(name = "idRol")
-    private Rol rol;*/
-
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUsuario")
     private List<Rol> roles;
 
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
 
     public Usuario() {
     }
+
 
     public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> roles) {
         this.idUsuario = idUsuario;
@@ -65,14 +67,6 @@ public class Usuario implements Serializable {
         this.enabled = enabled;
         this.membresia = membresia;
         this.roles = roles;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public int getIdUsuario() {
@@ -105,6 +99,14 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getContrasenia() {
@@ -155,30 +157,6 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
-    public Membresia getMembresia() {
-        return membresia;
-    }
-
-    public void setMembresia(Membresia membresia) {
-        this.membresia = membresia;
-    }
-/*
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }*/
-
-    public List<Rol> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Rol> roles) {
-        this.roles = roles;
-    }
-
     public Boolean getEnabled() {
         return enabled;
     }
@@ -186,4 +164,14 @@ public class Usuario implements Serializable {
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
+
+    public Membresia getMembresia() {
+        return membresia;
+    }
+
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
+    }
+
+
 }

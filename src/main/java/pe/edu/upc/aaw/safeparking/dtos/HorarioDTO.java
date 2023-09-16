@@ -1,11 +1,12 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class HorarioDTO {
     private int idHorario;
-    private Date horaApertura;
-    private Date horaCierre;
+    private Time horaApertura;
+    private Time horaCierre;
     private String dia;
 
     public int getIdHorario() {
@@ -16,27 +17,27 @@ public class HorarioDTO {
         this.idHorario = idHorario;
     }
 
-    public Date getHoraApertura() {
-        return horaApertura;
-    }
-
-    public void setHoraApertura(Date horaApertura) {
-        this.horaApertura = horaApertura;
-    }
-
-    public Date getHoraCierre() {
-        return horaCierre;
-    }
-
-    public void setHoraCierre(Date horaCierre) {
-        this.horaCierre = horaCierre;
-    }
-
     public String getDia() {
         return dia;
     }
 
     public void setDia(String dia) {
         this.dia = dia;
+    }
+
+    public Time getHoraApertura() {
+        return horaApertura;
+    }
+
+    public void setHoraApertura(Time horaApertura) {
+        this.horaApertura = horaApertura;
+    }
+
+    public Time getHoraCierre() {
+        return horaCierre;
+    }
+
+    public void setHoraCierre(Time horaCierre) {
+        this.horaCierre = horaCierre;
     }
 }
