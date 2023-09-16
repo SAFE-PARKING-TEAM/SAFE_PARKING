@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.MembresiaDTO;
 import pe.edu.upc.aaw.safeparking.entities.Membresia;
@@ -22,6 +23,7 @@ public class MembresiaController {
         dS.insert(d);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public List<MembresiaDTO> listar(){
         return dS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();

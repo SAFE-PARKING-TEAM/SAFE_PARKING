@@ -36,11 +36,23 @@ public class Usuario implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsuario")
+    private List<Rol> roles;
+
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia) {
+
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> roles) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -54,6 +66,7 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
         this.enabled = enabled;
         this.membresia = membresia;
+        this.roles = roles;
     }
 
     public int getIdUsuario() {

@@ -20,6 +20,15 @@ public class UsuarioDTO {
     private int telefono;
     private Membresia membresia;
     private Boolean enabled;
+    private List<Rol> roles;
+
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
 
     public int getIdUsuario() {
         return idUsuario;
