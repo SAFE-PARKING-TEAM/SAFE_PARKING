@@ -6,7 +6,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "rol")
 public class Rol implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    //private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +16,16 @@ public class Rol implements Serializable {
     private String nombreRol;
 
     @ManyToOne
-    @JoinColumn(name="idUsuario", nullable=false)
-    private Usuario user;
+    @JoinColumn(name="idUsuario")
+    private Usuario usuario;
 
     public Rol() {
     }
-    public Rol(int idRol, String nombreRol) {
+
+    public Rol(int idRol, String nombreRol, Usuario usuario) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
+        this.usuario = usuario;
     }
 
     public int getIdRol() {
@@ -41,11 +44,12 @@ public class Rol implements Serializable {
         this.nombreRol = nombreRol;
     }
 
-    public Usuario getUser() {
-        return user;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
+
 }

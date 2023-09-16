@@ -31,22 +31,16 @@ public class Usuario implements Serializable {
     private LocalDate fechaNacimiento;
     @Column(name ="telefono", nullable = false)
     private int telefono;
-
+    @Column(name ="enabled", nullable = false)
     private Boolean enabled;
-
     @ManyToOne
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUsuario")
-    private List<Rol> roles;
-
-
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> roles) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -60,7 +54,6 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
         this.enabled = enabled;
         this.membresia = membresia;
-        this.roles = roles;
     }
 
     public int getIdUsuario() {
@@ -167,11 +160,5 @@ public class Usuario implements Serializable {
         this.membresia = membresia;
     }
 
-    public List<Rol> getRoles() {
-        return roles;
-    }
 
-    public void setRoles(List<Rol> roles) {
-        this.roles = roles;
-    }
 }

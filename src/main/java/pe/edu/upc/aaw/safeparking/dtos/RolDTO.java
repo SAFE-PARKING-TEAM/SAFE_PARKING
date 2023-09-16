@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
+import pe.edu.upc.aaw.safeparking.entities.Membresia;
 import pe.edu.upc.aaw.safeparking.entities.Usuario;
 
 import javax.persistence.Column;
@@ -7,15 +8,7 @@ import javax.persistence.Column;
 public class RolDTO {
     private int idRol;
     private String nombreRol;
-    private Usuario user;
-
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-    }
+    private Usuario usuario;
 
     public int getIdRol() {
         return idRol;
@@ -33,4 +26,11 @@ public class RolDTO {
         this.nombreRol = nombreRol;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
