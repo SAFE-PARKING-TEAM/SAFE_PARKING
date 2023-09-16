@@ -12,8 +12,50 @@ public class Incidente {
     private String descripcion;
     @Column(name = "tipoIncidente", nullable = false, length = 50)
     private String tipoIncidencia;
+
     @ManyToOne
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name="idUsuario")
     private Usuario usuario;
 
+    public Incidente(int idIncidente, String descripcion, String tipoIncidencia, Usuario usuario) {
+        this.idIncidente = idIncidente;
+        this.descripcion = descripcion;
+        this.tipoIncidencia = tipoIncidencia;
+        this.usuario = usuario;
+    }
+
+    public Incidente() {
+    }
+
+    public int getIdIncidente() {
+        return idIncidente;
+    }
+
+    public void setIdIncidente(int idIncidente) {
+        this.idIncidente = idIncidente;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getTipoIncidencia() {
+        return tipoIncidencia;
+    }
+
+    public void setTipoIncidencia(String tipoIncidencia) {
+        this.tipoIncidencia = tipoIncidencia;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

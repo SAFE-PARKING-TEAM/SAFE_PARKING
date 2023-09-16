@@ -38,10 +38,6 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
 
-    /*@ManyToOne
-    @JoinColumn(name = "idRol")
-    private Rol rol;*/
-
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUsuario")
     private List<Rol> roles;
@@ -65,14 +61,6 @@ public class Usuario implements Serializable {
         this.enabled = enabled;
         this.membresia = membresia;
         this.roles = roles;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public int getIdUsuario() {
@@ -105,6 +93,14 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getContrasenia() {
@@ -155,6 +151,14 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public Membresia getMembresia() {
         return membresia;
     }
@@ -162,14 +166,6 @@ public class Usuario implements Serializable {
     public void setMembresia(Membresia membresia) {
         this.membresia = membresia;
     }
-/*
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }*/
 
     public List<Rol> getRoles() {
         return roles;
@@ -177,13 +173,5 @@ public class Usuario implements Serializable {
 
     public void setRoles(List<Rol> roles) {
         this.roles = roles;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
     }
 }

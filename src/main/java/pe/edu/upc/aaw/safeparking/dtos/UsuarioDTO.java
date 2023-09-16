@@ -4,6 +4,7 @@ import pe.edu.upc.aaw.safeparking.entities.Membresia;
 import pe.edu.upc.aaw.safeparking.entities.Rol;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class UsuarioDTO {
     private int idUsuario;
@@ -18,7 +19,15 @@ public class UsuarioDTO {
     private LocalDate fechaNacimiento;
     private int telefono;
     private Membresia membresia;
-    private Rol rol;
+    private List<Rol> roles;
+
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
 
     public int getIdUsuario() {
         return idUsuario;
@@ -116,11 +125,4 @@ public class UsuarioDTO {
         this.membresia = membresia;
     }
 
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
 }

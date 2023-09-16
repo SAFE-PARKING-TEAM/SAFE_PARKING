@@ -1,7 +1,8 @@
 package pe.edu.upc.aaw.safeparking.entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Time;
+
 @Entity
 @Table(name = "horario")
 public class Horario {
@@ -9,16 +10,16 @@ public class Horario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idHorario;
     @Column(name = "horaApertura", nullable = false)
-    private Date horaApertura;
+    private Time horaApertura;
     @Column(name = "horaCierre", nullable = false)
-    private Date horaCierre;
+    private Time horaCierre;
     @Column(name = "dia",nullable = false,length = 50)
     private String dia;
 
     public Horario() {
     }
 
-    public Horario(int idHorario, Date horaApertura, Date horaCierre, String dia) {
+    public Horario(int idHorario, Time horaApertura, Time horaCierre, String dia) {
         this.idHorario = idHorario;
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
@@ -33,19 +34,19 @@ public class Horario {
         this.idHorario = idHorario;
     }
 
-    public Date getHoraApertura() {
+    public Time getHoraApertura() {
         return horaApertura;
     }
 
-    public void setHoraApertura(Date horaApertura) {
+    public void setHoraApertura(Time horaApertura) {
         this.horaApertura = horaApertura;
     }
 
-    public Date getHoraCierre() {
+    public Time getHoraCierre() {
         return horaCierre;
     }
 
-    public void setHoraCierre(Date horaCierre) {
+    public void setHoraCierre(Time horaCierre) {
         this.horaCierre = horaCierre;
     }
 

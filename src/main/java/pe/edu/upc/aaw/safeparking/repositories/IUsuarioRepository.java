@@ -11,7 +11,6 @@ import pe.edu.upc.aaw.safeparking.entities.Usuario;
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario,Integer> {
 
-    public Usuario findByUsername(String username);
 
     //BUSCAR POR NOMBRE
     @Query("select count(u.username) from Usuario u where u.username =:username")
