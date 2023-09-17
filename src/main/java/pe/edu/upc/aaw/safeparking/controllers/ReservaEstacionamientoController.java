@@ -20,12 +20,14 @@ public class ReservaEstacionamientoController {
     @Autowired
     private IReservaEstacionamientoService reS;
     @PostMapping
+    @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto,ReservaEstacionamiento.class);
         reS.insert(rev);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor') or hasAuthority('arrendador')"  )
     public List<ReservaEstacionamientoDTO> listar(){
         return reS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -34,6 +36,7 @@ public class ReservaEstacionamientoController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
     public void modificar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto, ReservaEstacionamiento.class);
@@ -41,6 +44,7 @@ public class ReservaEstacionamientoController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('conductor')")
     public void eliminar(@PathVariable("id")Integer id){
         reS.delete(id);
     }
@@ -56,7 +60,6 @@ public class ReservaEstacionamientoController {
             dto.setNameUser(data[0]);
             dto.setNameRole(data[1]);
             dto.setQuantityReservation(Integer.parseInt(data[2]));
-
             listaDTO.add(dto);
         }
         return listaDTO;
