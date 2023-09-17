@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.CantIncidentesPorRolDTO;
 import pe.edu.upc.aaw.safeparking.dtos.IncidenteDTO;
@@ -36,7 +37,7 @@ public class IncidenteController {
     }
 
     @GetMapping("/CantidadIncidentesPorRol")
-   // @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public List<CantIncidentesPorRolDTO> cantIncidentesPorTipoRol(){
         List<String[]> lista = iS.cantIncidentesPorTipoRol();
 
