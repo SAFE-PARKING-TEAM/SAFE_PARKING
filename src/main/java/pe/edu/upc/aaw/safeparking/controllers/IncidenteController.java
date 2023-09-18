@@ -36,8 +36,8 @@ public class IncidenteController {
         iS.delete(id);
     }
 
-    @GetMapping("/CantidadIncidentesPorRol")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @GetMapping("CantidadIncidentesPorRol")
+    @PreAuthorize("hasAuthority('administrador')")
     public List<CantIncidentesPorRolDTO> cantIncidentesPorTipoRol(){
         List<String[]> lista = iS.cantIncidentesPorTipoRol();
 

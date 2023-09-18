@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.PagoDTO;
 import pe.edu.upc.aaw.safeparking.entities.Pago;
@@ -15,13 +16,15 @@ import java.util.stream.Collectors;
 public class PagoController {
     @Autowired
     private IPagoService pagoR;
-    @PostMapping
+    @PostMapping("Registrar")
+    @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody PagoDTO dto){
         ModelMapper m=new ModelMapper();
         Pago d=m.map(dto, Pago.class);
         pagoR.insert(d);
     }
-    @GetMapping
+    @GetMapping("Listar")
+    @PreAuthorize("hasAuthority('administrador')")
     public List<PagoDTO> listar(){
         return pagoR.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -29,12 +32,14 @@ public class PagoController {
         }).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         pagoR.delete(id);
     }
 
-    @PutMapping
+    @PutMapping("Modificar")
+    @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody PagoDTO dto){
         ModelMapper m=new ModelMapper();
         Pago d=m.map(dto,Pago.class);
