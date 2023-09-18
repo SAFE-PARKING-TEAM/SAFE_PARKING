@@ -17,4 +17,9 @@ public interface IReservaEstacionamientoRepository extends JpaRepository<Reserva
             " WHERE r.nombre_rol = 'conductor'\n " +
             " GROUP BY u.nombre, r.nombre_rol; ",nativeQuery = true)
     public List<String[]> quantityreservationByUser();
+
+    @Query(value = "SELECT fecha, COUNT(*) AS total_reservas\n" +
+            "FROM reserva_estacionamiento\n" +
+            "GROUP BY fecha",nativeQuery = true)
+    public List<String[]>quantityreservationbyDate();
 }

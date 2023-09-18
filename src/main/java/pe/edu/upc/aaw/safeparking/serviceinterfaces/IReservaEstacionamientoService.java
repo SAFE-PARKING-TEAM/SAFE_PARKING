@@ -12,6 +12,6 @@ public interface IReservaEstacionamientoService {
     public void delete(int idReservaEstacionamiento);
     public ReservaEstacionamiento listId(int idReservaEstacionamiento);
     public List<String[]> quantityreservationByUser();
-
+    public List<String[]>quantityreservationbyDate();
 
 }
