@@ -8,6 +8,4 @@ public interface IComentarioService {
 
     public void insert(Comentario comentario);
     public List<Comentario> list();
-    public void delete(int idComentario);
-    public Comentario listarid(int idComentario);
 }

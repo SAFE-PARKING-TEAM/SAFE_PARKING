@@ -1,13 +1,12 @@
 package pe.edu.upc.aaw.safeparking.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "Usuario")
-public class Usuario implements Serializable {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
@@ -36,6 +35,7 @@ public class Usuario implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUsuario")
     private List<Rol> roles;
@@ -50,7 +50,6 @@ public class Usuario implements Serializable {
 
     public Usuario() {
     }
-
 
     public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> roles) {
         this.idUsuario = idUsuario;

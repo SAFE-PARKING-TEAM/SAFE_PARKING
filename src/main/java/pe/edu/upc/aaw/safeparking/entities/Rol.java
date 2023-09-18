@@ -1,5 +1,4 @@
 package pe.edu.upc.aaw.safeparking.entities;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -8,20 +7,18 @@ import java.io.Serializable;
 public class Rol implements Serializable {
 
     //private static final long serialVersionUID = 1L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRol;
     @Column(name = "nombreRol",nullable = false,length = 50)
     private String nombreRol;
-
     @ManyToOne
     @JoinColumn(name="idUsuario")
+
     private Usuario usuario;
 
     public Rol() {
     }
-
     public Rol(int idRol, String nombreRol, Usuario usuario) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
@@ -51,5 +48,4 @@ public class Rol implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
 }

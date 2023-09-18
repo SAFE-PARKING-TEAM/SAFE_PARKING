@@ -22,14 +22,4 @@ public class ComentarioServiceImplement implements IComentarioService {
     public List<Comentario> list() {
         return cR.findAll();
     }
-
-    @Override
-    public void delete(int idComentario) {
-        cR.deleteById(idComentario);
-    }
-
-    @Override
-    public Comentario listarid(int idComentario) {
-        return cR.findById(idComentario).orElse(new Comentario());
-    }
 }
