@@ -22,4 +22,11 @@ public interface IReservaEstacionamientoRepository extends JpaRepository<Reserva
             "FROM reserva_estacionamiento\n" +
             "GROUP BY fecha",nativeQuery = true)
     public List<String[]>quantityreservationbyDate();
+
+
+    @Query(value = " SELECT p.tipo_pago,COUNT(re.id_reserva_estacionamiento) AS total_reservas\n" +
+            " FROM reserva_estacionamiento re\n" +
+            " INNER JOIN pago p ON re.id_reserva_estacionamiento = p.id_reserva_estacionamiento\n" +
+            " GROUP BY p.tipo_pago",nativeQuery = true)
+    public List<String[]>quantityreservationbyPay();
 }

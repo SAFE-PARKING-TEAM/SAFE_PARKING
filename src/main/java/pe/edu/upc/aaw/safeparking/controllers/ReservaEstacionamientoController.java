@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorFechaDTO;
+import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorTipoPagoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorUsuarioDTO;
 import pe.edu.upc.aaw.safeparking.dtos.ReservaEstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.entities.ReservaEstacionamiento;
@@ -80,5 +81,19 @@ public class ReservaEstacionamientoController {
         return lista_DTO;
     }
 
+    @GetMapping("/cantidadReservaPorTipoDePago")
+    @PreAuthorize("hasAuthority('administrador')")
+    public List<CantidadReservasPorTipoPagoDTO> cantidadReservasPorTipoDePago(){
+        List<String[]> lista = reS.quantityreservationbyPay();
+        List<CantidadReservasPorTipoPagoDTO> lista_DTO = new ArrayList<>();
+        for(String[] data:lista){
 
+            CantidadReservasPorTipoPagoDTO dto = new CantidadReservasPorTipoPagoDTO();
+            dto.setTipoPgo(data[0]);
+            dto.setReservation_quantity(Integer.parseInt(data[1]));
+
+            lista_DTO.add(dto);
+        }
+        return lista_DTO;
+    }
 }
