@@ -17,6 +17,7 @@ public class MembresiaController {
     @Autowired
     private IMembresiaService dS;
     @PostMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();
         Membresia d=m.map(dto,Membresia.class);
@@ -31,17 +32,13 @@ public class MembresiaController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         dS.delete(id);
     }
-    @GetMapping("/{id}")
-    public MembresiaDTO listarId(@PathVariable("id") Integer id){
-        ModelMapper m=new ModelMapper();
-        MembresiaDTO mem=m.map(dS.listId(id),MembresiaDTO.class);
-        return mem;
-    }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();
         Membresia mem=m.map(dto,Membresia.class);
