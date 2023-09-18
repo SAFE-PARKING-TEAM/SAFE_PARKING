@@ -9,4 +9,6 @@ public interface IPagoService{
     public List<Pago> list();
     public void delete(int idPago);
     public Pago listId(int idPago);
+
+    public List<String[]> PrecioTotalReservasporMesD();
 }

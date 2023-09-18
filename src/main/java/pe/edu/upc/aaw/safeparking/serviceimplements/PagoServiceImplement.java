@@ -27,4 +27,11 @@ public class PagoServiceImplement implements IPagoService {
     public Pago listId(int idPago) {
         return pagoR.findById(idPago).orElse(new Pago());
     }
+
+    @Override
+    public List<String[]> PrecioTotalReservasporMesD() {
+        return pagoR.PrecioTotalReservasporMesD();
+    }
+
+
 }
