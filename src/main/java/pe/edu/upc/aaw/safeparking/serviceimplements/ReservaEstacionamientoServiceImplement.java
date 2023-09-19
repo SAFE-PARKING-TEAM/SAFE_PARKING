@@ -38,5 +38,10 @@ public class ReservaEstacionamientoServiceImplement  implements IReservaEstacion
         return reR.quantityreservationByUser();
     }
 
+    @Override
+    public List<String[]> quantityreservationbyDate() { return reR.quantityreservationbyDate();}
+
+    @Override
+    public List<String[]>quantityreservationbyPay() {return reR.quantityreservationbyPay();}
 
 }
