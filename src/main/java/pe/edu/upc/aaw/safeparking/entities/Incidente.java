@@ -15,13 +15,13 @@ public class Incidente {
 
     @ManyToOne
     @JoinColumn(name="idUsuario")
-    private Usuario usuario;
+    private Users users;
 
-    public Incidente(int idIncidente, String descripcion, String tipoIncidencia, Usuario usuario) {
+    public Incidente(int idIncidente, String descripcion, String tipoIncidencia, Users users) {
         this.idIncidente = idIncidente;
         this.descripcion = descripcion;
         this.tipoIncidencia = tipoIncidencia;
-        this.usuario = usuario;
+        this.users = users;
     }
 
     public Incidente() {
@@ -51,11 +51,11 @@ public class Incidente {
         this.tipoIncidencia = tipoIncidencia;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsuario() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Users users) {
+        this.users = users;
     }
 }

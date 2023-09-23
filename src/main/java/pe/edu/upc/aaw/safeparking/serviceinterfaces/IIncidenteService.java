@@ -8,4 +8,5 @@ public interface IIncidenteService {
     public void insert(Incidente incidente);
     public List<Incidente> list();
     public void delete(int idIncidente);
+    public  List<String[]>cantIncidentesPorTipoRol();
 }

@@ -31,7 +31,7 @@ public class Estacionamiento {
     private Double precio;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    private Usuario usuario;
+    private Users users;
     @OneToOne
     @JoinColumn(name = "idLocalizacion")
     private Localizacion localizacion;
@@ -39,7 +39,7 @@ public class Estacionamiento {
     public Estacionamiento() {
     }
 
-    public Estacionamiento(int idEstacionamiento, String tipoEstacionamiento, String disponibilidad, String foto, Float promedioValoracion, int capacidad, LocalDate fechaRegistro, Double precio, Usuario usuario, Localizacion localizacion) {
+    public Estacionamiento(int idEstacionamiento, String tipoEstacionamiento, String disponibilidad, String foto, Float promedioValoracion, int capacidad, LocalDate fechaRegistro, Double precio, Users users, Localizacion localizacion) {
         this.idEstacionamiento = idEstacionamiento;
         this.tipoEstacionamiento = tipoEstacionamiento;
         this.disponibilidad = disponibilidad;
@@ -48,7 +48,7 @@ public class Estacionamiento {
         this.capacidad = capacidad;
         this.fechaRegistro = fechaRegistro;
         this.precio = precio;
-        this.usuario = usuario;
+        this.users = users;
         this.localizacion = localizacion;
     }
 
@@ -116,12 +116,12 @@ public class Estacionamiento {
         this.precio = precio;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsuario() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Users users) {
+        this.users = users;
     }
 
     public Localizacion getLocalizacion() {
