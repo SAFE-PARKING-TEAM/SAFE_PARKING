@@ -16,7 +16,7 @@ public class HorarioEstacionamientoController {
     @Autowired
     private IHorarioEstacionamientoService heS;
     @PostMapping
-    @PreAuthorize("hasAuthority('arredador')"  )
+    @PreAuthorize("hasAuthority('arrendador')"  )
     public void registrar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto,HorarioEstacionamiento.class);
