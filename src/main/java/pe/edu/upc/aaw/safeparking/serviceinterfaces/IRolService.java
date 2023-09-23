@@ -1,12 +1,12 @@
 package pe.edu.upc.aaw.safeparking.serviceinterfaces;
 
-import pe.edu.upc.aaw.safeparking.entities.Rol;
+import pe.edu.upc.aaw.safeparking.entities.Role;
 
 import java.util.List;
 
 public interface IRolService {
-    public void insert(Rol rol);
-    public List<Rol> list();
+    public void insert(Role role);
+    public List<Role> list();
     public void delete(int idRol);
-    public Rol listId(int idRol);
+    public Role listId(int idRol);
 }

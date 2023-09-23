@@ -1,8 +1,7 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
-import pe.edu.upc.aaw.safeparking.entities.Estacionamiento;
 import pe.edu.upc.aaw.safeparking.entities.HorarioEstacionamiento;
-import pe.edu.upc.aaw.safeparking.entities.Usuario;
+import pe.edu.upc.aaw.safeparking.entities.Users;
 import pe.edu.upc.aaw.safeparking.entities.Vehiculo;
 
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ public class ReservaEstacionamientoDTO {
     private boolean favorito;
     private LocalDate fecha;
 
-    private Usuario usuario;
+    private UsuarioDTO users;
 
     private Vehiculo vehiculo;
 
@@ -61,12 +60,12 @@ public class ReservaEstacionamientoDTO {
         this.favorito = favorito;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioDTO getUsuario() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(UsuarioDTO users) {
+        this.users = users;
     }
 
     public Vehiculo getVehiculo() {

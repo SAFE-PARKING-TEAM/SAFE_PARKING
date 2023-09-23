@@ -1,7 +1,7 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.Localizacion;
-import pe.edu.upc.aaw.safeparking.entities.Usuario;
+import pe.edu.upc.aaw.safeparking.entities.Users;
 
 import java.time.LocalDate;
 
@@ -14,7 +14,7 @@ public class EstacionamientoDTO {
     private int capacidad;
     private LocalDate fechaRegistro;
     private Double precio;
-    private Usuario usuario;
+    private Users users;
     private Localizacion localizacion;
 
     public int getIdEstacionamiento() {return idEstacionamiento;}
@@ -49,9 +49,9 @@ public class EstacionamientoDTO {
 
     public void setPrecio(Double precio) {this.precio = precio;}
 
-    public Usuario getUsuario() {return usuario;}
+    public Users getUsuario() {return users;}
 
-    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
+    public void setUsuario(Users users) {this.users = users;}
 
     public Localizacion getLocalizacion() {return localizacion;}
 

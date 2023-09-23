@@ -1,7 +1,7 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.Membresia;
-import pe.edu.upc.aaw.safeparking.entities.Rol;
+import pe.edu.upc.aaw.safeparking.entities.Role;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,7 +12,7 @@ public class UsuarioDTO {
     private String apellido;
     private String correo;
     private String username;
-    private String contrasenia;
+    private String password;
     private String genero;
     private int dni;
     private String imagen;
@@ -20,15 +20,7 @@ public class UsuarioDTO {
     private int telefono;
     private Membresia membresia;
     private Boolean enabled;
-    private List<Rol> roles;
-
-    public List<Rol> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Rol> roles) {
-        this.roles = roles;
-    }
+    //private List<Role> roles;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -70,12 +62,12 @@ public class UsuarioDTO {
         this.username = username;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getGenero() {

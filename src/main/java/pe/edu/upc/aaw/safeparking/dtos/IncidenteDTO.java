@@ -1,19 +1,19 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
-import pe.edu.upc.aaw.safeparking.entities.Usuario;
+import pe.edu.upc.aaw.safeparking.entities.Users;
 
 public class IncidenteDTO {
     private int idIncidente;
     private String descripcion;
     private String tipoIncidente;
-    private Usuario usuario;
+    private UsuarioDTO users;
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioDTO getUsuario() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(UsuarioDTO users) {
+        this.users = users;
     }
 
     public int getIdIncidente() {
