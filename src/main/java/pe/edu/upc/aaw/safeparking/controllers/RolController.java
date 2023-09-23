@@ -2,9 +2,10 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.RolDTO;
-import pe.edu.upc.aaw.safeparking.entities.Rol;
+import pe.edu.upc.aaw.safeparking.entities.Role;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IRolService;
 
 import java.util.List;
@@ -15,13 +16,15 @@ import java.util.stream.Collectors;
 public class RolController {
     @Autowired
     private IRolService rolR;
-    @PostMapping
+    @PostMapping("Registrar")
+    @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody RolDTO dto){
         ModelMapper m=new ModelMapper();
-        Rol d=m.map(dto,Rol.class);
+        Role d=m.map(dto, Role.class);
         rolR.insert(d);
     }
-    @GetMapping
+    @GetMapping("Listar")
+    @PreAuthorize("hasAuthority('administrador')")
     public List<RolDTO> listar(){
         return rolR.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -29,15 +32,16 @@ public class RolController {
         }).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     public void eliminar(@PathVariable("id")Integer id){
         rolR.delete(id);
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody RolDTO dto){
         ModelMapper m=new ModelMapper();
-        Rol d=m.map(dto,Rol.class);
+        Role d=m.map(dto, Role.class);
         rolR.insert(d);
     }
 }

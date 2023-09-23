@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "rol")
-public class Rol implements Serializable {
+@Table(name = "roles")
+public class Role implements Serializable {
 
-    //private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,15 +17,15 @@ public class Rol implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="idUsuario")
-    private Usuario usuario;
+    private Users users;
 
-    public Rol() {
+    public Role() {
     }
 
-    public Rol(int idRol, String nombreRol, Usuario usuario) {
+    public Role(int idRol, String nombreRol, Users users) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
-        this.usuario = usuario;
+        this.users = users;
     }
 
     public int getIdRol() {
@@ -44,12 +44,12 @@ public class Rol implements Serializable {
         this.nombreRol = nombreRol;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsuario() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Users users) {
+        this.users = users;
     }
 
 }
