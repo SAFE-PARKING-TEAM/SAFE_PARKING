@@ -24,7 +24,7 @@ public class HorarioController {
         hS.insert(h);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('conductor') ")
+    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('conductor') or hasAuthority('administrador')")
     public List<HorarioDTO> listar(){
         return hS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();

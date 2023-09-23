@@ -39,7 +39,7 @@ public class ReservaEstacionamientoController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
+    @PreAuthorize(" hasAuthority('conductor')")
     public void modificar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto, ReservaEstacionamiento.class);
