@@ -1,7 +1,6 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.HorarioEstacionamiento;
-import pe.edu.upc.aaw.safeparking.entities.Users;
 import pe.edu.upc.aaw.safeparking.entities.Vehiculo;
 
 import java.time.LocalDate;
@@ -16,9 +15,9 @@ public class ReservaEstacionamientoDTO {
 
     private UsuarioDTO users;
 
-    private Vehiculo vehiculo;
+    private VehiculoDTO vehiculo;
 
-    private HorarioEstacionamiento horarioEstacionamiento;
+    private HorarioEstacionamientoDTO horarioEstacionamiento;
 
     public int getIdReservaEstacionamiento() {
         return idReservaEstacionamiento;
@@ -36,13 +35,7 @@ public class ReservaEstacionamientoDTO {
         this.fecha = fecha;
     }
 
-    public HorarioEstacionamiento getHorarioEstacionamiento() {
-        return horarioEstacionamiento;
-    }
 
-    public void setHorarioEstacionamiento(HorarioEstacionamiento horarioEstacionamiento) {
-        this.horarioEstacionamiento = horarioEstacionamiento;
-    }
 
     public String getEstado() {
         return estado;
@@ -68,12 +61,41 @@ public class ReservaEstacionamientoDTO {
         this.users = users;
     }
 
-    public Vehiculo getVehiculo() {
+    public UsuarioDTO getUsers() {
+        return users;
+    }
+
+    public void setUsers(UsuarioDTO users) {
+        this.users = users;
+    }
+
+    public VehiculoDTO getVehiculo() {
         return vehiculo;
     }
 
-    public void setVehiculo(Vehiculo vehiculo) {
+    public void setVehiculo(VehiculoDTO vehiculo) {
         this.vehiculo = vehiculo;
     }
 
+    public HorarioEstacionamientoDTO getHorarioEstacionamiento() {
+        return horarioEstacionamiento;
+    }
+
+    public void setHorarioEstacionamiento(HorarioEstacionamientoDTO horarioEstacionamiento) {
+        this.horarioEstacionamiento = horarioEstacionamiento;
+    }
+
+    public ReservaEstacionamientoDTO() {
+
+    }
+
+    public ReservaEstacionamientoDTO(int idReservaEstacionamiento, String estado, boolean favorito, LocalDate fecha, UsuarioDTO users, VehiculoDTO vehiculo, HorarioEstacionamientoDTO horarioEstacionamiento) {
+        this.idReservaEstacionamiento = idReservaEstacionamiento;
+        this.estado = estado;
+        this.favorito = favorito;
+        this.fecha = fecha;
+        this.users = users;
+        this.vehiculo = vehiculo;
+        this.horarioEstacionamiento = horarioEstacionamiento;
+    }
 }

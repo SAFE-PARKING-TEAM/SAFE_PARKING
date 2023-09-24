@@ -13,17 +13,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/estacionamiento")
+@RequestMapping("/estacionamientos")
 public class EstacionamientoController {
     @Autowired
     private IEstacionamientoService eS;
-    @PostMapping
+    @PostMapping("Registrar")
     public void registrar(@RequestBody EstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         Estacionamiento d=m.map(dto,Estacionamiento.class);
         eS.insert(d);
     }
-    @GetMapping
+    @GetMapping("Listar")
     public List<EstacionamientoDTO> listar(){
         return eS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -31,14 +31,14 @@ public class EstacionamientoController {
         }).collect(Collectors.toList());
     }
 
-    @PutMapping
+    @PutMapping("Modificar")
     public void modificar(@RequestBody EstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         Estacionamiento d=m.map(dto, Estacionamiento.class);
         eS.insert(d);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     public void eliminar(@PathVariable("id")Integer id){
         eS.delete(id);
     }

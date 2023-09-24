@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/pago")
+@RequestMapping("/pagos")
 public class PagoController {
     @Autowired
     private IPagoService pagoR;
