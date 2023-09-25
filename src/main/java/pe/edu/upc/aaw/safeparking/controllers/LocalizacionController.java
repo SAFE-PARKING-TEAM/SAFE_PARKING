@@ -16,6 +16,14 @@ import java.util.stream.Collectors;
 public class LocalizacionController {
     @Autowired
     private ILocalizacionService lS;
+
+    public LocalizacionController() {
+    }
+
+    public LocalizacionController(ILocalizacionService lS) {
+        this.lS = lS;
+    }
+
     @PostMapping("Registrar")
     public void registrar(@RequestBody LocalizacionDTO dto){
         ModelMapper m=new ModelMapper();

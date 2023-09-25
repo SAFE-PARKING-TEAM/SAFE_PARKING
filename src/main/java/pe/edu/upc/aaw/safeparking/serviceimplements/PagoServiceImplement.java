@@ -11,6 +11,14 @@ import java.util.List;
 public class PagoServiceImplement implements IPagoService {
     @Autowired
     private IPagoRepository pagoR;
+
+    public PagoServiceImplement() {
+    }
+
+    public PagoServiceImplement(IPagoRepository pagoR) {
+        this.pagoR = pagoR;
+    }
+
     @Override
     public void insert(Pago pago) {
         pagoR.save(pago);

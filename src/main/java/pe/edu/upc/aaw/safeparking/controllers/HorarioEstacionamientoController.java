@@ -15,6 +15,14 @@ import java.util.stream.Collectors;
 public class HorarioEstacionamientoController {
     @Autowired
     private IHorarioEstacionamientoService heS;
+
+    public HorarioEstacionamientoController() {
+    }
+
+    public HorarioEstacionamientoController(IHorarioEstacionamientoService heS) {
+        this.heS = heS;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('arredador')"  )
     public void registrar(@RequestBody HorarioEstacionamientoDTO dto){

@@ -13,6 +13,13 @@ public class UsuarioServiceImplement implements IUsuarioService {
     @Autowired
     private IUsuarioRepository uR;
 
+    public UsuarioServiceImplement() {
+    }
+
+    public UsuarioServiceImplement(IUsuarioRepository uR) {
+        this.uR = uR;
+    }
+
     @Override
     public void insert(Usuario usuario) {
         uR.save(usuario);

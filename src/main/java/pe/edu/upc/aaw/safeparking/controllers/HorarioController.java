@@ -16,6 +16,15 @@ import java.util.stream.Collectors;
 public class HorarioController {
     @Autowired
     private IHorarioService hS;
+
+    public HorarioController() {
+
+    }
+
+    public HorarioController(IHorarioService hS) {
+        this.hS = hS;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador') ")
     public void registrar(@RequestBody HorarioDTO dto){

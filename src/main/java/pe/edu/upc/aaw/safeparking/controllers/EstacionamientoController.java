@@ -17,6 +17,14 @@ import java.util.stream.Collectors;
 public class EstacionamientoController {
     @Autowired
     private IEstacionamientoService eS;
+
+    public EstacionamientoController() {
+    }
+
+    public EstacionamientoController(IEstacionamientoService eS) {
+        this.eS = eS;
+    }
+
     @PostMapping("Registrar")
     public void registrar(@RequestBody EstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();

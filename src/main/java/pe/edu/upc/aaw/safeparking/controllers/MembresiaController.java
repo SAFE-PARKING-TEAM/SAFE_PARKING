@@ -16,6 +16,14 @@ import java.util.stream.Collectors;
 public class MembresiaController {
     @Autowired
     private IMembresiaService dS;
+
+    public MembresiaController() {
+    }
+
+    public MembresiaController(IMembresiaService dS) {
+        this.dS = dS;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody MembresiaDTO dto){

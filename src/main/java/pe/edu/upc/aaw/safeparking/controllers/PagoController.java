@@ -16,6 +16,14 @@ import java.util.stream.Collectors;
 public class PagoController {
     @Autowired
     private IPagoService pagoR;
+
+    public PagoController() {
+    }
+
+    public PagoController(IPagoService pagoR) {
+        this.pagoR = pagoR;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody PagoDTO dto){

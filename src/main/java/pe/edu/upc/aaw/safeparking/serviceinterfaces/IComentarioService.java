@@ -12,4 +12,5 @@ public interface IComentarioService {
 
     public void delete(int idComentario);
     public Comentario listId(int idComentario);
+
 }

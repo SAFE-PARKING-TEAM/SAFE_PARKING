@@ -18,6 +18,14 @@ import java.util.stream.Collectors;
 public class IncidenteController {
     @Autowired
     private IIncidenteService iS;
+
+    public IncidenteController() {
+    }
+
+    public IncidenteController(IIncidenteService iS) {
+        this.iS = iS;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador')")
     public void registrar(@RequestBody IncidenteDTO dto){

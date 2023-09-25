@@ -16,6 +16,14 @@ import java.util.stream.Collectors;
 public class VehiculoController {
     @Autowired
     private IVehiculoService vS;
+
+    public VehiculoController() {
+    }
+
+    public VehiculoController(IVehiculoService vS) {
+        this.vS = vS;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody VehiculoDTO dto){

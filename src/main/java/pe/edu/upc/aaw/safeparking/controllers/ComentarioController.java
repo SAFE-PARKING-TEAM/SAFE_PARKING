@@ -17,6 +17,14 @@ import java.util.stream.Collectors;
 public class ComentarioController {
     @Autowired
     private IComentarioService cS;
+
+    public ComentarioController(IComentarioService cS) {
+        this.cS = cS;
+    }
+
+    public ComentarioController() {
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
     public void Registrar(@RequestBody ComentarioDTO dto){

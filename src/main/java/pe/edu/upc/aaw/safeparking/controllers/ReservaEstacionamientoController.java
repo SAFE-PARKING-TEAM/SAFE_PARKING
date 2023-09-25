@@ -22,6 +22,14 @@ import java.util.stream.Collectors;
 public class ReservaEstacionamientoController {
     @Autowired
     private IReservaEstacionamientoService reS;
+
+    public ReservaEstacionamientoController() {
+    }
+
+    public ReservaEstacionamientoController(IReservaEstacionamientoService reS) {
+        this.reS = reS;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){

@@ -15,6 +15,13 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
 
+    public UsuarioController() {
+    }
+
+    public UsuarioController(IUsuarioService uS) {
+        this.uS = uS;
+    }
+
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador')or hasAuthority('conductor')or hasAuthority('arrendador')")
     public void registrar(@RequestBody UsuarioDTO dto){
