@@ -8,25 +8,23 @@ import java.util.List;
 
 @Repository
 public interface IPagoRepository extends JpaRepository<Pago,Integer> {
-@Query(value = "SELECT\n" +
-        "   sum(precio_total),\n" +
-        "  CASE\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 1 THEN 'Enero'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 2 THEN 'Febrero'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 3 THEN 'Marzo'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 4 THEN 'Abril'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 5 THEN 'Mayo'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 6 THEN 'Junio'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 7 THEN 'Julio'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 8 THEN 'Agosto'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 9 THEN 'Septiembre'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 10 THEN 'Octubre'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 11 THEN 'Noviembre'\n" +
-        "    WHEN EXTRACT(MONTH FROM fecha_fin) = 12 THEN 'Diciembre'\n" +
-        "  END AS nombre_mes\n" +
-        "FROM\n" +
-        "  pago\n" +
-        "GROUP BY\n" +
-        "  EXTRACT(MONTH FROM fecha_fin)", nativeQuery = true)
+@Query(value ="SELECT sum(precio_total), \n" +
+        "CASE \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 1 THEN 'Enero' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 2 THEN 'Febrero' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 3 THEN 'Marzo' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 4 THEN 'Abril' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 5 THEN 'Mayo' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 6 THEN 'Junio' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 7 THEN 'Julio' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 8 THEN 'Agosto' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 9 THEN 'Septiembre' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 10 THEN 'Octubre' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 11 THEN 'Noviembre' \n" +
+        "   WHEN EXTRACT(MONTH FROM fecha_emision) = 12 THEN 'Diciembre' \n" +
+        "       END AS nombre_mes \n" +
+        "       FROM pago \n" +
+        "       GROUP BY \n" +
+        "       EXTRACT(MONTH FROM fecha_emision)", nativeQuery = true)
     public List<String[]> PrecioTotalReservasporMesD();
 }

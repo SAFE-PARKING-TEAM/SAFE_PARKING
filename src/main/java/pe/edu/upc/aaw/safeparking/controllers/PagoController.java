@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.PagoDTO;
+import pe.edu.upc.aaw.safeparking.dtos.PrecioTotalporMesDTO;
 import pe.edu.upc.aaw.safeparking.entities.Pago;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IPagoService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,5 +54,19 @@ public class PagoController {
         ModelMapper m=new ModelMapper();
         Pago d=m.map(dto,Pago.class);
         pagoR.insert(d);
+    }
+
+    @GetMapping("precioTotalporMes")
+    @PreAuthorize("hasAuthority('administrador')")
+    public List<PrecioTotalporMesDTO> precioTotalporMes(){
+        List<String[]> lista = pagoR.PrecioTotalReservasporMesD();
+        List<PrecioTotalporMesDTO> listaDTO = new ArrayList<>();
+        for(String[] data:lista){
+            PrecioTotalporMesDTO dto=new PrecioTotalporMesDTO();
+            dto.setPrecioTotal(Double.parseDouble(data[0]));
+            dto.setMes(data[1]);
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }
