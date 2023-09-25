@@ -2,7 +2,7 @@ package pe.edu.upc.aaw.safeparking.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.aaw.safeparking.entities.Users;
+import pe.edu.upc.aaw.safeparking.entities.Usuario;
 import pe.edu.upc.aaw.safeparking.repositories.IUsuarioRepository;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IUsuarioService;
 
@@ -13,23 +13,25 @@ public class UsuarioServiceImplement implements IUsuarioService {
     @Autowired
     private IUsuarioRepository uR;
 
-    @Override
-    public void insert(Users users) {
-        uR.save(users);
+    public UsuarioServiceImplement() {
+    }
+
+    public UsuarioServiceImplement(IUsuarioRepository uR) {
+        this.uR = uR;
     }
 
     @Override
-    public List<Users> list() {
+    public void insert(Usuario usuario) {
+        uR.save(usuario);
+    }
+
+    @Override
+    public List<Usuario> list() {
         return uR.findAll();
     }
 
     @Override
-    public void delete(int idDessert) {
-        uR.deleteById(idDessert);
-    }
-
-    @Override
-    public Users listId(int idUsuario) {
-        return uR.findById(idUsuario).orElse(new Users());
+    public Usuario listId(int idUsuario) {
+        return uR.findById(idUsuario).orElse(new Usuario());
     }
 }

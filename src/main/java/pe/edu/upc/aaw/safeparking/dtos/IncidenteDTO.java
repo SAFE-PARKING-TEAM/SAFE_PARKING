@@ -1,7 +1,5 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
-import pe.edu.upc.aaw.safeparking.entities.Users;
-
 public class IncidenteDTO {
     private int idIncidente;
     private String descripcion;
@@ -38,5 +36,15 @@ public class IncidenteDTO {
 
     public void setTipoIncidente(String tipoIncidente) {
         this.tipoIncidente = tipoIncidente;
+    }
+
+    public IncidenteDTO() {
+    }
+
+    public IncidenteDTO(int idIncidente, String descripcion, String tipoIncidente, UsuarioDTO users) {
+        this.idIncidente = idIncidente;
+        this.descripcion = descripcion;
+        this.tipoIncidente = tipoIncidente;
+        this.users = users;
     }
 }

@@ -13,6 +13,13 @@ public class LocalizacionServiceImplement implements ILocalizacionService {
     @Autowired
     private ILocalizacionRepository lR;
 
+    public LocalizacionServiceImplement() {
+    }
+
+    public LocalizacionServiceImplement(ILocalizacionRepository lR) {
+        this.lR = lR;
+    }
+
     @Override
     public void insert(Localizacion localizacion) {
         lR.save(localizacion);

@@ -17,7 +17,7 @@ public class ReservaEstacionamiento {
     private LocalDate fecha;
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    private Users users;
+    private Usuario usuario;
     @OneToOne
     @JoinColumn(name = "idVehiculo")
     private Vehiculo vehiculo;
@@ -28,12 +28,12 @@ public class ReservaEstacionamiento {
     public ReservaEstacionamiento() {
     }
 
-    public ReservaEstacionamiento(int idReservaEstacionamiento, String estado, boolean favorito, LocalDate fecha, Users users, Vehiculo vehiculo, HorarioEstacionamiento horarioEstacionamiento) {
+    public ReservaEstacionamiento(int idReservaEstacionamiento, String estado, boolean favorito, LocalDate fecha, Usuario usuario, Vehiculo vehiculo, HorarioEstacionamiento horarioEstacionamiento) {
         this.idReservaEstacionamiento = idReservaEstacionamiento;
         this.estado = estado;
         this.favorito = favorito;
         this.fecha = fecha;
-        this.users = users;
+        this.usuario = usuario;
         this.vehiculo = vehiculo;
         this.horarioEstacionamiento = horarioEstacionamiento;
     }
@@ -70,12 +70,12 @@ public class ReservaEstacionamiento {
         this.fecha = fecha;
     }
 
-    public Users getUsuario() {
-        return users;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario(Users users) {
-        this.users = users;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Vehiculo getVehiculo() {

@@ -2,6 +2,8 @@ package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.ReservaEstacionamiento;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.time.LocalDate;
 
 public class ComentarioDTO {
@@ -9,7 +11,7 @@ public class ComentarioDTO {
     private String contenido;
     private int valoracion;
     private LocalDate fechaCreacion;
-    private ReservaEstacionamiento reservaEstacionamiento;
+    private ReservaEstacionamientoDTO reservaEstacionamiento;
 
     public int getIdComentario() {
         return idComentario;
@@ -43,11 +45,22 @@ public class ComentarioDTO {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public ReservaEstacionamiento getReservaEstacionamiento() {
+    public ReservaEstacionamientoDTO getReservaEstacionamiento() {
         return reservaEstacionamiento;
     }
 
-    public void setReservaEstacionamiento(ReservaEstacionamiento reservaEstacionamiento) {
+    public void setReservaEstacionamiento(ReservaEstacionamientoDTO reservaEstacionamiento) {
+        this.reservaEstacionamiento = reservaEstacionamiento;
+    }
+
+    public ComentarioDTO() {
+    }
+
+    public ComentarioDTO(int idComentario, String contenido, int valoracion, LocalDate fechaCreacion, ReservaEstacionamientoDTO reservaEstacionamiento) {
+        this.idComentario = idComentario;
+        this.contenido = contenido;
+        this.valoracion = valoracion;
+        this.fechaCreacion = fechaCreacion;
         this.reservaEstacionamiento = reservaEstacionamiento;
     }
 }

@@ -11,6 +11,14 @@ import java.util.List;
 public class HorarioEstacionamientoServiceImplement implements IHorarioEstacionamientoService {
     @Autowired
     private IHorarioEstacionamientoRepository heR;
+
+    public HorarioEstacionamientoServiceImplement() {
+    }
+
+    public HorarioEstacionamientoServiceImplement(IHorarioEstacionamientoRepository heR) {
+        this.heR = heR;
+    }
+
     @Override
     public void insert(HorarioEstacionamiento HorarioEstacionamiento) {
         heR.save(HorarioEstacionamiento);
