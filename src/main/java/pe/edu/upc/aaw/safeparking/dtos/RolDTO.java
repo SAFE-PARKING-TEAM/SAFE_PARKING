@@ -1,7 +1,5 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
-import pe.edu.upc.aaw.safeparking.entities.Users;
-
 public class RolDTO {
     private int idRol;
     private String nombreRol;
@@ -28,6 +26,15 @@ public class RolDTO {
     }
 
     public void setUsuario(UsuarioDTO users) {
+        this.users = users;
+    }
+
+    public RolDTO() {
+    }
+
+    public RolDTO(int idRol, String nombreRol, UsuarioDTO users) {
+        this.idRol = idRol;
+        this.nombreRol = nombreRol;
         this.users = users;
     }
 }
