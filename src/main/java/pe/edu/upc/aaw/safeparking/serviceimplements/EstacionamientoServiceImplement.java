@@ -30,7 +30,7 @@ public class EstacionamientoServiceImplement implements IEstacionamientoService 
     }
 
     @Override
-    public Estacionamiento listId(int idEstacionamiento) {
+    public Estacionamiento listarrId(int idEstacionamiento) {
         return eR.findById(idEstacionamiento).orElse(new Estacionamiento());
     }
 }

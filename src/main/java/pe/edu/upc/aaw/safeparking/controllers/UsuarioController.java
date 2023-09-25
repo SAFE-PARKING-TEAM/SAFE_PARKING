@@ -40,9 +40,10 @@ public class UsuarioController {
     public void eliminar(@PathVariable("id")Integer id){
         uS.delete(id);
     }
+
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('administrador')")
-    public UsuarioDTO listarId(@PathVariable("id")Integer id){
+    public UsuarioDTO listId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         UsuarioDTO u= m.map(uS.listId(id), UsuarioDTO.class);
         return u;

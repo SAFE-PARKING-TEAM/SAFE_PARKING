@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.EstacionamientoDTO;
+import pe.edu.upc.aaw.safeparking.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.safeparking.entities.Estacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IEstacionamientoService;
 
@@ -42,10 +43,20 @@ public class EstacionamientoController {
         eS.insert(d);
     }
 
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         eS.delete(id);
+    }
+
+
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
+    public EstacionamientoDTO listarrId(@PathVariable("id")Integer id){
+        ModelMapper mo = new ModelMapper();
+        EstacionamientoDTO e= mo.map(eS.listarrId(id), EstacionamientoDTO.class);
+        return e;
     }
 
 }

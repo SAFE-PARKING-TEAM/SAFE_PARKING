@@ -9,5 +9,5 @@ public interface IEstacionamientoService {
     public void insert(Estacionamiento estacionamiento);
     public List<Estacionamiento> list();
     public void delete(int idEstacionamiento);
-    public Estacionamiento listId(int idEstacionamiento);
+    public Estacionamiento listarrId(int idEstacionamiento);
 }
