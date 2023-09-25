@@ -4,10 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorFechaDTO;
-import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorTipoPagoDTO;
-import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorUsuarioDTO;
-import pe.edu.upc.aaw.safeparking.dtos.ReservaEstacionamientoDTO;
+import pe.edu.upc.aaw.safeparking.dtos.*;
 import pe.edu.upc.aaw.safeparking.entities.ReservaEstacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IReservaEstacionamientoService;
 
@@ -37,6 +34,14 @@ public class ReservaEstacionamientoController {
             return m.map(x,ReservaEstacionamientoDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('arrendador')")
+    public ReservaEstacionamientoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        ReservaEstacionamientoDTO re= m.map(reS.listId(id), ReservaEstacionamientoDTO.class);
+        return re;
+    }
+
 
     @PutMapping
     @PreAuthorize(" hasAuthority('conductor')")

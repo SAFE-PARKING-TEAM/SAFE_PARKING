@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.ReservaEstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.RolDTO;
 import pe.edu.upc.aaw.safeparking.entities.Rol;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IRolService;
@@ -39,6 +40,13 @@ public class RolController {
             ModelMapper m=new ModelMapper();
             return m.map(x,RolDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
+    public RolDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        RolDTO rl= m.map(rolR.listId(id), RolDTO.class);
+        return rl;
     }
 
     @DeleteMapping("Eliminar/{id}")

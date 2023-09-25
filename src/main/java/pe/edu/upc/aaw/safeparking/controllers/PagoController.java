@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.MembresiaDTO;
 import pe.edu.upc.aaw.safeparking.dtos.PagoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.PrecioTotalporMesDTO;
 import pe.edu.upc.aaw.safeparking.entities.Pago;
@@ -27,7 +28,7 @@ public class PagoController {
     }
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody PagoDTO dto){
         ModelMapper m=new ModelMapper();
         Pago d=m.map(dto, Pago.class);
@@ -41,12 +42,21 @@ public class PagoController {
             return m.map(x,PagoDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('arrendador')")
+    public PagoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        PagoDTO pg= m.map(pagoR.listId(id), PagoDTO.class);
+        return pg;
+    }
+
 
     @DeleteMapping("Eliminar/{id}")
     @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         pagoR.delete(id);
     }
+
 
     @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('administrador')")

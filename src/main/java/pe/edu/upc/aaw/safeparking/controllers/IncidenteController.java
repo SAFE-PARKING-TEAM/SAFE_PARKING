@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.CantIncidentesPorRolDTO;
+import pe.edu.upc.aaw.safeparking.dtos.HorarioEstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.IncidenteDTO;
 import pe.edu.upc.aaw.safeparking.entities.Incidente;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IIncidenteService;
@@ -41,6 +42,14 @@ public class IncidenteController {
             return m.map(x,IncidenteDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
+    public IncidenteDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        IncidenteDTO i= m.map(iS.listId(id), IncidenteDTO.class);
+        return i;
+    }
+
     @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador')")
     public void modificar(@RequestBody IncidenteDTO dto){
