@@ -49,4 +49,15 @@ public class MembresiaDTO {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    public MembresiaDTO() {
+    }
+
+    public MembresiaDTO(int idMembresia, String tipoMembresia, LocalDate fechaInicio, LocalDate fechaFin, double precio) {
+        this.idMembresia = idMembresia;
+        this.tipoMembresia = tipoMembresia;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.precio = precio;
+    }
 }

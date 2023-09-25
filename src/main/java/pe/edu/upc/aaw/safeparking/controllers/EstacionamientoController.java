@@ -15,18 +15,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/estacionamiento")
+@RequestMapping("/estacionamientos")
 public class EstacionamientoController {
     @Autowired
     private IEstacionamientoService eS;
-    @PostMapping
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')")
+
+    public EstacionamientoController() {
+    }
+
+    public EstacionamientoController(IEstacionamientoService eS) {
+        this.eS = eS;
+    }
+
+    @PostMapping("Registrar")
     public void registrar(@RequestBody EstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         Estacionamiento d=m.map(dto,Estacionamiento.class);
         eS.insert(d);
     }
-    @GetMapping
+    @GetMapping("Listar")
     @PreAuthorize("hasAuthority('administrador')")
     public List<EstacionamientoDTO> listar(){
         return eS.list().stream().map(x->{
@@ -35,7 +42,7 @@ public class EstacionamientoController {
         }).collect(Collectors.toList());
     }
 
-    @PutMapping
+    @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')")
     public void modificar(@RequestBody EstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
@@ -43,8 +50,7 @@ public class EstacionamientoController {
         eS.insert(d);
     }
 
-
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         eS.delete(id);

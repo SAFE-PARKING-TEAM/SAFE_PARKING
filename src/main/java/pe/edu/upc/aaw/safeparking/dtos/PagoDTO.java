@@ -10,7 +10,7 @@ public class PagoDTO {
     private LocalDate fechaEmision;
     private double precioTotal;
     private String tipoPago;
-    private ReservaEstacionamiento reservaEstacionamiento;
+    private ReservaEstacionamientoDTO reservaEstacionamiento;
 
     public int getIdPago() {
         return idPago;
@@ -44,11 +44,22 @@ public class PagoDTO {
         this.tipoPago = tipoPago;
     }
 
-    public ReservaEstacionamiento getReservaEstacionamiento() {
+    public ReservaEstacionamientoDTO getReservaEstacionamiento() {
         return reservaEstacionamiento;
     }
 
-    public void setReservaEstacionamiento(ReservaEstacionamiento reservaEstacionamiento) {
+    public void setReservaEstacionamiento(ReservaEstacionamientoDTO reservaEstacionamiento) {
+        this.reservaEstacionamiento = reservaEstacionamiento;
+    }
+
+    public PagoDTO() {
+    }
+
+    public PagoDTO(int idPago, LocalDate fechaEmision, double precioTotal, String tipoPago, ReservaEstacionamientoDTO reservaEstacionamiento) {
+        this.idPago = idPago;
+        this.fechaEmision = fechaEmision;
+        this.precioTotal = precioTotal;
+        this.tipoPago = tipoPago;
         this.reservaEstacionamiento = reservaEstacionamiento;
     }
 }

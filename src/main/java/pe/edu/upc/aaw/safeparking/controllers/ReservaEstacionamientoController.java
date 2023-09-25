@@ -18,18 +18,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/ReservaEstacionamiento")
+@RequestMapping("/reservaEstacionamientos")
 public class ReservaEstacionamientoController {
     @Autowired
     private IReservaEstacionamientoService reS;
-    @PostMapping
+
+    public ReservaEstacionamientoController() {
+    }
+
+    public ReservaEstacionamientoController(IReservaEstacionamientoService reS) {
+        this.reS = reS;
+    }
+
+    @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto,ReservaEstacionamiento.class);
         reS.insert(rev);
     }
-    @GetMapping
+    @GetMapping("Listar")
     @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor') or hasAuthority('arrendador')"  )
     public List<ReservaEstacionamientoDTO> listar(){
         return reS.list().stream().map(x->{
@@ -38,7 +46,7 @@ public class ReservaEstacionamientoController {
         }).collect(Collectors.toList());
     }
 
-    @PutMapping
+    @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
     public void modificar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
@@ -46,7 +54,7 @@ public class ReservaEstacionamientoController {
         reS.insert(rev);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     @PreAuthorize("hasAuthority('conductor')")
     public void eliminar(@PathVariable("id")Integer id){
         reS.delete(id);

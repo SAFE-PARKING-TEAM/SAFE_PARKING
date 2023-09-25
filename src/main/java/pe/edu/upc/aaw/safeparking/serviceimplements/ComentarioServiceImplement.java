@@ -13,6 +13,13 @@ public class ComentarioServiceImplement implements IComentarioService {
     @Autowired
     private IComentarioRepository cR;
 
+    public ComentarioServiceImplement() {
+    }
+
+    public ComentarioServiceImplement(IComentarioRepository cR) {
+        this.cR = cR;
+    }
+
     @Override
     public void insert(Comentario comentario) {
         cR.save(comentario);
@@ -27,9 +34,9 @@ public class ComentarioServiceImplement implements IComentarioService {
     public void delete(int idComentario) {
         cR.deleteById(idComentario);
     }
-
     @Override
-    public Comentario listarid(int idComentario) {
+    public Comentario listId(int idComentario) {
         return cR.findById(idComentario).orElse(new Comentario());
+
     }
 }
