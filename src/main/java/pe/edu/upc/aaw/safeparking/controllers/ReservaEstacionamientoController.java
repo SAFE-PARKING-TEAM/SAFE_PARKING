@@ -4,10 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorFechaDTO;
-import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorTipoPagoDTO;
-import pe.edu.upc.aaw.safeparking.dtos.CantidadReservasPorUsuarioDTO;
-import pe.edu.upc.aaw.safeparking.dtos.ReservaEstacionamientoDTO;
+import pe.edu.upc.aaw.safeparking.dtos.*;
 import pe.edu.upc.aaw.safeparking.entities.ReservaEstacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IReservaEstacionamientoService;
 
@@ -18,26 +15,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/reservaEstacionamientos")
+@RequestMapping("/ReservaEstacionamiento")
 public class ReservaEstacionamientoController {
     @Autowired
     private IReservaEstacionamientoService reS;
-
-    public ReservaEstacionamientoController() {
-    }
-
-    public ReservaEstacionamientoController(IReservaEstacionamientoService reS) {
-        this.reS = reS;
-    }
-
-    @PostMapping("Registrar")
+    @PostMapping
     @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto,ReservaEstacionamiento.class);
         reS.insert(rev);
     }
-    @GetMapping("Listar")
+    @GetMapping
     @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor') or hasAuthority('arrendador')"  )
     public List<ReservaEstacionamientoDTO> listar(){
         return reS.list().stream().map(x->{
@@ -45,16 +34,24 @@ public class ReservaEstacionamientoController {
             return m.map(x,ReservaEstacionamientoDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('arrendador')")
+    public ReservaEstacionamientoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        ReservaEstacionamientoDTO re= m.map(reS.listId(id), ReservaEstacionamientoDTO.class);
+        return re;
+    }
 
-    @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
+
+    @PutMapping
+    @PreAuthorize(" hasAuthority('conductor')")
     public void modificar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto, ReservaEstacionamiento.class);
         reS.insert(rev);
     }
 
-    @DeleteMapping("Eliminar/{id}")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('conductor')")
     public void eliminar(@PathVariable("id")Integer id){
         reS.delete(id);

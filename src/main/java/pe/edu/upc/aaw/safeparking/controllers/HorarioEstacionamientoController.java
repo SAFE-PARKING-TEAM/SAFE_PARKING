@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.HorarioDTO;
 import pe.edu.upc.aaw.safeparking.dtos.HorarioEstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.entities.HorarioEstacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IHorarioEstacionamientoService;
@@ -28,6 +29,13 @@ public class HorarioEstacionamientoController {
 
 
 
+    }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('conductor')")
+    public HorarioEstacionamientoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        HorarioEstacionamientoDTO he= m.map(heS.listId(id), HorarioEstacionamientoDTO.class);
+        return he;
     }
 
 }

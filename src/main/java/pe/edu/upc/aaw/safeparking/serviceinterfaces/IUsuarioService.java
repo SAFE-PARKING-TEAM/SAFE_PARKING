@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.safeparking.serviceinterfaces;
 
 import pe.edu.upc.aaw.safeparking.entities.Usuario;
+import pe.edu.upc.aaw.safeparking.entities.Vehiculo;
 
 import java.util.List;
 
@@ -11,3 +12,4 @@ public interface IUsuarioService {
     public Usuario listId(int idUsuario);
     
 }
+

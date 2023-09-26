@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.RolDTO;
 import pe.edu.upc.aaw.safeparking.dtos.VehiculoDTO;
 import pe.edu.upc.aaw.safeparking.entities.Vehiculo;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IVehiculoService;
@@ -38,6 +39,13 @@ public class VehiculoController {
             ModelMapper m=new ModelMapper();
             return m.map(x,VehiculoDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
+    public VehiculoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        VehiculoDTO v= m.map(vS.listId(id), VehiculoDTO.class);
+        return v;
     }
     @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
