@@ -35,7 +35,7 @@ public class ReservaEstacionamientoServiceImplement  implements IReservaEstacion
 
     @Override
     public List<String[]> quantityreservationByUser() {
-        return reR.quantityreservationByUser();
+        return null;
     }
 
 

@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.safeparking.entities.Usuario;
@@ -16,13 +17,15 @@ import java.util.stream.Collectors;
 public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
-    @PostMapping
+    @PreAuthorize("hasAuthority('administrador')")
+    @PostMapping("Registrar")
     public void registrar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
     }
-    @GetMapping
+    @PreAuthorize("hasAuthority('administrador')")
+    @GetMapping("Listar")
     public List<UsuarioDTO> listar(){
 
         return uS.list().stream().map(x->{
@@ -33,16 +36,19 @@ public class UsuarioController {
 
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         uS.delete(id);
     }
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
     public UsuarioDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         UsuarioDTO u= m.map(uS.listId(id), UsuarioDTO.class);
         return u;
     }
     @PutMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Usuario u=m.map(dto, Usuario.class);

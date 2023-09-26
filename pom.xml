@@ -11,7 +11,7 @@
     <groupId>pe.edu.upc.aaw</groupId>
     <artifactId>SAFEPARKING</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>SAFEPARKING</name>
     <description>SAFEPARKING</description>
     <properties>
@@ -84,14 +84,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-
     </dependencies>
 
+<!--Despliegue plugin-->
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
             </plugin>
         </plugins>
     </build>

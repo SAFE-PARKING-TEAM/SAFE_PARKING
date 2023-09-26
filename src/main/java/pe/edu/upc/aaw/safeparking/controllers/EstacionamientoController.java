@@ -13,32 +13,45 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/estacionamiento")
+@RequestMapping("/estacionamientos")
 public class EstacionamientoController {
     @Autowired
     private IEstacionamientoService eS;
-    @PostMapping
+
+    public EstacionamientoController() {
+    }
+
+    public EstacionamientoController(IEstacionamientoService eS) {
+        this.eS = eS;
+    }
+
+    @PostMapping("Registrar")
     public void registrar(@RequestBody EstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         Estacionamiento d=m.map(dto,Estacionamiento.class);
         eS.insert(d);
     }
-    @GetMapping
+    @GetMapping("Listar")
     public List<EstacionamientoDTO> listar(){
         return eS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,EstacionamientoDTO.class);
         }).collect(Collectors.toList());
     }
-
-    @PutMapping
+    @GetMapping("ListarporID/{id}")
+    public EstacionamientoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        EstacionamientoDTO e= m.map(eS.listId(id), EstacionamientoDTO.class);
+        return e;
+    }
+    @PutMapping("Modificar")
     public void modificar(@RequestBody EstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         Estacionamiento d=m.map(dto, Estacionamiento.class);
         eS.insert(d);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     public void eliminar(@PathVariable("id")Integer id){
         eS.delete(id);
     }

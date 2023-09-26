@@ -8,7 +8,7 @@ public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPago;
-    @Column(name = "fechaFin",nullable = false)
+    @Column(name = "fechaEmision",nullable = false)
     private LocalDate fechaEmision;
     @Column(name = "precioTotal",nullable = false)
     private double precioTotal;

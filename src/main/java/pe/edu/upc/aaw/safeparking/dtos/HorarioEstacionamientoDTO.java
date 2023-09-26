@@ -7,9 +7,9 @@ import pe.edu.upc.aaw.safeparking.entities.Horario;
 public class HorarioEstacionamientoDTO {
     private int idHorarioEstacionamiento;
 
-    private Estacionamiento estacionamiento;
+    private EstacionamientoDTO estacionamiento;
 
-    private Horario horario;
+    private HorarioDTO horario;
 
     public int getIdHorarioEstacionamiento() {
         return idHorarioEstacionamiento;
@@ -19,19 +19,28 @@ public class HorarioEstacionamientoDTO {
         this.idHorarioEstacionamiento = idHorarioEstacionamiento;
     }
 
-    public Estacionamiento getEstacionamiento() {
+    public EstacionamientoDTO getEstacionamiento() {
         return estacionamiento;
     }
 
-    public void setEstacionamiento(Estacionamiento estacionamiento) {
+    public void setEstacionamiento(EstacionamientoDTO estacionamiento) {
         this.estacionamiento = estacionamiento;
     }
 
-    public Horario getHorario() {
+    public HorarioDTO getHorario() {
         return horario;
     }
 
-    public void setHorario(Horario horario) {
+    public void setHorario(HorarioDTO horario) {
+        this.horario = horario;
+    }
+
+    public HorarioEstacionamientoDTO() {
+    }
+
+    public HorarioEstacionamientoDTO(int idHorarioEstacionamiento, EstacionamientoDTO estacionamiento, HorarioDTO horario) {
+        this.idHorarioEstacionamiento = idHorarioEstacionamiento;
+        this.estacionamiento = estacionamiento;
         this.horario = horario;
     }
 }
