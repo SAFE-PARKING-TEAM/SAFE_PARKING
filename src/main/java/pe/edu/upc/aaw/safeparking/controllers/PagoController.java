@@ -41,7 +41,6 @@ public class PagoController {
             return m.map(x,PagoDTO.class);
         }).collect(Collectors.toList());
     }
-
     @DeleteMapping("Eliminar/{id}")
     @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
