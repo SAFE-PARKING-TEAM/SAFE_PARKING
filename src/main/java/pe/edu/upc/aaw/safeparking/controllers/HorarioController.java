@@ -2,7 +2,6 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.EstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.HorarioDTO;
@@ -18,14 +17,12 @@ public class HorarioController {
     @Autowired
     private IHorarioService hS;
     @PostMapping
-    @PreAuthorize("hasAuthority('administrador') ")
     public void registrar(@RequestBody HorarioDTO dto){
         ModelMapper m=new ModelMapper();
         Horario h=m.map(dto,Horario.class);
         hS.insert(h);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('conductor') or hasAuthority('administrador')")
     public List<HorarioDTO> listar(){
         return hS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -33,7 +30,6 @@ public class HorarioController {
         }).collect(Collectors.toList());
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('administrador')")
     public HorarioDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         HorarioDTO h= m.map(hS.listId(id), HorarioDTO.class);
@@ -41,14 +37,12 @@ public class HorarioController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('administrador') ")
     public void modificar(@RequestBody HorarioDTO dto){
         ModelMapper m=new ModelMapper();
         Horario h=m.map(dto, Horario.class);
         hS.insert(h);
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('administrador') ")
     public void eliminar(@PathVariable("id")Integer id){
         hS.delete(id);
     }

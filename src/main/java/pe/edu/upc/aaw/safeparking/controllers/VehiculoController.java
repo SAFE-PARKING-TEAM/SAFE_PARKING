@@ -2,7 +2,6 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.RolDTO;
 import pe.edu.upc.aaw.safeparking.dtos.VehiculoDTO;
@@ -26,14 +25,12 @@ public class VehiculoController {
     }
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody VehiculoDTO dto){
         ModelMapper m=new ModelMapper();
         Vehiculo v=m.map(dto,Vehiculo.class);
         vS.insert(v);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
     public List<VehiculoDTO> listar(){
         return vS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -41,20 +38,17 @@ public class VehiculoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
     public VehiculoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         VehiculoDTO v= m.map(vS.listId(id), VehiculoDTO.class);
         return v;
     }
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
     public void modificar(@RequestBody VehiculoDTO dto){
         ModelMapper m=new ModelMapper();
         Vehiculo v=m.map(dto, Vehiculo.class);
         vS.insert(v);
     }
-    @PreAuthorize("hasAuthority('administrador')")
 
     @DeleteMapping("Eliminar/{id}")
     public void eliminar(@PathVariable("id")Integer id){

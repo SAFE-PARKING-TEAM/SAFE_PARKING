@@ -2,9 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.safeparking.dtos.ComentarioDTO;
 import pe.edu.upc.aaw.safeparking.dtos.EstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.entities.Estacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IEstacionamientoService;
@@ -41,7 +39,6 @@ public class EstacionamientoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('conductor')")
     public EstacionamientoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         EstacionamientoDTO e= m.map(eS.listId(id), EstacionamientoDTO.class);

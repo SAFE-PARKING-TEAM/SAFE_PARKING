@@ -12,14 +12,6 @@ public class ReservaEstacionamientoServiceImplement  implements IReservaEstacion
 
     @Autowired
     private IReservaEstacionamientoRepository reR;
-
-    public ReservaEstacionamientoServiceImplement() {
-    }
-
-    public ReservaEstacionamientoServiceImplement(IReservaEstacionamientoRepository reR) {
-        this.reR = reR;
-    }
-
     @Override
     public void insert(ReservaEstacionamiento reservaEstacionamiento) {
         reR.save(reservaEstacionamiento);
@@ -43,13 +35,8 @@ public class ReservaEstacionamientoServiceImplement  implements IReservaEstacion
 
     @Override
     public List<String[]> quantityreservationByUser() {
-        return reR.quantityreservationByUser();
+        return null;
     }
 
-    @Override
-    public List<String[]> quantityreservationbyDate() { return reR.quantityreservationbyDate();}
-
-    @Override
-    public List<String[]>quantityreservationbyPay() {return reR.quantityreservationbyPay();}
 
 }
