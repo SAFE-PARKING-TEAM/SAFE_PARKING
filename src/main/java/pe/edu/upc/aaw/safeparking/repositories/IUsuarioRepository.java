@@ -6,15 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import pe.edu.upc.aaw.safeparking.entities.Users;
+import pe.edu.upc.aaw.safeparking.entities.Usuario;
 
 @Repository
-public interface IUsuarioRepository extends JpaRepository<Users,Integer> {
+public interface IUsuarioRepository extends JpaRepository<Usuario,Integer> {
 
-    public Users findByUsername(String username);
+    public Usuario findByUsername(String username);
 
     //BUSCAR POR NOMBRE
-    @Query("select count(u.username) from Users u where u.username =:username")
+    @Query("select count(u.username) from Usuario u where u.username =:username")
     public int buscarUsername(@Param("username") String nombre);
 
 

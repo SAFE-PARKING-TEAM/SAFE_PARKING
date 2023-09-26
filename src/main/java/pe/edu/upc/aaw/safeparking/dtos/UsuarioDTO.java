@@ -1,10 +1,8 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.Membresia;
-import pe.edu.upc.aaw.safeparking.entities.Role;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class UsuarioDTO {
     private int idUsuario;
@@ -18,7 +16,7 @@ public class UsuarioDTO {
     private String imagen;
     private LocalDate fechaNacimiento;
     private int telefono;
-    private Membresia membresia;
+    private MembresiaDTO membresia;
     private Boolean enabled;
     //private List<Role> roles;
 
@@ -110,11 +108,11 @@ public class UsuarioDTO {
         this.telefono = telefono;
     }
 
-    public Membresia getMembresia() {
+    public MembresiaDTO getMembresia() {
         return membresia;
     }
 
-    public void setMembresia(Membresia membresia) {
+    public void setMembresia(MembresiaDTO membresia) {
         this.membresia = membresia;
     }
 
@@ -123,6 +121,25 @@ public class UsuarioDTO {
     }
 
     public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public UsuarioDTO() {
+    }
+
+    public UsuarioDTO(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, MembresiaDTO membresia, Boolean enabled) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.username = username;
+        this.password = password;
+        this.genero = genero;
+        this.dni = dni;
+        this.imagen = imagen;
+        this.fechaNacimiento = fechaNacimiento;
+        this.telefono = telefono;
+        this.membresia = membresia;
         this.enabled = enabled;
     }
 }

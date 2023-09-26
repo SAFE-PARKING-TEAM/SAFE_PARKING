@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.UsuarioDTO;
-import pe.edu.upc.aaw.safeparking.entities.Users;
+import pe.edu.upc.aaw.safeparking.entities.Usuario;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IUsuarioService;
 
 
@@ -21,7 +21,7 @@ public class UsuarioController {
     @PostMapping("Registrar")
     public void registrar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
-        Users u=m.map(dto, Users.class);
+        Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
     }
     @PreAuthorize("hasAuthority('administrador')")
@@ -51,7 +51,7 @@ public class UsuarioController {
     @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
-        Users u=m.map(dto, Users.class);
+        Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
     }
 }
