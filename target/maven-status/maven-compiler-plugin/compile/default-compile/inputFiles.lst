@@ -79,6 +79,7 @@ C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safepar
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\repositories\IRolRepository.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\controllers\RolController.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\PagoDTO.java
+C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\PrecioTotalporMesDTO.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceimplements\HorarioEstacionamientoServiceImplement.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\IncidenteDTO.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\VehiculoDTO.java

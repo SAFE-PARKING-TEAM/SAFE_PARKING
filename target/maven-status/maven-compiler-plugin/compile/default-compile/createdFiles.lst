@@ -11,6 +11,7 @@ pe\edu\upc\aaw\safeparking\controllers\HorarioController.class
 pe\edu\upc\aaw\safeparking\dtos\LocalizacionDTO.class
 pe\edu\upc\aaw\safeparking\security\JwtRequestFilter.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IVehiculoService.class
+pe\edu\upc\aaw\safeparking\dtos\PrecioTotalporMesDTO.class
 pe\edu\upc\aaw\safeparking\controllers\RolController.class
 pe\edu\upc\aaw\safeparking\controllers\PagoController.class
 pe\edu\upc\aaw\safeparking\repositories\IMembresiaRepository.class
