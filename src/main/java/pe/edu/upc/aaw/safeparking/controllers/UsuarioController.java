@@ -18,14 +18,14 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
     @PreAuthorize("hasAuthority('administrador')")
-    @PostMapping
+    @PostMapping("Registrar")
     public void registrar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Users u=m.map(dto, Users.class);
         uS.insert(u);
     }
     @PreAuthorize("hasAuthority('administrador')")
-    @GetMapping()
+    @GetMapping("Listar")
     public List<UsuarioDTO> listar(){
 
         return uS.list().stream().map(x->{

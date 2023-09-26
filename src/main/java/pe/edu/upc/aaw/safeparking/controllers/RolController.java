@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class RolController {
     @Autowired
     private IRolService rolR;
-   // @PostMapping("Registrar")
+   @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody RolDTO dto){
         ModelMapper m=new ModelMapper();
