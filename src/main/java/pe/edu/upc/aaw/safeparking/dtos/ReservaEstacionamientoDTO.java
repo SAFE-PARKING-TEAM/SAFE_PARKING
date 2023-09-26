@@ -1,7 +1,6 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.HorarioEstacionamiento;
-import pe.edu.upc.aaw.safeparking.entities.Users;
 import pe.edu.upc.aaw.safeparking.entities.Vehiculo;
 
 import java.time.LocalDate;

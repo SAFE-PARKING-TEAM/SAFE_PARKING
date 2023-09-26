@@ -6,8 +6,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class Users implements Serializable {
+@Table(name = "usuario")
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
@@ -38,23 +38,20 @@ public class Users implements Serializable {
     private Membresia membresia;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUsuario")
-    private List<Role> roles;
+    private List<Rol> rols;
 
-    public List<Role> getRoles() {
-        return roles;
+    public List<Rol> getRoles() {
+        return rols;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setRoles(List<Rol> rols) {
+        this.rols = rols;
     }
 
-
-
-
-    public Users() {
+    public Usuario() {
     }
 
-    public Users(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Role> roles) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -68,7 +65,7 @@ public class Users implements Serializable {
         this.telefono = telefono;
         this.enabled = enabled;
         this.membresia = membresia;
-        this.roles = roles;
+        this.rols = rols;
     }
 
     public int getIdUsuario() {

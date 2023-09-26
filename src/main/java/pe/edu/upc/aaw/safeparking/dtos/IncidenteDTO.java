@@ -1,7 +1,5 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
-import pe.edu.upc.aaw.safeparking.entities.Users;
-
 public class IncidenteDTO {
     private int idIncidente;
     private String descripcion;
