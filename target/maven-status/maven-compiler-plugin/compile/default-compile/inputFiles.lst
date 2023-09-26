@@ -1,7 +1,6 @@
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\IEstacionamientoService.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceimplements\PagoServiceImplement.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\ReservaEstacionamientoDTO.java
-C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\entities\Users.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\IVehiculoService.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\repositories\IHorarioRepository.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\controllers\IncidenteController.java
@@ -29,6 +28,7 @@ C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safepar
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\LocalizacionDTO.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\repositories\IUsuarioRepository.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\IComentarioService.java
+C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\entities\Rol.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceimplements\MembresiaServiceImplement.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\repositories\IPagoRepository.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\entities\Vehiculo.java
@@ -56,6 +56,7 @@ C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safepar
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\SafeparkingApplication.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\IHorarioEstacionamientoService.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceimplements\RolServiceImplement.java
+C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\entities\Usuario.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceimplements\LocalizacionServiceImplement.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\IHorarioService.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\IRolService.java
@@ -66,7 +67,6 @@ C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safepar
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\security\JwtAuthenticationEntryPoint.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceimplements\UsuarioServiceImplement.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\controllers\ComentarioController.java
-C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\entities\Role.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\ILocalizacionService.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\HorarioEstacionamientoDTO.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\controllers\JwtAuthenticationController.java
