@@ -11,6 +11,14 @@ import java.util.List;
 public class IncidenteServiceImplement implements IIncidenteService {
     @Autowired
     private IIncidenteRepository iR;
+
+    public IncidenteServiceImplement() {
+    }
+
+    public IncidenteServiceImplement(IIncidenteRepository iR) {
+        this.iR = iR;
+    }
+
     @Override
     public void insert(Incidente incidente) {
         iR.save(incidente);
@@ -24,6 +32,11 @@ public class IncidenteServiceImplement implements IIncidenteService {
     @Override
     public void delete(int idIncidente) {
         iR.deleteById(idIncidente);
+    }
+
+    @Override
+    public List<String[]> cantIncidentesPorTipoRol() {
+        return iR.cantIncidentesPorTipoRol();
     }
 
 }

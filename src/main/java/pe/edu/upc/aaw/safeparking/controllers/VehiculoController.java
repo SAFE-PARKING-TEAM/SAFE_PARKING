@@ -16,14 +16,22 @@ import java.util.stream.Collectors;
 public class VehiculoController {
     @Autowired
     private IVehiculoService vS;
-    @PostMapping
+
+    public VehiculoController() {
+    }
+
+    public VehiculoController(IVehiculoService vS) {
+        this.vS = vS;
+    }
+
+    @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('conductor')")
     public void registrar(@RequestBody VehiculoDTO dto){
         ModelMapper m=new ModelMapper();
         Vehiculo v=m.map(dto,Vehiculo.class);
         vS.insert(v);
     }
-    @GetMapping
+    @GetMapping("Listar")
     @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
     public List<VehiculoDTO> listar(){
         return vS.list().stream().map(x->{
@@ -31,7 +39,7 @@ public class VehiculoController {
             return m.map(x,VehiculoDTO.class);
         }).collect(Collectors.toList());
     }
-    @PutMapping
+    @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
     public void modificar(@RequestBody VehiculoDTO dto){
         ModelMapper m=new ModelMapper();
@@ -40,7 +48,7 @@ public class VehiculoController {
     }
     @PreAuthorize("hasAuthority('administrador')")
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     public void eliminar(@PathVariable("id")Integer id){
         vS.delete(id);
     }

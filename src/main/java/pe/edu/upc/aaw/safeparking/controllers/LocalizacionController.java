@@ -12,17 +12,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/localizacion")
+@RequestMapping("/localizaciones")
 public class LocalizacionController {
     @Autowired
     private ILocalizacionService lS;
-    @PostMapping
+
+    public LocalizacionController() {
+    }
+
+    public LocalizacionController(ILocalizacionService lS) {
+        this.lS = lS;
+    }
+
+    @PostMapping("Registrar")
     public void registrar(@RequestBody LocalizacionDTO dto){
         ModelMapper m=new ModelMapper();
         Localizacion d=m.map(dto,Localizacion.class);
         lS.insert(d);
     }
-    @GetMapping
+    @GetMapping("Listar")
     public List<LocalizacionDTO> listar(){
         return lS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -30,14 +38,14 @@ public class LocalizacionController {
         }).collect(Collectors.toList());
     }
 
-    @PutMapping
+    @PutMapping("Modificar")
     public void modificar(@RequestBody LocalizacionDTO dto){
         ModelMapper m=new ModelMapper();
         Localizacion d=m.map(dto, Localizacion.class);
         lS.insert(d);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     public void eliminar(@PathVariable("id")Integer id){
         lS.delete(id);
     }

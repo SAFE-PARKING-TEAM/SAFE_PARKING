@@ -12,18 +12,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/membresia")
+@RequestMapping("/membresias")
 public class MembresiaController {
     @Autowired
     private IMembresiaService dS;
-    @PostMapping
+
+    public MembresiaController() {
+    }
+
+    public MembresiaController(IMembresiaService dS) {
+        this.dS = dS;
+    }
+
+    @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();
         Membresia d=m.map(dto,Membresia.class);
         dS.insert(d);
     }
-    @GetMapping
+    @GetMapping("Listar")
     @PreAuthorize("hasAuthority('administrador')")
     public List<MembresiaDTO> listar(){
         return dS.list().stream().map(x->{
@@ -31,13 +39,13 @@ public class MembresiaController {
             return m.map(x,MembresiaDTO.class);
         }).collect(Collectors.toList());
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         dS.delete(id);
     }
 
-    @PutMapping
+    @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();

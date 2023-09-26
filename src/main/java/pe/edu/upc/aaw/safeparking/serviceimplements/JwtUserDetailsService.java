@@ -21,6 +21,13 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     private IUsuarioRepository uR;
 
+    public JwtUserDetailsService() {
+    }
+
+    public JwtUserDetailsService(IUsuarioRepository uR) {
+        this.uR = uR;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = uR.findByUsername(username);
@@ -35,7 +42,7 @@ public class JwtUserDetailsService implements UserDetailsService {
             roles.add(new SimpleGrantedAuthority(rol.getNombreRol()));
         });
 
-        UserDetails ud = new org.springframework.security.core.userdetails.User(usuario.getUsername(), usuario.getContrasenia(), usuario.getEnabled(), true, true, true, roles);
+        UserDetails ud = new org.springframework.security.core.userdetails.User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, roles);
 
         return ud;
     }

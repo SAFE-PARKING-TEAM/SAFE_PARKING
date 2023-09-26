@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +19,8 @@ public class Usuario implements Serializable {
     private String correo;
     @Column(name ="username", length = 50, nullable = false)
     private String username;
-    @Column(name ="contrasenia", length = 200, nullable = false)
-    private String contrasenia;
+    @Column(name ="password", length = 200, nullable = false)
+    private String password;
     @Column(name ="genero", length = 50, nullable = false)
     private String genero;
     @Column(name ="dni", nullable = false)
@@ -38,27 +38,29 @@ public class Usuario implements Serializable {
     private Membresia membresia;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUsuario")
-    private List<Rol> roles;
+    private List<Rol> rols;
 
     public List<Rol> getRoles() {
-        return roles;
+        return rols;
     }
 
-    public void setRoles(List<Rol> roles) {
-        this.roles = roles;
+    public void setRoles(List<Rol> rols) {
+        this.rols = rols;
     }
+
+
+
 
     public Usuario() {
     }
 
-
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String contrasenia, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> roles) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.username = username;
-        this.contrasenia = contrasenia;
+        this.password = password;
         this.genero = genero;
         this.dni = dni;
         this.imagen = imagen;
@@ -66,7 +68,7 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
         this.enabled = enabled;
         this.membresia = membresia;
-        this.roles = roles;
+        this.rols = rols;
     }
 
     public int getIdUsuario() {
@@ -109,12 +111,12 @@ public class Usuario implements Serializable {
         this.username = username;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getGenero() {
@@ -172,6 +174,4 @@ public class Usuario implements Serializable {
     public void setMembresia(Membresia membresia) {
         this.membresia = membresia;
     }
-
-
 }

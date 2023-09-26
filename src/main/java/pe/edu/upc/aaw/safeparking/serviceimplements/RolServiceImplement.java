@@ -13,6 +13,13 @@ public class RolServiceImplement implements IRolService{
     @Autowired
     private IRolRepository rolR;
 
+    public RolServiceImplement() {
+    }
+
+    public RolServiceImplement(IRolRepository rolR) {
+        this.rolR = rolR;
+    }
+
     @Override
     public void insert(Rol rol) {
         rolR.save(rol);
