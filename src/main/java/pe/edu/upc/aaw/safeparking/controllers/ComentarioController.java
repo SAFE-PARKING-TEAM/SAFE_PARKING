@@ -19,7 +19,6 @@ public class ComentarioController {
         ModelMapper m = new ModelMapper();
         Comentario c = m.map(dto, Comentario.class);
         cS.insert(c);
-
     }
     @GetMapping
     public List<ComentarioDTO> listar (){

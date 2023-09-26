@@ -17,14 +17,14 @@ import java.util.stream.Collectors;
 public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
-    @PreAuthorize("hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('administrador')")
     @PostMapping
     public void registrar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Users u=m.map(dto, Users.class);
         uS.insert(u);
     }
-    @PreAuthorize("hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('administrador')")
     @GetMapping
     public List<UsuarioDTO> listar(){
 
