@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.Localizacion;
+import pe.edu.upc.aaw.safeparking.entities.Usuario;
 
 import java.time.LocalDate;
 
@@ -13,8 +14,8 @@ public class EstacionamientoDTO {
     private int capacidad;
     private LocalDate fechaRegistro;
     private Double precio;
-    private UsuarioDTO users;
-    private LocalizacionDTO localizacion;
+    private Usuario usuario;
+    private Localizacion localizacion;
 
     public int getIdEstacionamiento() {return idEstacionamiento;}
 
@@ -48,35 +49,11 @@ public class EstacionamientoDTO {
 
     public void setPrecio(Double precio) {this.precio = precio;}
 
-    public UsuarioDTO getUsers() {
-        return users;
-    }
+    public Usuario getUsuario() {return usuario;}
 
-    public void setUsers(UsuarioDTO users) {
-        this.users = users;
-    }
+    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
 
-    public LocalizacionDTO getLocalizacion() {
-        return localizacion;
-    }
+    public Localizacion getLocalizacion() {return localizacion;}
 
-    public void setLocalizacion(LocalizacionDTO localizacion) {
-        this.localizacion = localizacion;
-    }
-
-    public EstacionamientoDTO() {
-    }
-
-    public EstacionamientoDTO(int idEstacionamiento, String tipoEstacionamiento, String disponibilidad, String foto, Float promedioValoracion, int capacidad, LocalDate fechaRegistro, Double precio, UsuarioDTO users, LocalizacionDTO localizacion) {
-        this.idEstacionamiento = idEstacionamiento;
-        this.tipoEstacionamiento = tipoEstacionamiento;
-        this.disponibilidad = disponibilidad;
-        this.foto = foto;
-        this.promedioValoracion = promedioValoracion;
-        this.capacidad = capacidad;
-        this.fechaRegistro = fechaRegistro;
-        this.precio = precio;
-        this.users = users;
-        this.localizacion = localizacion;
-    }
+    public void setLocalizacion(Localizacion localizacion) {this.localizacion = localizacion;}
 }
