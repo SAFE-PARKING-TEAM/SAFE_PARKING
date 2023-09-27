@@ -33,23 +33,25 @@ public class UsuarioController {
         }).collect(Collectors.toList());
 
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Eliminar/{id}")
     @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         uS.delete(id);
     }
-    @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('administrador')")
-    public UsuarioDTO listarId(@PathVariable("id")Integer id){
-        ModelMapper m = new ModelMapper();
-        UsuarioDTO u= m.map(uS.listId(id), UsuarioDTO.class);
-        return u;
-    }
-    @PutMapping
+    
+    @PutMapping("Modificar")
     @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
+    public UsuarioDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        UsuarioDTO u= m.map(uS.listId(id), UsuarioDTO.class);
+        return u;
+    }
+
 }
