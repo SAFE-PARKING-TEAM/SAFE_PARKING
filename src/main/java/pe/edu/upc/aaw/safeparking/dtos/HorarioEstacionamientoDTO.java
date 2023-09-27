@@ -9,7 +9,7 @@ public class HorarioEstacionamientoDTO {
 
     private EstacionamientoDTO estacionamiento;
 
-    private HorarioDTO horario;
+    private Horario horario;
 
     public int getIdHorarioEstacionamiento() {
         return idHorarioEstacionamiento;
@@ -27,20 +27,11 @@ public class HorarioEstacionamientoDTO {
         this.estacionamiento = estacionamiento;
     }
 
-    public HorarioDTO getHorario() {
+    public Horario getHorario() {
         return horario;
     }
 
-    public void setHorario(HorarioDTO horario) {
-        this.horario = horario;
-    }
-
-    public HorarioEstacionamientoDTO() {
-    }
-
-    public HorarioEstacionamientoDTO(int idHorarioEstacionamiento, EstacionamientoDTO estacionamiento, HorarioDTO horario) {
-        this.idHorarioEstacionamiento = idHorarioEstacionamiento;
-        this.estacionamiento = estacionamiento;
+    public void setHorario(Horario horario) {
         this.horario = horario;
     }
 }

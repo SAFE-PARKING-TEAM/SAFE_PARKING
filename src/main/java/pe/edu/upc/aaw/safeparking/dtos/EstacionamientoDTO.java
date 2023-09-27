@@ -14,8 +14,24 @@ public class EstacionamientoDTO {
     private int capacidad;
     private LocalDate fechaRegistro;
     private Double precio;
-    private Usuario usuario;
-    private Localizacion localizacion;
+    private UsuarioDTO usuario;
+    private LocalizacionDTO localizacion;
+
+    public UsuarioDTO getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
+    }
+
+    public LocalizacionDTO getLocalizacion() {
+        return localizacion;
+    }
+
+    public void setLocalizacion(LocalizacionDTO localizacion) {
+        this.localizacion = localizacion;
+    }
 
     public int getIdEstacionamiento() {return idEstacionamiento;}
 
@@ -49,11 +65,5 @@ public class EstacionamientoDTO {
 
     public void setPrecio(Double precio) {this.precio = precio;}
 
-    public Usuario getUsuario() {return usuario;}
 
-    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
-
-    public Localizacion getLocalizacion() {return localizacion;}
-
-    public void setLocalizacion(Localizacion localizacion) {this.localizacion = localizacion;}
 }

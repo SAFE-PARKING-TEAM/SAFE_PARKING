@@ -3,11 +3,13 @@ pe\edu\upc\aaw\safeparking\ServletInitializer.class
 pe\edu\upc\aaw\safeparking\serviceimplements\UsuarioServiceImplement.class
 pe\edu\upc\aaw\safeparking\serviceimplements\HorarioEstacionamientoServiceImplement.class
 pe\edu\upc\aaw\safeparking\controllers\MembresiaController.class
+pe\edu\upc\aaw\safeparking\security\JwtAuthenticationEntryPoint.class
 pe\edu\upc\aaw\safeparking\serviceimplements\MembresiaServiceImplement.class
 pe\edu\upc\aaw\safeparking\controllers\EstacionamientoController.class
 pe\edu\upc\aaw\safeparking\dtos\EstacionamientoDTO.class
 pe\edu\upc\aaw\safeparking\controllers\HorarioController.class
 pe\edu\upc\aaw\safeparking\dtos\LocalizacionDTO.class
+pe\edu\upc\aaw\safeparking\security\JwtRequestFilter.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IVehiculoService.class
 pe\edu\upc\aaw\safeparking\dtos\PrecioTotalporMesDTO.class
 pe\edu\upc\aaw\safeparking\controllers\RolController.class
@@ -28,6 +30,7 @@ pe\edu\upc\aaw\safeparking\repositories\IUsuarioRepository.class
 pe\edu\upc\aaw\safeparking\dtos\MembresiaDTO.class
 pe\edu\upc\aaw\safeparking\repositories\IHorarioEstacionamientoRepository.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IRolService.class
+pe\edu\upc\aaw\safeparking\controllers\JwtAuthenticationController.class
 pe\edu\upc\aaw\safeparking\dtos\HorarioDTO.class
 pe\edu\upc\aaw\safeparking\serviceimplements\ComentarioServiceImplement.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IHorarioEstacionamientoService.class
@@ -45,11 +48,13 @@ pe\edu\upc\aaw\safeparking\entities\Usuario.class
 pe\edu\upc\aaw\safeparking\entities\Membresia.class
 pe\edu\upc\aaw\safeparking\serviceimplements\LocalizacionServiceImplement.class
 pe\edu\upc\aaw\safeparking\dtos\PagoDTO.class
+pe\edu\upc\aaw\safeparking\security\WebSecurityConfig.class
 pe\edu\upc\aaw\safeparking\repositories\IComentarioRepository.class
 pe\edu\upc\aaw\safeparking\entities\Rol.class
 pe\edu\upc\aaw\safeparking\entities\HorarioEstacionamiento.class
 pe\edu\upc\aaw\safeparking\serviceimplements\VehiculoServiceImplement.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IComentarioService.class
+pe\edu\upc\aaw\safeparking\dtos\CantidadReservasPorUsuarioDTO.class
 pe\edu\upc\aaw\safeparking\entities\ReservaEstacionamiento.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IPagoService.class
 pe\edu\upc\aaw\safeparking\entities\Incidente.class
@@ -57,6 +62,7 @@ pe\edu\upc\aaw\safeparking\dtos\HorarioEstacionamientoDTO.class
 pe\edu\upc\aaw\safeparking\SafeparkingApplication.class
 pe\edu\upc\aaw\safeparking\repositories\IReservaEstacionamientoRepository.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IHorarioService.class
+pe\edu\upc\aaw\safeparking\security\JwtTokenUtil.class
 pe\edu\upc\aaw\safeparking\controllers\LocalizacionController.class
 pe\edu\upc\aaw\safeparking\serviceimplements\EstacionamientoServiceImplement.class
 pe\edu\upc\aaw\safeparking\dtos\UsuarioDTO.class
@@ -71,9 +77,11 @@ pe\edu\upc\aaw\safeparking\dtos\ReservaEstacionamientoDTO.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IIncidenteService.class
 pe\edu\upc\aaw\safeparking\repositories\ILocalizacionRepository.class
 pe\edu\upc\aaw\safeparking\repositories\IVehiculoRepository.class
+pe\edu\upc\aaw\safeparking\security\JwtResponse.class
 pe\edu\upc\aaw\safeparking\repositories\IEstacionamientoRepository.class
 pe\edu\upc\aaw\safeparking\repositories\IRolRepository.class
 pe\edu\upc\aaw\safeparking\dtos\RolDTO.class
 pe\edu\upc\aaw\safeparking\controllers\HorarioEstacionamientoController.class
+pe\edu\upc\aaw\safeparking\security\JwtRequest.class
 pe\edu\upc\aaw\safeparking\controllers\UsuarioController.class
 pe\edu\upc\aaw\safeparking\dtos\CantIncidentesPorRolDTO.class

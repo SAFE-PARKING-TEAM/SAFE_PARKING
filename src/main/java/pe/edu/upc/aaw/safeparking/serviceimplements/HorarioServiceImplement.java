@@ -12,13 +12,6 @@ public class HorarioServiceImplement implements IHorarioService {
     @Autowired
     private IHorarioRepository hR;
 
-    public HorarioServiceImplement() {
-    }
-
-    public HorarioServiceImplement(IHorarioRepository hR) {
-        this.hR = hR;
-    }
-
     @Override
     public void insert(Horario horario) {
         hR.save(horario);

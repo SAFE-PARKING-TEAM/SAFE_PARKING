@@ -64,17 +64,4 @@ public class VehiculoDTO {
     public void setTarjetaPropiedadVehiculo(String tarjetaPropiedadVehiculo) {
         this.tarjetaPropiedadVehiculo = tarjetaPropiedadVehiculo;
     }
-
-    public VehiculoDTO() {
-    }
-
-    public VehiculoDTO(int idVehiculo, String placaVehiculo, String categoriaVehiculo, String colorVehiculo, String marcaVehiculo, double tamanioVehiculo, String tarjetaPropiedadVehiculo) {
-        this.idVehiculo = idVehiculo;
-        this.placaVehiculo = placaVehiculo;
-        this.categoriaVehiculo = categoriaVehiculo;
-        this.colorVehiculo = colorVehiculo;
-        this.marcaVehiculo = marcaVehiculo;
-        this.tamanioVehiculo = tamanioVehiculo;
-        this.tarjetaPropiedadVehiculo = tarjetaPropiedadVehiculo;
-    }
 }
