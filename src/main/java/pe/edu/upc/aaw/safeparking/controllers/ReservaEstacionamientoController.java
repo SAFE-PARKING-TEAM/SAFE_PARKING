@@ -22,7 +22,7 @@ public class ReservaEstacionamientoController {
     @Autowired
     private IReservaEstacionamientoService reS;
     @PostMapping("Registrar")
-    @PreAuthorize(" hasAuthority('conductor')")
+    @PreAuthorize(" hasAuthority('conductor') or hasAuthority('administrador')")
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto,ReservaEstacionamiento.class);

@@ -47,7 +47,7 @@ public class PagoController {
 
 
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("  hasAuthority('arrendador') or hasAuthority('conductor')")
+    @PreAuthorize("  hasAuthority('arrendador') or hasAuthority('conductor') or hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         pagoR.delete(id);
     }
