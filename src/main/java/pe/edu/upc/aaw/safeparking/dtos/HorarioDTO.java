@@ -40,14 +40,4 @@ public class HorarioDTO {
     public void setHoraCierre(Time horaCierre) {
         this.horaCierre = horaCierre;
     }
-
-    public HorarioDTO() {
-    }
-
-    public HorarioDTO(int idHorario, Time horaApertura, Time horaCierre, String dia) {
-        this.idHorario = idHorario;
-        this.horaApertura = horaApertura;
-        this.horaCierre = horaCierre;
-        this.dia = dia;
-    }
 }

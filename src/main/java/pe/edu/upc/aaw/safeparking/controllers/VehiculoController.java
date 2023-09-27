@@ -17,38 +17,38 @@ public class VehiculoController {
     @Autowired
     private IVehiculoService vS;
 
-    public VehiculoController() {
-    }
-
-    public VehiculoController(IVehiculoService vS) {
-        this.vS = vS;
-    }
-
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
     public void registrar(@RequestBody VehiculoDTO dto){
         ModelMapper m=new ModelMapper();
         Vehiculo v=m.map(dto,Vehiculo.class);
         vS.insert(v);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
     public List<VehiculoDTO> listar(){
         return vS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,VehiculoDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
+    public VehiculoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        VehiculoDTO v= m.map(vS.listId(id), VehiculoDTO.class);
+        return v;
+    }
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')"  )
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
     public void modificar(@RequestBody VehiculoDTO dto){
         ModelMapper m=new ModelMapper();
         Vehiculo v=m.map(dto, Vehiculo.class);
         vS.insert(v);
     }
-    @PreAuthorize("hasAuthority('administrador')")
 
     @DeleteMapping("Eliminar/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         vS.delete(id);
     }

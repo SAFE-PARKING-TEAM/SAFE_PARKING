@@ -17,19 +17,17 @@ import java.util.stream.Collectors;
 public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
-    @PreAuthorize("hasAuthority('administrador')")
     @PostMapping("Registrar")
+    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador') or hasAuthority('conductor')")
     public void registrar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
     }
-    @PreAuthorize("hasAuthority('administrador')")
     @GetMapping("Listar")
+    @PreAuthorize("hasAuthority('administrador')")
     public List<UsuarioDTO> listar(){
-
         return uS.list().stream().map(x->{
-
             ModelMapper m = new ModelMapper();
             return m.map(x, UsuarioDTO.class);
         }).collect(Collectors.toList());

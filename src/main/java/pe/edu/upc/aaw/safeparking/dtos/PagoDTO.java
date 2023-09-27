@@ -51,15 +51,4 @@ public class PagoDTO {
     public void setReservaEstacionamiento(ReservaEstacionamientoDTO reservaEstacionamiento) {
         this.reservaEstacionamiento = reservaEstacionamiento;
     }
-
-    public PagoDTO() {
-    }
-
-    public PagoDTO(int idPago, LocalDate fechaEmision, double precioTotal, String tipoPago, ReservaEstacionamientoDTO reservaEstacionamiento) {
-        this.idPago = idPago;
-        this.fechaEmision = fechaEmision;
-        this.precioTotal = precioTotal;
-        this.tipoPago = tipoPago;
-        this.reservaEstacionamiento = reservaEstacionamiento;
-    }
 }

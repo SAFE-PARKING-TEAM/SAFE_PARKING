@@ -15,7 +15,7 @@ public class ReservaEstacionamientoDTO {
 
     private UsuarioDTO users;
 
-    private VehiculoDTO vehiculo;
+    private Vehiculo vehiculo;
 
     private HorarioEstacionamientoDTO horarioEstacionamiento;
 
@@ -35,7 +35,21 @@ public class ReservaEstacionamientoDTO {
         this.fecha = fecha;
     }
 
+    public UsuarioDTO getUsers() {
+        return users;
+    }
 
+    public void setUsers(UsuarioDTO users) {
+        this.users = users;
+    }
+
+    public HorarioEstacionamientoDTO getHorarioEstacionamiento() {
+        return horarioEstacionamiento;
+    }
+
+    public void setHorarioEstacionamiento(HorarioEstacionamientoDTO horarioEstacionamiento) {
+        this.horarioEstacionamiento = horarioEstacionamiento;
+    }
 
     public String getEstado() {
         return estado;
@@ -61,41 +75,12 @@ public class ReservaEstacionamientoDTO {
         this.users = users;
     }
 
-    public UsuarioDTO getUsers() {
-        return users;
-    }
-
-    public void setUsers(UsuarioDTO users) {
-        this.users = users;
-    }
-
-    public VehiculoDTO getVehiculo() {
+    public Vehiculo getVehiculo() {
         return vehiculo;
     }
 
-    public void setVehiculo(VehiculoDTO vehiculo) {
+    public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
     }
 
-    public HorarioEstacionamientoDTO getHorarioEstacionamiento() {
-        return horarioEstacionamiento;
-    }
-
-    public void setHorarioEstacionamiento(HorarioEstacionamientoDTO horarioEstacionamiento) {
-        this.horarioEstacionamiento = horarioEstacionamiento;
-    }
-
-    public ReservaEstacionamientoDTO() {
-
-    }
-
-    public ReservaEstacionamientoDTO(int idReservaEstacionamiento, String estado, boolean favorito, LocalDate fecha, UsuarioDTO users, VehiculoDTO vehiculo, HorarioEstacionamientoDTO horarioEstacionamiento) {
-        this.idReservaEstacionamiento = idReservaEstacionamiento;
-        this.estado = estado;
-        this.favorito = favorito;
-        this.fecha = fecha;
-        this.users = users;
-        this.vehiculo = vehiculo;
-        this.horarioEstacionamiento = horarioEstacionamiento;
-    }
 }

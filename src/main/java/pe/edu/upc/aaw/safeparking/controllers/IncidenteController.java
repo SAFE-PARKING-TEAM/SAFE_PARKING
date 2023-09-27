@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.CantIncidentesPorRolDTO;
+import pe.edu.upc.aaw.safeparking.dtos.HorarioEstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.dtos.IncidenteDTO;
 import pe.edu.upc.aaw.safeparking.entities.Incidente;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IIncidenteService;
@@ -19,20 +20,23 @@ public class IncidenteController {
     @Autowired
     private IIncidenteService iS;
 
-    public IncidenteController() {
-    }
-
-    public IncidenteController(IIncidenteService iS) {
-        this.iS = iS;
-    }
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador')")
+    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('conductor')")
     public void registrar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente d=m.map(dto,Incidente.class);
         iS.insert(d);
     }
+
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('administrador') ")
+    public IncidenteDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        IncidenteDTO i= m.map(iS.listId(id), IncidenteDTO.class);
+        return i;
+    }
+
     @GetMapping("Listar")
     @PreAuthorize("hasAuthority('administrador')"  )
     public List<IncidenteDTO> listar(){

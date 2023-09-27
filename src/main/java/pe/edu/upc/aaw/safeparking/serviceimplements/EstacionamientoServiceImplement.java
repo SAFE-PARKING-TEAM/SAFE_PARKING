@@ -13,14 +13,6 @@ import java.util.List;
 public class EstacionamientoServiceImplement implements IEstacionamientoService {
     @Autowired
     private IEstacionamientoRepository eR;
-
-    public EstacionamientoServiceImplement() {
-    }
-
-    public EstacionamientoServiceImplement(IEstacionamientoRepository eR) {
-        this.eR = eR;
-    }
-
     @Override
     public void insert(Estacionamiento estacionamiento) {
         eR.save(estacionamiento);
