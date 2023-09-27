@@ -13,13 +13,6 @@ public class IncidenteServiceImplement implements IIncidenteService {
     @Autowired
     private IIncidenteRepository iR;
 
-    public IncidenteServiceImplement() {
-    }
-
-    public IncidenteServiceImplement(IIncidenteRepository iR) {
-        this.iR = iR;
-    }
-
     @Override
     public void insert(Incidente incidente) {
         iR.save(incidente);

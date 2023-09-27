@@ -13,13 +13,6 @@ public class MembresiaServiceImplement implements IMembresiaService {
     @Autowired
     private IMembresiaRepository dR;
 
-    public MembresiaServiceImplement() {
-    }
-
-    public MembresiaServiceImplement(IMembresiaRepository dR) {
-        this.dR = dR;
-    }
-
     @Override
     public void insert(Membresia membresia) {
         dR.save(membresia);

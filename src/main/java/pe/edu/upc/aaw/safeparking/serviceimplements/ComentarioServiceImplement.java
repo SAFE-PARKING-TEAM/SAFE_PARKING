@@ -12,14 +12,6 @@ import java.util.List;
 public class ComentarioServiceImplement implements IComentarioService {
     @Autowired
     private IComentarioRepository cR;
-
-    public ComentarioServiceImplement() {
-    }
-
-    public ComentarioServiceImplement(IComentarioRepository cR) {
-        this.cR = cR;
-    }
-
     @Override
     public void insert(Comentario comentario) {
         cR.save(comentario);

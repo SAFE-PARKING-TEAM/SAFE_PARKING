@@ -53,14 +53,5 @@ public class ComentarioDTO {
         this.reservaEstacionamiento = reservaEstacionamiento;
     }
 
-    public ComentarioDTO() {
-    }
 
-    public ComentarioDTO(int idComentario, String contenido, int valoracion, LocalDate fechaCreacion, ReservaEstacionamientoDTO reservaEstacionamiento) {
-        this.idComentario = idComentario;
-        this.contenido = contenido;
-        this.valoracion = valoracion;
-        this.fechaCreacion = fechaCreacion;
-        this.reservaEstacionamiento = reservaEstacionamiento;
-    }
 }

@@ -13,13 +13,6 @@ public class VehiculoServiceImplement implements IVehiculoService {
     @Autowired
     private IVehiculoRepository vR;
 
-    public VehiculoServiceImplement() {
-    }
-
-    public VehiculoServiceImplement(IVehiculoRepository vR) {
-        this.vR = vR;
-    }
-
     @Override
     public void insert(Vehiculo vehiculo) {
         vR.save(vehiculo);
