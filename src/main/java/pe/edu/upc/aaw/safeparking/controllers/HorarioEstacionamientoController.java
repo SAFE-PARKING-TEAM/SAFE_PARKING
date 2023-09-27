@@ -10,18 +10,13 @@ import pe.edu.upc.aaw.safeparking.serviceinterfaces.IHorarioEstacionamientoServi
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/horarioEstacionamientos")
 public class HorarioEstacionamientoController {
+
     @Autowired
     private IHorarioEstacionamientoService heS;
-
-    public HorarioEstacionamientoController() {
-    }
-
-    public HorarioEstacionamientoController(IHorarioEstacionamientoService heS) {
-        this.heS = heS;
-    }
 
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('arredador')"  )
@@ -52,4 +47,12 @@ public class HorarioEstacionamientoController {
     public void eliminar(@PathVariable("id")Integer id){
         heS.delete(id);
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('conductor')")
+    public HorarioEstacionamientoDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        HorarioEstacionamientoDTO he= m.map(heS.listId(id), HorarioEstacionamientoDTO.class);
+        return he;
+    }
+
 }

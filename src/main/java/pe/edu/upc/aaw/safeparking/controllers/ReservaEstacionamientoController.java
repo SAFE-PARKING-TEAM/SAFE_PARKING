@@ -16,29 +16,20 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 @RestController
-@RequestMapping("/reservaEstacionamientos")
+@RequestMapping("/ReservaEstacionamientos")
 public class ReservaEstacionamientoController {
     @Autowired
     private IReservaEstacionamientoService reS;
-
-    public ReservaEstacionamientoController() {
-    }
-
-    public ReservaEstacionamientoController(IReservaEstacionamientoService reS) {
-        this.reS = reS;
-    }
-
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('conductor')")
+    @PreAuthorize(" hasAuthority('conductor')")
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto,ReservaEstacionamiento.class);
         reS.insert(rev);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor') or hasAuthority('arrendador')"  )
+    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador') or hasAuthority('conductor')")
     public List<ReservaEstacionamientoDTO> listar(){
         return reS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -47,7 +38,7 @@ public class ReservaEstacionamientoController {
     }
 
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('conductor')")
     public void modificar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto, ReservaEstacionamiento.class);
@@ -55,11 +46,18 @@ public class ReservaEstacionamientoController {
     }
 
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('conductor')")
     public void eliminar(@PathVariable("id")Integer id){
         reS.delete(id);
     }
 
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador') or hasAuthority('conductor')")
+    public ReservaEstacionamiento listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        ReservaEstacionamiento rev= m.map(reS.listId(id), ReservaEstacionamiento.class);
+        return rev;
+    }
     @GetMapping("cantidadReservaPorusuario")
     @PreAuthorize("hasAuthority('administrador')")
     public List<CantidadReservasPorUsuarioDTO> cantidadReservasPorUsuario(){
@@ -107,4 +105,5 @@ public class ReservaEstacionamientoController {
         }
         return lista_DTO;
     }
+
 }

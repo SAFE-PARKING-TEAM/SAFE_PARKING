@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.aaw.safeparking.entities.Horario;
 import pe.edu.upc.aaw.safeparking.entities.Incidente;
 import pe.edu.upc.aaw.safeparking.repositories.IIncidenteRepository;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IIncidenteService;
@@ -11,13 +12,6 @@ import java.util.List;
 public class IncidenteServiceImplement implements IIncidenteService {
     @Autowired
     private IIncidenteRepository iR;
-
-    public IncidenteServiceImplement() {
-    }
-
-    public IncidenteServiceImplement(IIncidenteRepository iR) {
-        this.iR = iR;
-    }
 
     @Override
     public void insert(Incidente incidente) {
@@ -32,6 +26,12 @@ public class IncidenteServiceImplement implements IIncidenteService {
     @Override
     public void delete(int idIncidente) {
         iR.deleteById(idIncidente);
+    }
+
+    @Override
+    public Incidente listId(int idIncidente)  {
+        return iR.findById(idIncidente).orElse(new Incidente());
+
     }
 
     @Override

@@ -16,15 +16,6 @@ import java.util.stream.Collectors;
 public class RolController {
     @Autowired
     private IRolService rolR;
-
-    public RolController() {
-
-    }
-
-    public RolController(IRolService rolR) {
-        this.rolR = rolR;
-    }
-
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody RolDTO dto){
@@ -53,4 +44,12 @@ public class RolController {
         Rol d=m.map(dto, Rol.class);
         rolR.insert(d);
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
+    public RolDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        RolDTO rl= m.map(rolR.listId(id), RolDTO.class);
+        return rl;
+    }
+
 }

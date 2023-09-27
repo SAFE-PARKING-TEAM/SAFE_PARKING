@@ -15,4 +15,5 @@ public interface IReservaEstacionamientoService {
     public List<String[]>quantityreservationbyDate();
     public List<String[]>quantityreservationbyPay();
 
+
 }
