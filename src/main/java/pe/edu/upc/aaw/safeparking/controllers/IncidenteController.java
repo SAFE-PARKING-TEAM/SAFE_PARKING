@@ -22,7 +22,7 @@ public class IncidenteController {
 
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador') or hasAuthority('conductor')")
     public void registrar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente d=m.map(dto,Incidente.class);
@@ -46,7 +46,7 @@ public class IncidenteController {
         }).collect(Collectors.toList());
     }
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador')")
+    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')")
     public void modificar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente i=m.map(dto,Incidente.class);
