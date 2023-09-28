@@ -66,7 +66,7 @@ public class ReservaEstacionamientoController {
         for(String[] data:lista){
 
             CantidadReservasPorUsuarioDTO dto = new CantidadReservasPorUsuarioDTO();
-            dto.setNameUser(data[0]);
+            dto.setNameUser(Integer.parseInt(data[0]));
             dto.setNameRole(data[1]);
             dto.setQuantityReservation(Integer.parseInt(data[2]));
             listaDTO.add(dto);
@@ -105,5 +105,4 @@ public class ReservaEstacionamientoController {
         }
         return lista_DTO;
     }
-
 }

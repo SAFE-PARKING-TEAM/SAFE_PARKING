@@ -17,11 +17,19 @@ public class Incidente {
     @JoinColumn(name="idUsuario")
     private Usuario usuario;
 
-    public Incidente(int idIncidente, String descripcion, String tipoIncidencia, Usuario usuario) {
+    public Incidente(int idIncidente, String descripcion, String tipoIncidente, Usuario usuario) {
         this.idIncidente = idIncidente;
         this.descripcion = descripcion;
         this.tipoIncidente = tipoIncidente;
         this.usuario = usuario;
+    }
+
+    public String getTipoIncidente() {
+        return tipoIncidente;
+    }
+
+    public void setTipoIncidente(String tipoIncidente) {
+        this.tipoIncidente = tipoIncidente;
     }
 
     public Incidente() {

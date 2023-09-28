@@ -20,7 +20,7 @@ public class HorarioEstacionamientoController {
     private IHorarioEstacionamientoService heS;
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('arredador')  or hasAuthority('administrador')" )
+    @PreAuthorize("hasAuthority('arrendador')  or hasAuthority('administrador')" )
     public void registrar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto,HorarioEstacionamiento.class);
@@ -36,7 +36,7 @@ public class HorarioEstacionamientoController {
     }
 
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('arredador') or hasAuthority('arrendador')" )
+    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
     public void modificar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto, HorarioEstacionamiento.class);
@@ -44,7 +44,7 @@ public class HorarioEstacionamientoController {
     }
 
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('arrendador')" )
+    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
     public void eliminar(@PathVariable("id")Integer id){
         heS.delete(id);
     }
