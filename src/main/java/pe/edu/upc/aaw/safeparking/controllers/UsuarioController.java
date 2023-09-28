@@ -42,11 +42,9 @@ public class UsuarioController {
 
     }
 
-//    @DeleteMapping("/{id}")
-  //  @PreAuthorize("hasAuthority('administrador')")
-    //public void eliminar(@PathVariable("id")Integer id){
-      //  uS.delete(id);
-    //}
+@DeleteMapping("/{id}")
+@PreAuthorize("hasAuthority('administrador')")
+public void eliminar(@PathVariable("id")Integer id){uS.delete(id);}
 
 
 

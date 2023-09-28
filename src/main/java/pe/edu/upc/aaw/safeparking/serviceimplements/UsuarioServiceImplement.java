@@ -34,4 +34,8 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public Usuario listId(int idUsuario) {
         return uR.findById(idUsuario).orElse(new Usuario());
     }
+
+    public void delete(int idIncidente) {
+        uR.deleteById(idIncidente);
+    }
 }
