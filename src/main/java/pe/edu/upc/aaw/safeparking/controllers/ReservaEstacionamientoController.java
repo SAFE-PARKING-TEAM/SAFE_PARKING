@@ -53,9 +53,9 @@ public class ReservaEstacionamientoController {
 
     @GetMapping("ListarporID/{id}")
     @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador') or hasAuthority('conductor')")
-    public ReservaEstacionamiento listarId(@PathVariable("id")Integer id){
+    public ReservaEstacionamientoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
-        ReservaEstacionamiento rev= m.map(reS.listId(id), ReservaEstacionamiento.class);
+        ReservaEstacionamientoDTO rev= m.map(reS.listId(id), ReservaEstacionamientoDTO.class);
         return rev;
     }
     @GetMapping("cantidadReservaPorusuario")
