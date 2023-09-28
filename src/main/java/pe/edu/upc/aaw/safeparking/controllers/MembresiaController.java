@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.LocalizacionDTO;
 import pe.edu.upc.aaw.safeparking.dtos.MembresiaDTO;
 import pe.edu.upc.aaw.safeparking.entities.Membresia;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IMembresiaService;
@@ -17,13 +18,6 @@ public class MembresiaController {
     @Autowired
     private IMembresiaService dS;
 
-    public MembresiaController() {
-    }
-
-    public MembresiaController(IMembresiaService dS) {
-        this.dS = dS;
-    }
-
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody MembresiaDTO dto){
@@ -32,13 +26,21 @@ public class MembresiaController {
         dS.insert(d);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('administrador')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador')")
     public List<MembresiaDTO> listar(){
         return dS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,MembresiaDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("ListarporID/{id}")
+    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')")
+    public MembresiaDTO listarId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        MembresiaDTO mm= m.map(dS.listId(id), MembresiaDTO.class);
+        return mm;
+    }
+
     @DeleteMapping("Eliminar/{id}")
     @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){

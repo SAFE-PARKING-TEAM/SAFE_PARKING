@@ -48,9 +48,6 @@ public class Usuario implements Serializable {
         this.rols = rols;
     }
 
-
-
-
     public Usuario() {
     }
 

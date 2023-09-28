@@ -28,15 +28,4 @@ public class RolDTO {
     public void setUsuario(UsuarioDTO users) {
         this.users = users;
     }
-
-    public RolDTO() {
-    }
-
-    public RolDTO(int idRol, String nombreRol, UsuarioDTO users) {
-        this.idRol = idRol;
-        this.nombreRol = nombreRol;
-        this.users = users;
-    }
 }
-
-

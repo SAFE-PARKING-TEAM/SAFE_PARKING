@@ -13,13 +13,6 @@ public class ReservaEstacionamientoServiceImplement  implements IReservaEstacion
     @Autowired
     private IReservaEstacionamientoRepository reR;
 
-    public ReservaEstacionamientoServiceImplement() {
-    }
-
-    public ReservaEstacionamientoServiceImplement(IReservaEstacionamientoRepository reR) {
-        this.reR = reR;
-    }
-
     @Override
     public void insert(ReservaEstacionamiento reservaEstacionamiento) {
         reR.save(reservaEstacionamiento);

@@ -27,14 +27,5 @@ public class LocalizacionDTO {
 
     public void setReferencia(String referencia) {this.referencia = referencia;}
 
-    public LocalizacionDTO() {
-    }
 
-    public LocalizacionDTO(int idLocalizacion, String direccion, String distrito, String region, String referencia) {
-        this.idLocalizacion = idLocalizacion;
-        this.direccion = direccion;
-        this.distrito = distrito;
-        this.region = region;
-        this.referencia = referencia;
-    }
 }
