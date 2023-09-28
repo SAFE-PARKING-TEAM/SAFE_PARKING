@@ -17,14 +17,14 @@ public class Incidente {
     @JoinColumn(name="idUsuario")
     private Usuario usuario;
 
-    public Incidente(int idIncidente, String descripcion, String tipoIncidencia, Usuario usuario) {
+    public Incidente() {
+    }
+
+    public Incidente(int idIncidente, String descripcion, String tipoIncidente, Usuario usuario) {
         this.idIncidente = idIncidente;
         this.descripcion = descripcion;
         this.tipoIncidente = tipoIncidente;
         this.usuario = usuario;
-    }
-
-    public Incidente() {
     }
 
     public int getIdIncidente() {
@@ -43,12 +43,12 @@ public class Incidente {
         this.descripcion = descripcion;
     }
 
-    public String getTipoIncidencia() {
+    public String getTipoIncidente() {
         return tipoIncidente;
     }
 
-    public void setTipoIncidencia(String tipoIncidencia) {
-        this.tipoIncidente = tipoIncidencia;
+    public void setTipoIncidente(String tipoIncidente) {
+        this.tipoIncidente = tipoIncidente;
     }
 
     public Usuario getUsuario() {
