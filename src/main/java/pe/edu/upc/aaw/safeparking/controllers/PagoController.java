@@ -21,7 +21,6 @@ public class PagoController {
     private IPagoService pagoR;
 
 
-
     @PostMapping("Registrar")
     @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
     public void registrar(@RequestBody PagoDTO dto){
