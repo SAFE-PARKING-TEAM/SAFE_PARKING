@@ -21,6 +21,7 @@ public class HorarioServiceImplement implements IHorarioService {
     public List<Horario> list() {
         return hR.findAll();
     }
+
     @Override
     public void delete(int idVehiculo) {
         hR.deleteById(idVehiculo);
