@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.EstacionamientoDTO;
-import pe.edu.upc.aaw.safeparking.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.safeparking.entities.Estacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IEstacionamientoService;
 
@@ -54,10 +53,5 @@ public class EstacionamientoController {
     public void eliminar(@PathVariable("id")Integer id){
         eS.delete(id);
     }
-
-
-
 }
-
-
 

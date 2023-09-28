@@ -44,10 +44,9 @@ public class UsuarioController {
         Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
     }
-
     @GetMapping("ListarporID/{id}")
     @PreAuthorize("hasAuthority('administrador')")
-    public UsuarioDTO listId(@PathVariable("id")Integer id){
+    public UsuarioDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         UsuarioDTO u= m.map(uS.listId(id), UsuarioDTO.class);
         return u;
