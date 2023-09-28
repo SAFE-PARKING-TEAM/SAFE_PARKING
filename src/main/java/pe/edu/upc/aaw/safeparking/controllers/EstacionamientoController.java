@@ -34,7 +34,7 @@ public class EstacionamientoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')")
     public EstacionamientoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         EstacionamientoDTO e= m.map(eS.listId(id), EstacionamientoDTO.class);
@@ -53,5 +53,4 @@ public class EstacionamientoController {
     public void eliminar(@PathVariable("id")Integer id){
         eS.delete(id);
     }
-
 }

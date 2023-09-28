@@ -10,6 +10,5 @@ public interface IIncidenteService {
     public List<Incidente> list();
     public void delete(int idIncidente);
     public Incidente listId(int idIncidente);
-
     public  List<String[]>cantIncidentesPorTipoRol();
 }

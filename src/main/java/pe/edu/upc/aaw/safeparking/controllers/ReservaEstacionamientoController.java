@@ -22,7 +22,7 @@ public class ReservaEstacionamientoController {
     @Autowired
     private IReservaEstacionamientoService reS;
     @PostMapping("Registrar")
-    @PreAuthorize(" hasAuthority('conductor')")
+    @PreAuthorize(" hasAuthority('conductor') or hasAuthority('administrador') ")
     public void registrar(@RequestBody ReservaEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         ReservaEstacionamiento rev=m.map(dto,ReservaEstacionamiento.class);
@@ -53,9 +53,9 @@ public class ReservaEstacionamientoController {
 
     @GetMapping("ListarporID/{id}")
     @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador') or hasAuthority('conductor')")
-    public ReservaEstacionamiento listarId(@PathVariable("id")Integer id){
+    public ReservaEstacionamientoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
-        ReservaEstacionamiento rev= m.map(reS.listId(id), ReservaEstacionamiento.class);
+        ReservaEstacionamientoDTO rev= m.map(reS.listId(id), ReservaEstacionamientoDTO.class);
         return rev;
     }
     @GetMapping("cantidadReservaPorusuario")
@@ -66,7 +66,7 @@ public class ReservaEstacionamientoController {
         for(String[] data:lista){
 
             CantidadReservasPorUsuarioDTO dto = new CantidadReservasPorUsuarioDTO();
-            dto.setNameUser(data[0]);
+            dto.setNameUser(Integer.parseInt(data[0]));
             dto.setNameRole(data[1]);
             dto.setQuantityReservation(Integer.parseInt(data[2]));
             listaDTO.add(dto);
@@ -105,5 +105,4 @@ public class ReservaEstacionamientoController {
         }
         return lista_DTO;
     }
-
 }

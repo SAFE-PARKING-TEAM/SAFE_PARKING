@@ -11,17 +11,25 @@ public class Incidente {
     @Column(name = "descripcion", nullable = false, length = 100)
     private String descripcion;
     @Column(name = "tipoIncidente", nullable = false, length = 50)
-    private String tipoIncidencia;
+    private String tipoIncidente;
 
     @ManyToOne
     @JoinColumn(name="idUsuario")
     private Usuario usuario;
 
-    public Incidente(int idIncidente, String descripcion, String tipoIncidencia, Usuario usuario) {
+    public Incidente(int idIncidente, String descripcion, String tipoIncidente, Usuario usuario) {
         this.idIncidente = idIncidente;
         this.descripcion = descripcion;
-        this.tipoIncidencia = tipoIncidencia;
+        this.tipoIncidente = tipoIncidente;
         this.usuario = usuario;
+    }
+
+    public String getTipoIncidente() {
+        return tipoIncidente;
+    }
+
+    public void setTipoIncidente(String tipoIncidente) {
+        this.tipoIncidente = tipoIncidente;
     }
 
     public Incidente() {
@@ -44,11 +52,11 @@ public class Incidente {
     }
 
     public String getTipoIncidencia() {
-        return tipoIncidencia;
+        return tipoIncidente;
     }
 
     public void setTipoIncidencia(String tipoIncidencia) {
-        this.tipoIncidencia = tipoIncidencia;
+        this.tipoIncidente = tipoIncidencia;
     }
 
     public Usuario getUsuario() {

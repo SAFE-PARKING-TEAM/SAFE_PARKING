@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.ComentarioDTO;
 import pe.edu.upc.aaw.safeparking.dtos.HorarioEstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.entities.HorarioEstacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IHorarioEstacionamientoService;
@@ -19,7 +20,7 @@ public class HorarioEstacionamientoController {
     private IHorarioEstacionamientoService heS;
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('arredador')"  )
+    @PreAuthorize("hasAuthority('arrendador')  or hasAuthority('administrador')" )
     public void registrar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto,HorarioEstacionamiento.class);
@@ -35,7 +36,7 @@ public class HorarioEstacionamientoController {
     }
 
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('arredador')" )
+    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
     public void modificar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto, HorarioEstacionamiento.class);
@@ -43,16 +44,17 @@ public class HorarioEstacionamientoController {
     }
 
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('arredador')" )
+    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
     public void eliminar(@PathVariable("id")Integer id){
         heS.delete(id);
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador')")
     public HorarioEstacionamientoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         HorarioEstacionamientoDTO he= m.map(heS.listId(id), HorarioEstacionamientoDTO.class);
         return he;
     }
+
 
 }
