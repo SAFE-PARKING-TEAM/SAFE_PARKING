@@ -22,7 +22,7 @@ public class IncidenteController {
 
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('conductor') or hasAuthority('administrador')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador') or hasAuthority('conductor')")
     public void registrar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente d=m.map(dto,Incidente.class);
@@ -46,14 +46,14 @@ public class IncidenteController {
         }).collect(Collectors.toList());
     }
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador')or hasAuthority('administrador')")
+    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')")
     public void modificar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente i=m.map(dto,Incidente.class);
         iS.insert(i);
     }
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('administrador')")
+    @PreAuthorize("hasAuthority('administrador')"  )
     public void eliminar(@PathVariable("id")Integer id){
         iS.delete(id);
     }
