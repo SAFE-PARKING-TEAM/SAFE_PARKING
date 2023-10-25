@@ -16,16 +16,21 @@ public class Localizacion {
     private String region;
     @Column(name = "referencia", length = 50, nullable = false)
     private String referencia;
-
+    @Column(name = "latitud", nullable = false)
+    private double latitud;
+    @Column(name = "longitud", nullable = false)
+    private double longitud;
     public Localizacion() {
     }
 
-    public Localizacion(int idLocalizacion, String direccion, String distrito, String region, String referencia) {
+    public Localizacion(int idLocalizacion, String direccion, String distrito, String region, String referencia, double latitud, double longitud) {
         this.idLocalizacion = idLocalizacion;
         this.direccion = direccion;
         this.distrito = distrito;
         this.region = region;
         this.referencia = referencia;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public int getIdLocalizacion() {
@@ -66,5 +71,21 @@ public class Localizacion {
 
     public void setReferencia(String referencia) {
         this.referencia = referencia;
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
     }
 }

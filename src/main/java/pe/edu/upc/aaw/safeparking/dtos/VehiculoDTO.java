@@ -1,5 +1,7 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
+import javax.persistence.Column;
+
 public class VehiculoDTO {
     private int idVehiculo;
     private String placaVehiculo;
