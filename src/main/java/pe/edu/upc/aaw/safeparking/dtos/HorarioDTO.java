@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class HorarioDTO {
     private int idHorario;
-    private Time horaApertura;
-    private Time horaCierre;
+    private String horaApertura;
+    private String horaCierre;
     private String dia;
 
     public int getIdHorario() {
@@ -25,19 +25,19 @@ public class HorarioDTO {
         this.dia = dia;
     }
 
-    public Time getHoraApertura() {
+    public String getHoraApertura() {
         return horaApertura;
     }
 
-    public void setHoraApertura(Time horaApertura) {
+    public void setHoraApertura(String horaApertura) {
         this.horaApertura = horaApertura;
     }
 
-    public Time getHoraCierre() {
+    public String getHoraCierre() {
         return horaCierre;
     }
 
-    public void setHoraCierre(Time horaCierre) {
+    public void setHoraCierre(String horaCierre) {
         this.horaCierre = horaCierre;
     }
 }

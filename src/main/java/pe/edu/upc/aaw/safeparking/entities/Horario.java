@@ -9,17 +9,17 @@ public class Horario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idHorario;
-    @Column(name = "horaApertura", nullable = false)
-    private Time horaApertura;
-    @Column(name = "horaCierre", nullable = false)
-    private Time horaCierre;
+    @Column(name = "horaApertura", nullable = false ,length = 50)
+    private String horaApertura;
+    @Column(name = "horaCierre", nullable = false ,length = 50)
+    private String horaCierre;
     @Column(name = "dia",nullable = false,length = 50)
     private String dia;
 
     public Horario() {
     }
 
-    public Horario(int idHorario, Time horaApertura, Time horaCierre, String dia) {
+    public Horario(int idHorario, String horaApertura, String horaCierre, String dia) {
         this.idHorario = idHorario;
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
@@ -34,19 +34,19 @@ public class Horario {
         this.idHorario = idHorario;
     }
 
-    public Time getHoraApertura() {
+    public String getHoraApertura() {
         return horaApertura;
     }
 
-    public void setHoraApertura(Time horaApertura) {
+    public void setHoraApertura(String horaApertura) {
         this.horaApertura = horaApertura;
     }
 
-    public Time getHoraCierre() {
+    public String getHoraCierre() {
         return horaCierre;
     }
 
-    public void setHoraCierre(Time horaCierre) {
+    public void setHoraCierre(String horaCierre) {
         this.horaCierre = horaCierre;
     }
 
