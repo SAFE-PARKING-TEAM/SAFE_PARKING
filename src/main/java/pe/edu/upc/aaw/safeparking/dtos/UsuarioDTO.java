@@ -16,9 +16,10 @@ public class UsuarioDTO {
     private String imagen;
     private LocalDate fechaNacimiento;
     private int telefono;
-    private MembresiaDTO membresia;
+    private MembresiaDTO id_membresia;
     private Boolean enabled;
     //private List<Role> roles;
+
 
     public int getIdUsuario() {
         return idUsuario;
@@ -109,11 +110,11 @@ public class UsuarioDTO {
     }
 
     public MembresiaDTO getMembresia() {
-        return membresia;
+        return id_membresia;
     }
 
     public void setMembresia(MembresiaDTO membresia) {
-        this.membresia = membresia;
+        this.id_membresia = membresia;
     }
 
     public Boolean getEnabled() {
@@ -121,25 +122,6 @@ public class UsuarioDTO {
     }
 
     public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public UsuarioDTO() {
-    }
-
-    public UsuarioDTO(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, MembresiaDTO membresia, Boolean enabled) {
-        this.idUsuario = idUsuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo = correo;
-        this.username = username;
-        this.password = password;
-        this.genero = genero;
-        this.dni = dni;
-        this.imagen = imagen;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
-        this.membresia = membresia;
         this.enabled = enabled;
     }
 }

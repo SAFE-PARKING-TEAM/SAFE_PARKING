@@ -34,8 +34,8 @@ public class Usuario implements Serializable {
     @Column(name ="enabled", nullable = false)
     private Boolean enabled;
     @ManyToOne
-    @JoinColumn(name = "idMembresia")
-    private Membresia membresia;
+    @JoinColumn(name = "id_membresia")
+    private Membresia id_membresia;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUsuario")
     private List<Rol> rols;
@@ -51,7 +51,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia id_membresia, List<Rol> rols) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -64,7 +64,7 @@ public class Usuario implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
         this.enabled = enabled;
-        this.membresia = membresia;
+        this.id_membresia = id_membresia;
         this.rols = rols;
     }
 
@@ -165,10 +165,10 @@ public class Usuario implements Serializable {
     }
 
     public Membresia getMembresia() {
-        return membresia;
+        return id_membresia;
     }
 
     public void setMembresia(Membresia membresia) {
-        this.membresia = membresia;
+        this.id_membresia = membresia;
     }
 }

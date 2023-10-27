@@ -4,18 +4,18 @@ import java.time.LocalDate;
 
 public class MembresiaDTO {
 
-    private int idMembresia;
+    private int id_membresia;
     private String tipoMembresia;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private double precio;
 
     public int getIdMembresia() {
-        return idMembresia;
+        return id_membresia;
     }
 
-    public void setIdMembresia(int idMembresia) {
-        this.idMembresia = idMembresia;
+    public void setIdMembresia(int id_membresia) {
+        this.id_membresia = id_membresia;
     }
 
     public String getTipoMembresia() {
