@@ -37,6 +37,7 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
 
+    
     public Usuario() {
     }
 
