@@ -2,9 +2,10 @@ package pe.edu.upc.aaw.safeparking.dtos;
 
 import pe.edu.upc.aaw.safeparking.entities.Membresia;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class UsuarioDTO {
+public class UsuarioDTO implements Serializable {
     private int idUsuario;
     private String nombre;
     private String apellido;
@@ -16,7 +17,7 @@ public class UsuarioDTO {
     private String imagen;
     private LocalDate fechaNacimiento;
     private int telefono;
-    private MembresiaDTO id_membresia;
+    private int idMembresia;
     private Boolean enabled;
     //private List<Role> roles;
 
@@ -109,12 +110,12 @@ public class UsuarioDTO {
         this.telefono = telefono;
     }
 
-    public MembresiaDTO getMembresia() {
-        return id_membresia;
+    public int getMembresia() {
+        return idMembresia;
     }
 
-    public void setMembresia(MembresiaDTO membresia) {
-        this.id_membresia = membresia;
+    public void setMembresia(int idMembresia) {
+        this.idMembresia = idMembresia;
     }
 
     public Boolean getEnabled() {

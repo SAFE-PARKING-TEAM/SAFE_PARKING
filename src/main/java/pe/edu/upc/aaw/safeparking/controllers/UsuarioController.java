@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.UsuarioDTO;
@@ -23,9 +24,8 @@ public class UsuarioController {
         ModelMapper m = new ModelMapper();
         Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
+
     }
-
-
     @GetMapping("Listar")
    //  @PreAuthorize("hasAuthority('administrador')")
     public List<UsuarioDTO> listar(){

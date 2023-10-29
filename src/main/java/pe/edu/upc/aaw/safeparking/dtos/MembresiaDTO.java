@@ -1,21 +1,22 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MembresiaDTO {
+public class MembresiaDTO  implements Serializable {
 
-    private int id_membresia;
+    private int idMembresia;
     private String tipoMembresia;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private double precio;
 
     public int getIdMembresia() {
-        return id_membresia;
+        return idMembresia;
     }
 
-    public void setIdMembresia(int id_membresia) {
-        this.id_membresia = id_membresia;
+    public void setIdMembresia(int idMembresia) {
+        this.idMembresia = idMembresia;
     }
 
     public String getTipoMembresia() {
