@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.safeparking.dtos.ComentarioDTO;
 import pe.edu.upc.aaw.safeparking.dtos.HorarioEstacionamientoDTO;
 import pe.edu.upc.aaw.safeparking.entities.HorarioEstacionamiento;
 import pe.edu.upc.aaw.safeparking.serviceinterfaces.IHorarioEstacionamientoService;
@@ -19,7 +20,7 @@ public class HorarioEstacionamientoController {
     private IHorarioEstacionamientoService heS;
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')"  )
+    @PreAuthorize("hasAuthority('arrendador')  or hasAuthority('administrador')" )
     public void registrar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto,HorarioEstacionamiento.class);
@@ -48,11 +49,12 @@ public class HorarioEstacionamientoController {
         heS.delete(id);
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('administrador')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador')")
     public HorarioEstacionamientoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         HorarioEstacionamientoDTO he= m.map(heS.listId(id), HorarioEstacionamientoDTO.class);
         return he;
     }
+
 
 }

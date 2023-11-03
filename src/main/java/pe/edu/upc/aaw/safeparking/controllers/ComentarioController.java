@@ -17,7 +17,7 @@ public class ComentarioController {
     private IComentarioService cS;
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor') or hasAuthority('administrador')")
     public void Registrar(@RequestBody ComentarioDTO dto){
         ModelMapper m = new ModelMapper();
         Comentario c = m.map(dto, Comentario.class);
