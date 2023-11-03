@@ -1,8 +1,9 @@
 package pe.edu.upc.aaw.safeparking.dtos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MembresiaDTO {
+public class MembresiaDTO  implements Serializable {
 
     private int idMembresia;
     private String tipoMembresia;
