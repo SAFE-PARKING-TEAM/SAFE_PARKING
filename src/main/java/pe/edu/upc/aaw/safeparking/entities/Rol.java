@@ -5,9 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "rol")
-public class Rol implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +26,14 @@ public class Rol implements Serializable {
         this.usuario = usuario;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public int getIdRol() {
         return idRol;
     }
@@ -44,12 +50,6 @@ public class Rol implements Serializable {
         this.nombreRol = nombreRol;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
 }

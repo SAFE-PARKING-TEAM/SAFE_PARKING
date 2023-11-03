@@ -8,6 +8,15 @@ public class VehiculoDTO {
     private String marcaVehiculo;
     private double tamanioVehiculo;
     private String tarjetaPropiedadVehiculo;
+    private String imagenVehiculo;
+
+    public String getImagenVehiculo() {
+        return imagenVehiculo;
+    }
+
+    public void setImagenVehiculo(String imagenVehiculo) {
+        this.imagenVehiculo = imagenVehiculo;
+    }
 
     public int getIdVehiculo() {
         return idVehiculo;

@@ -20,11 +20,14 @@ public class Vehiculo {
     private double tamanioVehiculo;
     @Column(name = "tarjetaPropiedadVehiculo",nullable = false, length = 50)
     private String tarjetaPropiedadVehiculo;
+    @Column(name = "imagenVehiculo",nullable = false, length = 50)
+    private String imagenVehiculo;
+
 
     public Vehiculo() {
     }
 
-    public Vehiculo(int idVehiculo, String placaVehiculo, String categoriaVehiculo, String colorVehiculo, String marcaVehiculo, double tamanioVehiculo, String tarjetaPropiedadVehiculo) {
+    public Vehiculo(int idVehiculo, String placaVehiculo, String categoriaVehiculo, String colorVehiculo, String marcaVehiculo, double tamanioVehiculo, String tarjetaPropiedadVehiculo, String imagenVehiculo) {
         this.idVehiculo = idVehiculo;
         this.placaVehiculo = placaVehiculo;
         this.categoriaVehiculo = categoriaVehiculo;
@@ -32,6 +35,15 @@ public class Vehiculo {
         this.marcaVehiculo = marcaVehiculo;
         this.tamanioVehiculo = tamanioVehiculo;
         this.tarjetaPropiedadVehiculo = tarjetaPropiedadVehiculo;
+        this.imagenVehiculo = imagenVehiculo;
+    }
+
+    public String getImagenVehiculo() {
+        return imagenVehiculo;
+    }
+
+    public void setImagenVehiculo(String imagenVehiculo) {
+        this.imagenVehiculo = imagenVehiculo;
     }
 
     public int getIdVehiculo() {

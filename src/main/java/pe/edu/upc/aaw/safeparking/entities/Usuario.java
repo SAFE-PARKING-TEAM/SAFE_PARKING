@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario implements Serializable {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
@@ -36,22 +36,12 @@ public class Usuario implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUsuario")
-    private List<Rol> rols;
 
-    public List<Rol> getRoles() {
-        return rols;
-    }
-
-    public void setRoles(List<Rol> rols) {
-        this.rols = rols;
-    }
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -65,7 +55,6 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
         this.enabled = enabled;
         this.membresia = membresia;
-        this.rols = rols;
     }
 
     public int getIdUsuario() {

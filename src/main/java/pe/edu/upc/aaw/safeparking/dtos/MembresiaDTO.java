@@ -10,6 +10,7 @@ public class MembresiaDTO {
     private LocalDate fechaFin;
     private double precio;
 
+
     public int getIdMembresia() {
         return idMembresia;
     }

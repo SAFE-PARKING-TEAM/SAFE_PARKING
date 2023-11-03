@@ -3,7 +3,8 @@ package pe.edu.upc.aaw.safeparking.dtos;
 public class RolDTO {
     private int idRol;
     private String nombreRol;
-    private UsuarioDTO users;
+    private UsuarioDTO usuario;
+
 
     public int getIdRol() {
         return idRol;
@@ -22,10 +23,10 @@ public class RolDTO {
     }
 
     public UsuarioDTO getUsuario() {
-        return users;
+        return usuario;
     }
 
-    public void setUsuario(UsuarioDTO users) {
-        this.users = users;
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
     }
 }
