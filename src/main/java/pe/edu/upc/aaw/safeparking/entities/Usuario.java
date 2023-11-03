@@ -24,13 +24,13 @@ public class Usuario {
     @Column(name ="genero", length = 50, nullable = false)
     private String genero;
     @Column(name ="dni", nullable = false)
-    private int dni;
+    private Long dni;
     @Column(name ="imagen", length = 100, nullable = false)
     private String imagen;
     @Column(name ="fechaNacimiento", nullable = false)
     private LocalDate fechaNacimiento;
     @Column(name ="telefono", nullable = false)
-    private int telefono;
+    private Long telefono;
     @Column(name ="enabled", nullable = false)
     private Boolean enabled;
     @ManyToOne
@@ -41,7 +41,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, Long dni, String imagen, LocalDate fechaNacimiento, Long telefono, Boolean enabled, Membresia membresia) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -113,11 +113,11 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public int getDni() {
+    public Long getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(Long dni) {
         this.dni = dni;
     }
 
@@ -137,11 +137,11 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
