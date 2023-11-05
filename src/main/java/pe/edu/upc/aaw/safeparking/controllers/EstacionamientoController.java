@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-// @RequestMapping("/estacionamientos")
+@RequestMapping("/estacionamientos")
 public class EstacionamientoController {
     @Autowired
     private IEstacionamientoService eS;
