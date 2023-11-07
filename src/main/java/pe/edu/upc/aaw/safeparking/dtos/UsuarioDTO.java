@@ -12,10 +12,10 @@ public class UsuarioDTO {
     private String username;
     private String password;
     private String genero;
-    private int dni;
+    private Long dni;
     private String imagen;
     private LocalDate fechaNacimiento;
-    private int telefono;
+    private Long telefono;
     private MembresiaDTO membresia;
     private Boolean enabled;
     //private List<Role> roles;
@@ -76,11 +76,11 @@ public class UsuarioDTO {
         this.genero = genero;
     }
 
-    public int getDni() {
+    public Long getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(Long dni) {
         this.dni = dni;
     }
 
@@ -100,11 +100,11 @@ public class UsuarioDTO {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
