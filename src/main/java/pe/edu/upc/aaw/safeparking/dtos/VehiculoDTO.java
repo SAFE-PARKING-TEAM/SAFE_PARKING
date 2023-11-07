@@ -8,7 +8,7 @@ public class VehiculoDTO {
     private String categoriaVehiculo;
     private String colorVehiculo;
     private String marcaVehiculo;
-    private double tamanioVehiculo;
+    private String tamanioVehiculo;
     private String tarjetaPropiedadVehiculo;
     private String imagenVehiculo;
 
@@ -60,11 +60,11 @@ public class VehiculoDTO {
         this.marcaVehiculo = marcaVehiculo;
     }
 
-    public double getTamanioVehiculo() {
+    public String getTamanioVehiculo() {
         return tamanioVehiculo;
     }
 
-    public void setTamanioVehiculo(double tamanioVehiculo) {
+    public void setTamanioVehiculo(String tamanioVehiculo) {
         this.tamanioVehiculo = tamanioVehiculo;
     }
 

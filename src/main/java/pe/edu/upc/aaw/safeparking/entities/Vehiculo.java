@@ -16,8 +16,8 @@ public class Vehiculo {
     private String colorVehiculo;
     @Column(name = "marcaVehiculo",nullable = false,length = 20)
     private String marcaVehiculo;
-    @Column(name = "tamanioVehiculo",nullable = false)
-    private double tamanioVehiculo;
+    @Column(name = "tamanioVehiculo",nullable = false ,length = 20)
+    private String tamanioVehiculo;
     @Column(name = "tarjetaPropiedadVehiculo",nullable = false, length = 50)
     private String tarjetaPropiedadVehiculo;
     @Column(name = "imagenVehiculo",nullable = false, length = 50)
@@ -27,7 +27,7 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(int idVehiculo, String placaVehiculo, String categoriaVehiculo, String colorVehiculo, String marcaVehiculo, double tamanioVehiculo, String tarjetaPropiedadVehiculo, String imagenVehiculo) {
+    public Vehiculo(int idVehiculo, String placaVehiculo, String categoriaVehiculo, String colorVehiculo, String marcaVehiculo, String tamanioVehiculo, String tarjetaPropiedadVehiculo, String imagenVehiculo) {
         this.idVehiculo = idVehiculo;
         this.placaVehiculo = placaVehiculo;
         this.categoriaVehiculo = categoriaVehiculo;
@@ -66,7 +66,7 @@ public class Vehiculo {
         return marcaVehiculo;
     }
 
-    public double getTamanioVehiculo() {
+    public String getTamanioVehiculo() {
         return tamanioVehiculo;
     }
 
@@ -94,7 +94,7 @@ public class Vehiculo {
         this.marcaVehiculo = marcaVehiculo;
     }
 
-    public void setTamanioVehiculo(double tamanioVehiculo) {
+    public void setTamanioVehiculo(String tamanioVehiculo) {
         this.tamanioVehiculo = tamanioVehiculo;
     }
 
