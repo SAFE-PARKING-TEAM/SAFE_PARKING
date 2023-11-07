@@ -51,12 +51,12 @@ public class Incidente {
         this.descripcion = descripcion;
     }
 
-    public String getTipoIncidencia() {
+    public String getTipoIncidente() {
         return tipoIncidente;
     }
 
-    public void setTipoIncidencia(String tipoIncidencia) {
-        this.tipoIncidente = tipoIncidencia;
+    public void setTipoIncidente(String tipoIncidente) {
+        this.tipoIncidente = tipoIncidente;
     }
 
     public Usuario getUsuario() {
