@@ -26,7 +26,7 @@ public class MembresiaController {
         dS.insert(d);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador')")
+    //@PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador')")
     public List<MembresiaDTO> listar(){
         return dS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();

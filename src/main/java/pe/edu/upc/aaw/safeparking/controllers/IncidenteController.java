@@ -46,7 +46,7 @@ public class IncidenteController {
         }).collect(Collectors.toList());
     }
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')")
+    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')") // dejo a criterio si se van a
     public void modificar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente i=m.map(dto,Incidente.class);

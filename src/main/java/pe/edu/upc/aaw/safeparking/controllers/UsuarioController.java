@@ -18,14 +18,14 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService uS;
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador') or hasAuthority('conductor')")
+    //@PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador') or hasAuthority('conductor')")
     public void registrar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Usuario u=m.map(dto, Usuario.class);
         uS.insert(u);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('administrador')")
     public List<UsuarioDTO> listar(){
         return uS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -46,7 +46,7 @@ public class UsuarioController {
         uS.insert(u);
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('administrador')")
     public UsuarioDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         UsuarioDTO u= m.map(uS.listId(id), UsuarioDTO.class);

@@ -29,7 +29,7 @@ public class PagoController {
         pagoR.insert(d);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('administrador') ")
+    @PreAuthorize("hasAuthority('administrador') ") // yo diria todos
     public List<PagoDTO> listar(){
         return pagoR.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -37,7 +37,7 @@ public class PagoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')")
+    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor')") // todos igual
     public PagoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         PagoDTO pg= m.map(pagoR.listId(id), PagoDTO.class);

@@ -34,7 +34,7 @@ public class LocalizacionController {
         }).collect(Collectors.toList());
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador')")
+    @PreAuthorize("hasAuthority('administrador')  or hasAuthority('arrendador')") // yo diria toddos
     public LocalizacionDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         LocalizacionDTO l= m.map(lS.listId(id), LocalizacionDTO.class);
