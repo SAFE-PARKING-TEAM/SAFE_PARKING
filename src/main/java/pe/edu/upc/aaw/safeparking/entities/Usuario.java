@@ -65,6 +65,7 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
+    
     public String getNombre() {
         return nombre;
     }
