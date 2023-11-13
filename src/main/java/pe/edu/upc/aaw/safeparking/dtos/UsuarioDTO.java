@@ -13,19 +13,11 @@ public class UsuarioDTO {
     private String password;
     private String genero;
     private int dni;
-    private byte[] imagen;
+    private String imagen;
     private LocalDate fechaNacimiento;
     private int telefono;
     private MembresiaDTO membresia;
     private Boolean enabled;
-
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
 
     public int getIdUsuario() {
         return idUsuario;
@@ -91,6 +83,13 @@ public class UsuarioDTO {
         this.dni = dni;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;

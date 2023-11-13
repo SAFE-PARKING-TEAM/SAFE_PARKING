@@ -25,9 +25,8 @@ public class Usuario implements Serializable {
     private String genero;
     @Column(name ="dni", nullable = false)
     private Long dni;
-    @Column(name ="imagen", length = 100)
-    private byte[] imagen;
-
+    @Column(name ="imagen", length = 100, nullable = false)
+    private String imagen;
     @Column(name ="fechaNacimiento", nullable = false)
     private LocalDate fechaNacimiento;
     @Column(name ="telefono", nullable = false)
@@ -41,7 +40,7 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "idUsuario")
     private List<Rol> rols;
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, Long dni, byte[] imagen, LocalDate fechaNacimiento, Long telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, Long dni, String imagen, LocalDate fechaNacimiento, Long telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -58,13 +57,6 @@ public class Usuario implements Serializable {
         this.rols = rols;
     }
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
 
     public List<Rol> getRoles() {
         return rols;
@@ -140,6 +132,15 @@ public class Usuario implements Serializable {
     public void setDni(Long dni) {
         this.dni = dni;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
