@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.safeparking.entities;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.time.LocalDate;
 
 @Entity
@@ -14,9 +15,9 @@ public class Estacionamiento {
     @Column(name = "disponibilidad",nullable = false,length = 50)
 
     private String disponibilidad;
-    @Column(name = "foto",nullable = false,length = 50)
+    @Column(name = "foto",nullable = false)
 
-    private String foto;
+    private byte[] foto;
     @Column(name = "promedioValoracion",nullable = false)
 
     private Float promedioValoracion;
@@ -39,7 +40,7 @@ public class Estacionamiento {
     public Estacionamiento() {
     }
 
-    public Estacionamiento(int idEstacionamiento, String tipoEstacionamiento, String disponibilidad, String foto, Float promedioValoracion, int capacidad, LocalDate fechaRegistro, Double precio, Usuario usuario, Localizacion localizacion) {
+    public Estacionamiento(int idEstacionamiento, String tipoEstacionamiento, String disponibilidad, byte[] foto, Float promedioValoracion, int capacidad, LocalDate fechaRegistro, Double precio, Usuario usuario, Localizacion localizacion) {
         this.idEstacionamiento = idEstacionamiento;
         this.tipoEstacionamiento = tipoEstacionamiento;
         this.disponibilidad = disponibilidad;
@@ -76,11 +77,11 @@ public class Estacionamiento {
         this.disponibilidad = disponibilidad;
     }
 
-    public String getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 
