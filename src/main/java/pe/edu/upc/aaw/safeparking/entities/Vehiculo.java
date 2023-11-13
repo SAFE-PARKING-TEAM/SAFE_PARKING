@@ -20,12 +20,12 @@ public class Vehiculo {
     private String tamanioVehiculo;
     @Column(name = "tarjetaPropiedadVehiculo",nullable = false, length = 50)
     private String tarjetaPropiedadVehiculo;
-    @Column(name = "imagenVehiculo",nullable = false, length = 50)
-    private String imagenVehiculo;
+    @Column(name = "imagenVehiculo",nullable = false)
+    private byte[] imagenVehiculo;
     public Vehiculo() {
     }
 
-    public Vehiculo(int idVehiculo, String placaVehiculo, String categoriaVehiculo, String colorVehiculo, String marcaVehiculo, String tamanioVehiculo, String tarjetaPropiedadVehiculo, String imagenVehiculo) {
+    public Vehiculo(int idVehiculo, String placaVehiculo, String categoriaVehiculo, String colorVehiculo, String marcaVehiculo, String tamanioVehiculo, String tarjetaPropiedadVehiculo, byte[] imagenVehiculo) {
         this.idVehiculo = idVehiculo;
         this.placaVehiculo = placaVehiculo;
         this.categoriaVehiculo = categoriaVehiculo;
@@ -36,11 +36,11 @@ public class Vehiculo {
         this.imagenVehiculo = imagenVehiculo;
     }
 
-    public String getImagenVehiculo() {
+    public byte[] getImagenVehiculo() {
         return imagenVehiculo;
     }
 
-    public void setImagenVehiculo(String imagenVehiculo) {
+    public void setImagenVehiculo(byte[] imagenVehiculo) {
         this.imagenVehiculo = imagenVehiculo;
     }
 

@@ -19,7 +19,7 @@ public class MembresiaController {
     private IMembresiaService dS;
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('administrador')")
     public void registrar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();
         Membresia d=m.map(dto,Membresia.class);
@@ -34,7 +34,7 @@ public class MembresiaController {
         }).collect(Collectors.toList());
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')")
     public MembresiaDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         MembresiaDTO mm= m.map(dS.listId(id), MembresiaDTO.class);
@@ -42,13 +42,13 @@ public class MembresiaController {
     }
 
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         dS.delete(id);
     }
 
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody MembresiaDTO dto){
         ModelMapper m=new ModelMapper();
         Membresia mem=m.map(dto,Membresia.class);

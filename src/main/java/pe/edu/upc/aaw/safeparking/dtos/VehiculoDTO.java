@@ -8,13 +8,13 @@ public class VehiculoDTO {
     private String marcaVehiculo;
     private String tamanioVehiculo;
     private String tarjetaPropiedadVehiculo;
-    private String imagenVehiculo;
+    private byte[] imagenVehiculo;
 
-    public String getImagenVehiculo() {
+    public byte[] getImagenVehiculo() {
         return imagenVehiculo;
     }
 
-    public void setImagenVehiculo(String imagenVehiculo) {
+    public void setImagenVehiculo(byte[] imagenVehiculo) {
         this.imagenVehiculo = imagenVehiculo;
     }
 

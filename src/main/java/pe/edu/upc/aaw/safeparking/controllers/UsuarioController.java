@@ -33,13 +33,13 @@ public class UsuarioController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id")Integer id){
         uS.delete(id);
     }
 
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody UsuarioDTO dto){
         ModelMapper m = new ModelMapper();
         Usuario u=m.map(dto, Usuario.class);
