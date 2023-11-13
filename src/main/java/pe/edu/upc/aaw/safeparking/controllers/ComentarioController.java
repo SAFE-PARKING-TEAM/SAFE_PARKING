@@ -17,7 +17,7 @@ public class ComentarioController {
     private IComentarioService cS;
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor') or hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('administrador') or hasAuthority('conductor') or hasAuthority('administrador')")
     public void Registrar(@RequestBody ComentarioDTO dto){
         ModelMapper m = new ModelMapper();
         Comentario c = m.map(dto, Comentario.class);
@@ -25,7 +25,7 @@ public class ComentarioController {
 
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('administrador')")
     public List<ComentarioDTO> listar (){
 
         return cS.list().stream().map(x->{
@@ -35,13 +35,13 @@ public class ComentarioController {
     }
 
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('administrador')or hasAuthority('conductor')")
+    // @PreAuthorize("hasAuthority('administrador')or hasAuthority('conductor')")
     public void eliminar(@PathVariable("id")Integer id){
         cS.delete(id);
     }
 
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('administrador')")
     public ComentarioDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         ComentarioDTO c= m.map(cS.listId(id), ComentarioDTO.class);
@@ -49,7 +49,7 @@ public class ComentarioController {
     }
 
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('administrador')or hasAuthority('conductor')")
+    // @PreAuthorize("hasAuthority('administrador')or hasAuthority('conductor')")
     public void modificar(@RequestBody ComentarioDTO dto){
         ModelMapper m = new ModelMapper();
         Comentario c=m.map(dto, Comentario.class);
