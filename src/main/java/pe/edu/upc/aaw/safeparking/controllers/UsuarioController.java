@@ -53,4 +53,12 @@ public class UsuarioController {
         return u;
     }
 
+    @GetMapping("ListarporUsername/{username}")
+//@PreAuthorize("hasAuthority('administrador')")
+    public UsuarioDTO listarPorUsername(@PathVariable("username")String username){
+        ModelMapper m = new ModelMapper();
+        UsuarioDTO u= m.map(uS.findByUsername(username), UsuarioDTO.class);
+        return u;
+    }
+
 }

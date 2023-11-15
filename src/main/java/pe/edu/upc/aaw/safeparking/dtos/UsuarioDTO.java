@@ -13,7 +13,8 @@ public class UsuarioDTO {
     private String password;
     private String genero;
     private int dni;
-    private String imagen;
+    private byte[] imagen;
+
     private LocalDate fechaNacimiento;
     private int telefono;
     private MembresiaDTO membresia;
@@ -83,11 +84,11 @@ public class UsuarioDTO {
         this.dni = dni;
     }
 
-    public String getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
 

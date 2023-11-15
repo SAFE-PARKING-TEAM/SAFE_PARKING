@@ -15,7 +15,7 @@ public class Estacionamiento {
     @Column(name = "disponibilidad",nullable = false,length = 50)
 
     private String disponibilidad;
-    @Column(name = "foto",nullable = false)
+    @Column(name = "foto",nullable = true)
 
     private byte[] foto;
     @Column(name = "promedioValoracion",nullable = false)
