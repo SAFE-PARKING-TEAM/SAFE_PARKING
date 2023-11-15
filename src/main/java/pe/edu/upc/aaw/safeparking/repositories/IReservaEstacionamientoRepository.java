@@ -10,12 +10,11 @@ import java.util.List;
 @Repository
 public interface IReservaEstacionamientoRepository extends JpaRepository<ReservaEstacionamiento,Integer> {
 
-    @Query(value =" SELECT u.id_usuario AS nombre_usuario, u.nombre , COUNT(re.id_usuario) AS cantidad_reservas\n" +
-            " FROM usuario u\n" +
-            " JOIN reserva_estacionamiento re ON u.id_usuario = re.id_usuario\n" +
-            " JOIN rol r ON u.id_usuario = r.id_usuario\n" +
-            " WHERE r.nombre_rol = 'conductor'\n" +
-            " GROUP BY u.id_usuario, r.nombre_rol;",nativeQuery = true)
+    @Query(value ="SELECT  u.nombre, COUNT(re.id_usuario) AS cantidad_reservas\n" +
+            "FROM usuario u\n" +
+            "JOIN reserva_estacionamiento re ON u.id_usuario = re.id_usuario\n" +
+            "JOIN rol r ON u.id_usuario = r.id_usuario\n" +
+            "GROUP BY u.nombre, r.nombre_rol;",nativeQuery = true)
     public List<String[]> quantityreservationByUser();
 
     @Query(value = "SELECT fecha, COUNT(*) AS total_reservas\n" +
