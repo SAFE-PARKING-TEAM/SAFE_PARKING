@@ -20,7 +20,7 @@ public class Vehiculo {
     private String tamanioVehiculo;
     @Column(name = "tarjetaPropiedadVehiculo",nullable = false, length = 50)
     private String tarjetaPropiedadVehiculo;
-    @Column(name = "imagenVehiculo",nullable = false)
+    @Column(name = "imagenVehiculo",nullable = true)
     private byte[] imagenVehiculo;
     public Vehiculo() {
     }

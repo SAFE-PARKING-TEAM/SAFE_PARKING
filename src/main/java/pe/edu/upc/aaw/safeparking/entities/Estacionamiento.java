@@ -27,7 +27,7 @@ public class Estacionamiento {
     @Column(name = "fechaRegistro",nullable = false)
 
     private LocalDate fechaRegistro;
-    @Column(name = "precio",nullable = false)
+    @Column(name = "precio",nullable = true)
 
     private Double precio;
     @ManyToOne
