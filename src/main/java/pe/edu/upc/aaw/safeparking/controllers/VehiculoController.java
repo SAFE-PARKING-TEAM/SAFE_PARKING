@@ -53,5 +53,4 @@ public class VehiculoController {
         vS.delete(id);
     }
 
-
 }

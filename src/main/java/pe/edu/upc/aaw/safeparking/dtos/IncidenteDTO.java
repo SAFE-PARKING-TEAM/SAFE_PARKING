@@ -37,5 +37,4 @@ public class IncidenteDTO {
     public void setTipoIncidente(String tipoIncidente) {
         this.tipoIncidente = tipoIncidente;
     }
-
 }
