@@ -13,12 +13,12 @@ public class UsuarioDTO {
     private String password;
     private String genero;
     private int dni;
-    private String imagen;
+    private byte[] imagen;
+
     private LocalDate fechaNacimiento;
     private int telefono;
     private MembresiaDTO membresia;
     private Boolean enabled;
-    //private List<Role> roles;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -84,11 +84,11 @@ public class UsuarioDTO {
         this.dni = dni;
     }
 
-    public String getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
 
@@ -124,22 +124,4 @@ public class UsuarioDTO {
         this.enabled = enabled;
     }
 
-    public UsuarioDTO() {
-    }
-
-    public UsuarioDTO(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, MembresiaDTO membresia, Boolean enabled) {
-        this.idUsuario = idUsuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo = correo;
-        this.username = username;
-        this.password = password;
-        this.genero = genero;
-        this.dni = dni;
-        this.imagen = imagen;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
-        this.membresia = membresia;
-        this.enabled = enabled;
-    }
 }

@@ -2,7 +2,6 @@ package pe.edu.upc.aaw.safeparking.dtos;
 
 public class CantidadReservasPorUsuarioDTO {
     private String nameUser;
-    private String nameRole;
     private int quantityReservation;
 
     public String getNameUser() {
@@ -13,13 +12,6 @@ public class CantidadReservasPorUsuarioDTO {
         this.nameUser = nameUser;
     }
 
-    public String getNameRole() {
-        return nameRole;
-    }
-
-    public void setNameRole(String nameRole) {
-        this.nameRole = nameRole;
-    }
 
     public int getQuantityReservation() {
         return quantityReservation;

@@ -22,6 +22,7 @@ pe\edu\upc\aaw\safeparking\serviceimplements\HorarioServiceImplement.class
 pe\edu\upc\aaw\safeparking\serviceinterfaces\IReservaEstacionamientoService.class
 pe\edu\upc\aaw\safeparking\entities\Estacionamiento.class
 pe\edu\upc\aaw\safeparking\entities\Comentario.class
+pe\edu\upc\aaw\safeparking\util\CORS.class
 pe\edu\upc\aaw\safeparking\serviceimplements\IncidenteServiceImplement.class
 pe\edu\upc\aaw\safeparking\serviceimplements\PagoServiceImplement.class
 pe\edu\upc\aaw\safeparking\controllers\IncidenteController.class

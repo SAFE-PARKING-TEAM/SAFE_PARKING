@@ -24,13 +24,14 @@ public class Usuario implements Serializable {
     @Column(name ="genero", length = 50, nullable = false)
     private String genero;
     @Column(name ="dni", nullable = false)
-    private int dni;
-    @Column(name ="imagen", length = 100, nullable = false)
-    private String imagen;
+    private Long dni;
+    @Column(name = "imagen",nullable = true)
+
+    private byte[] imagen;
     @Column(name ="fechaNacimiento", nullable = false)
     private LocalDate fechaNacimiento;
     @Column(name ="telefono", nullable = false)
-    private int telefono;
+    private Long telefono;
     @Column(name ="enabled", nullable = false)
     private Boolean enabled;
     @ManyToOne
@@ -40,18 +41,7 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "idUsuario")
     private List<Rol> rols;
 
-    public List<Rol> getRoles() {
-        return rols;
-    }
-
-    public void setRoles(List<Rol> rols) {
-        this.rols = rols;
-    }
-
-    public Usuario() {
-    }
-
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, int dni, String imagen, LocalDate fechaNacimiento, int telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, Long dni, byte[] imagen, LocalDate fechaNacimiento, Long telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -66,6 +56,25 @@ public class Usuario implements Serializable {
         this.enabled = enabled;
         this.membresia = membresia;
         this.rols = rols;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
+    public List<Rol> getRoles() {
+        return rols;
+    }
+
+    public void setRoles(List<Rol> rols) {
+        this.rols = rols;
+    }
+
+    public Usuario() {
     }
 
     public int getIdUsuario() {
@@ -124,20 +133,12 @@ public class Usuario implements Serializable {
         this.genero = genero;
     }
 
-    public int getDni() {
+    public Long getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(Long dni) {
         this.dni = dni;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
     }
 
     public LocalDate getFechaNacimiento() {
@@ -148,11 +149,11 @@ public class Usuario implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
@@ -170,5 +171,13 @@ public class Usuario implements Serializable {
 
     public void setMembresia(Membresia membresia) {
         this.membresia = membresia;
+    }
+
+    public List<Rol> getRols() {
+        return rols;
+    }
+
+    public void setRols(List<Rol> rols) {
+        this.rols = rols;
     }
 }
