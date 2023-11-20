@@ -29,11 +29,11 @@ public class Membresia {
     public Membresia() {
     }
 
-    public int getIdMembresia() {
+    public int getId_membresia() {
         return idMembresia;
     }
 
-    public void setIdMembresia(int idMembresia) {
+    public void setId_membresia(int idMembresia) {
         this.idMembresia = idMembresia;
     }
 

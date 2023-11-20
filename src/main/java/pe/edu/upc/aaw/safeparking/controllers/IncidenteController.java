@@ -22,7 +22,7 @@ public class IncidenteController {
 
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador') or hasAuthority('conductor')")
+    //@PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador') or hasAuthority('conductor')")
     public void registrar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente d=m.map(dto,Incidente.class);
@@ -30,7 +30,7 @@ public class IncidenteController {
     }
 
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('administrador') ")
+    //@PreAuthorize("hasAuthority('administrador') ")
     public IncidenteDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         IncidenteDTO i= m.map(iS.listId(id), IncidenteDTO.class);
@@ -38,7 +38,7 @@ public class IncidenteController {
     }
 
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('administrador')"  )
+    // @PreAuthorize("hasAuthority('administrador')"  )
     public List<IncidenteDTO> listar(){
         return iS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -46,20 +46,20 @@ public class IncidenteController {
         }).collect(Collectors.toList());
     }
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')") // dejo a criterio si se van a
     public void modificar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente i=m.map(dto,Incidente.class);
         iS.insert(i);
     }
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('administrador')"  )
+    // @PreAuthorize("hasAuthority('administrador')"  )
     public void eliminar(@PathVariable("id")Integer id){
         iS.delete(id);
     }
 
     @GetMapping("CantidadIncidentesPorRol")
-    @PreAuthorize("hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('administrador')")
     public List<CantIncidentesPorRolDTO> cantIncidentesPorTipoRol(){
         List<String[]> lista = iS.cantIncidentesPorTipoRol();
 

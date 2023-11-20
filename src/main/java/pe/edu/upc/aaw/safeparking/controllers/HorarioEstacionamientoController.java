@@ -20,14 +20,14 @@ public class HorarioEstacionamientoController {
     private IHorarioEstacionamientoService heS;
 
     @PostMapping("Registrar")
-    @PreAuthorize("hasAuthority('arrendador')  or hasAuthority('administrador')" )
+    //@PreAuthorize("hasAuthority('arrendador')  or hasAuthority('administrador')" )
     public void registrar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto,HorarioEstacionamiento.class);
         heS.insert(he);
     }
     @GetMapping("Listar")
-    @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')")
     public List<HorarioEstacionamientoDTO> listar(){
         return heS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -36,7 +36,7 @@ public class HorarioEstacionamientoController {
     }
 
     @PutMapping("Modificar")
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
+    //  @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
     public void modificar(@RequestBody HorarioEstacionamientoDTO dto){
         ModelMapper m=new ModelMapper();
         HorarioEstacionamiento he=m.map(dto, HorarioEstacionamiento.class);
@@ -44,12 +44,12 @@ public class HorarioEstacionamientoController {
     }
 
     @DeleteMapping("Eliminar/{id}")
-    @PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
+    //@PreAuthorize("hasAuthority('arrendador') or hasAuthority('administrador')" )
     public void eliminar(@PathVariable("id")Integer id){
         heS.delete(id);
     }
     @GetMapping("ListarporID/{id}")
-    @PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador')")
+    //@PreAuthorize("hasAuthority('administrador') or hasAuthority('arrendador')")
     public HorarioEstacionamientoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         HorarioEstacionamientoDTO he= m.map(heS.listId(id), HorarioEstacionamientoDTO.class);

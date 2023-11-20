@@ -10,5 +10,7 @@ public interface IUsuarioService {
     public List<Usuario> list();
     public void delete(int idUsuario);
     public Usuario listId(int idUsuario);
-    
+    public Usuario findByUsername(String username);
+
+
 }

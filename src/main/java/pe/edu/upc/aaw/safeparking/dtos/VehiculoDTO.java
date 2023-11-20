@@ -6,8 +6,17 @@ public class VehiculoDTO {
     private String categoriaVehiculo;
     private String colorVehiculo;
     private String marcaVehiculo;
-    private double tamanioVehiculo;
+    private String tamanioVehiculo;
     private String tarjetaPropiedadVehiculo;
+    private byte[] imagenVehiculo;
+
+    public byte[] getImagenVehiculo() {
+        return imagenVehiculo;
+    }
+
+    public void setImagenVehiculo(byte[] imagenVehiculo) {
+        this.imagenVehiculo = imagenVehiculo;
+    }
 
     public int getIdVehiculo() {
         return idVehiculo;
@@ -49,11 +58,11 @@ public class VehiculoDTO {
         this.marcaVehiculo = marcaVehiculo;
     }
 
-    public double getTamanioVehiculo() {
+    public String getTamanioVehiculo() {
         return tamanioVehiculo;
     }
 
-    public void setTamanioVehiculo(double tamanioVehiculo) {
+    public void setTamanioVehiculo(String tamanioVehiculo) {
         this.tamanioVehiculo = tamanioVehiculo;
     }
 

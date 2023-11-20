@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 public class ReservaEstacionamientoDTO {
 
+
     private int idReservaEstacionamiento;
 
     private String estado;
@@ -16,7 +17,6 @@ public class ReservaEstacionamientoDTO {
     private UsuarioDTO users;
 
     private Vehiculo vehiculo;
-
     private HorarioEstacionamientoDTO horarioEstacionamiento;
 
     public int getIdReservaEstacionamiento() {

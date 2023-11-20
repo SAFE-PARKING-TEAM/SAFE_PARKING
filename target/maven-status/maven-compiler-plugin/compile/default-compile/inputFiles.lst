@@ -8,6 +8,7 @@ C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safepar
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\controllers\EstacionamientoController.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\dtos\RolDTO.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceinterfaces\IMembresiaService.java
+C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\util\CORS.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\serviceimplements\ReservaEstacionamientoServiceImplement.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\entities\Horario.java
 C:\Users\User\Documents\GitHub\SAFE_PARKING\src\main\java\pe\edu\upc\aaw\safeparking\entities\Pago.java
