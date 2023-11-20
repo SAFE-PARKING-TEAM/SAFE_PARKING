@@ -20,6 +20,7 @@ public class Localizacion {
     private double latitud;
     @Column(name = "longitud", nullable = false)
     private double longitud;
+
     public Localizacion() {
     }
 

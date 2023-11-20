@@ -10,6 +10,14 @@ public class HorarioDTO {
     private String horaCierre;
     private LocalDate fecha;
 
+    public int getIdHorario() {
+        return idHorario;
+    }
+
+    public void setIdHorario(int idHorario) {
+        this.idHorario = idHorario;
+    }
+
     public String getHoraApertura() {
         return horaApertura;
     }
@@ -33,16 +41,4 @@ public class HorarioDTO {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-
-    public int getIdHorario() {
-        return idHorario;
-    }
-
-    public void setIdHorario(int idHorario) {
-        this.idHorario = idHorario;
-    }
-
-
-
-
 }

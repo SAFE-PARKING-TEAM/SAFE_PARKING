@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.CantIncidentesPorRolDTO;
 import pe.edu.upc.aaw.safeparking.dtos.HorarioEstacionamientoDTO;
@@ -29,7 +30,7 @@ public class IncidenteController {
     }
 
     @GetMapping("ListarporID/{id}")
-    // @PreAuthorize("hasAuthority('administrador') ")
+    //@PreAuthorize("hasAuthority('administrador') ")
     public IncidenteDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         IncidenteDTO i= m.map(iS.listId(id), IncidenteDTO.class);
@@ -37,7 +38,7 @@ public class IncidenteController {
     }
 
     @GetMapping("Listar")
-   //  @PreAuthorize("hasAuthority('administrador')"  )
+    // @PreAuthorize("hasAuthority('administrador')"  )
     public List<IncidenteDTO> listar(){
         return iS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -45,7 +46,7 @@ public class IncidenteController {
         }).collect(Collectors.toList());
     }
     @PutMapping("Modificar")
-   // @PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')")
+    //@PreAuthorize("hasAuthority('conductor') or hasAuthority('arrendador') or hasAuthority('administrador')") // dejo a criterio si se van a
     public void modificar(@RequestBody IncidenteDTO dto){
         ModelMapper m=new ModelMapper();
         Incidente i=m.map(dto,Incidente.class);
@@ -58,7 +59,7 @@ public class IncidenteController {
     }
 
     @GetMapping("CantidadIncidentesPorRol")
-   //  @PreAuthorize("hasAuthority('administrador')")
+    // @PreAuthorize("hasAuthority('administrador')")
     public List<CantIncidentesPorRolDTO> cantIncidentesPorTipoRol(){
         List<String[]> lista = iS.cantIncidentesPorTipoRol();
 

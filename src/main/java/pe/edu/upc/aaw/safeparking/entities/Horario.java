@@ -17,7 +17,6 @@ public class Horario {
     @Column(name ="fecha", nullable = false)
     private LocalDate fecha;
 
-
     public Horario() {
     }
 
@@ -28,16 +27,24 @@ public class Horario {
         this.fecha = fecha;
     }
 
+    public int getIdHorario() {
+        return idHorario;
+    }
+
+    public void setIdHorario(int idHorario) {
+        this.idHorario = idHorario;
+    }
+
     public String getHoraApertura() {
         return horaApertura;
     }
 
-    public String getHoraCierre() {
-        return horaCierre;
-    }
-
     public void setHoraApertura(String horaApertura) {
         this.horaApertura = horaApertura;
+    }
+
+    public String getHoraCierre() {
+        return horaCierre;
     }
 
     public void setHoraCierre(String horaCierre) {
@@ -51,15 +58,4 @@ public class Horario {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-
-    public int getIdHorario() {
-        return idHorario;
-    }
-
-    public void setIdHorario(int idHorario) {
-        this.idHorario = idHorario;
-    }
-
-
-
 }

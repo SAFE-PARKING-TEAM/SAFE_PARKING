@@ -9,7 +9,7 @@ public class EstacionamientoDTO {
     private int idEstacionamiento;
     private String tipoEstacionamiento;
     private String disponibilidad;
-    private String foto;
+    private byte[] foto;
     private Float promedioValoracion;
     private int capacidad;
     private LocalDate fechaRegistro;
@@ -45,9 +45,13 @@ public class EstacionamientoDTO {
 
     public void setDisponibilidad(String disponibilidad) {this.disponibilidad = disponibilidad;}
 
-    public String getFoto() {return foto;}
+    public byte[] getFoto() {
+        return foto;
+    }
 
-    public void setFoto(String foto) {this.foto = foto;}
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
     public Float getPromedioValoracion() {return promedioValoracion;}
 

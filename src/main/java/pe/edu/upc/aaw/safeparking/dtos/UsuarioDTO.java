@@ -12,10 +12,11 @@ public class UsuarioDTO {
     private String username;
     private String password;
     private String genero;
-    private Long dni;
-    private String imagen;
+    private int dni;
+    private byte[] imagen;
+
     private LocalDate fechaNacimiento;
-    private Long telefono;
+    private int telefono;
     private MembresiaDTO membresia;
     private Boolean enabled;
 
@@ -75,19 +76,19 @@ public class UsuarioDTO {
         this.genero = genero;
     }
 
-    public Long getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(Long dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
-    public String getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
 
@@ -99,11 +100,11 @@ public class UsuarioDTO {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Long getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Long telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
@@ -122,6 +123,5 @@ public class UsuarioDTO {
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
-
 
 }

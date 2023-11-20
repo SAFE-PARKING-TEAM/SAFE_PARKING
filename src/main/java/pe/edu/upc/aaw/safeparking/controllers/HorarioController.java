@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.safeparking.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.safeparking.dtos.HorarioDTO;
 import pe.edu.upc.aaw.safeparking.entities.Horario;
@@ -46,7 +47,7 @@ public class HorarioController {
         hS.insert(h);
     }
     @DeleteMapping("Eliminar/{id}")
-    //  @PreAuthorize("hasAuthority('administrador') ")
+    //@PreAuthorize("hasAuthority('administrador') ")
     public void eliminar(@PathVariable("id")Integer id){
         hS.delete(id);
     }

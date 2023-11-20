@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
@@ -25,8 +25,9 @@ public class Usuario {
     private String genero;
     @Column(name ="dni", nullable = false)
     private Long dni;
-    @Column(name ="imagen", length = 100, nullable = false)
-    private String imagen;
+    @Column(name = "imagen",nullable = true)
+
+    private byte[] imagen;
     @Column(name ="fechaNacimiento", nullable = false)
     private LocalDate fechaNacimiento;
     @Column(name ="telefono", nullable = false)
@@ -36,12 +37,11 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "idMembresia")
     private Membresia membresia;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsuario")
+    private List<Rol> rols;
 
-
-    public Usuario() {
-    }
-
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, Long dni, String imagen, LocalDate fechaNacimiento, Long telefono, Boolean enabled, Membresia membresia) {
+    public Usuario(int idUsuario, String nombre, String apellido, String correo, String username, String password, String genero, Long dni, byte[] imagen, LocalDate fechaNacimiento, Long telefono, Boolean enabled, Membresia membresia, List<Rol> rols) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -55,6 +55,26 @@ public class Usuario {
         this.telefono = telefono;
         this.enabled = enabled;
         this.membresia = membresia;
+        this.rols = rols;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
+    public List<Rol> getRoles() {
+        return rols;
+    }
+
+    public void setRoles(List<Rol> rols) {
+        this.rols = rols;
+    }
+
+    public Usuario() {
     }
 
     public int getIdUsuario() {
@@ -121,14 +141,6 @@ public class Usuario {
         this.dni = dni;
     }
 
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -159,5 +171,13 @@ public class Usuario {
 
     public void setMembresia(Membresia membresia) {
         this.membresia = membresia;
+    }
+
+    public List<Rol> getRols() {
+        return rols;
+    }
+
+    public void setRols(List<Rol> rols) {
+        this.rols = rols;
     }
 }
