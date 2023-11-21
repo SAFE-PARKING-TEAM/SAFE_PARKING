@@ -24,16 +24,9 @@ public class Incidente {
         this.usuario = usuario;
     }
 
-    public String getTipoIncidente() {
-        return tipoIncidente;
-    }
-
-    public void setTipoIncidente(String tipoIncidente) {
-        this.tipoIncidente = tipoIncidente;
-    }
-
     public Incidente() {
     }
+
 
     public int getIdIncidente() {
         return idIncidente;
